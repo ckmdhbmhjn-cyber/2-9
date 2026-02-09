@@ -80,11 +80,23 @@
 
 {%- if section.settings.divider -%}</div>{%- endif -%}
 
-{%- if section.settings.include_styles -%}
+  {%- if section.settings.include_styles -%}
   <style>
     .template-page .main-content {
       background-color: var(--sb-parchment);
       background-image: none;
+    }
+
+    body.template-page-faq #MainContent > .shopify-section.index-section {
+      margin: 28px 0 !important;
+    }
+
+    body.template-page-faq #MainContent > .shopify-section.index-section:first-child {
+      margin-top: 0 !important;
+    }
+
+    body.template-page-faq #MainContent > .shopify-section.index-section + .shopify-section.index-section {
+      margin-top: 28px !important;
     }
 
     .sb-faq-card {
