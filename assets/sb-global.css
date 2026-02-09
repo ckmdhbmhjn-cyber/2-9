@@ -1250,7 +1250,7 @@ body.template-page-shipping .main-content,
 body.template-page-returns .main-content,
 body.template-page-privacy-policy .main-content,
 body.template-page-terms-of-service .main-content {
-  background-color: var(--sb-parchment);
+  background-color: var(--sb-parchment) !important;
   background-image: none;
 }
 
@@ -1258,7 +1258,21 @@ body.template-page-shipping .main-content .index-section,
 body.template-page-returns .main-content .index-section,
 body.template-page-privacy-policy .main-content .index-section,
 body.template-page-terms-of-service .main-content .index-section {
-  margin: 28px 0;
+  margin: 28px 0 !important;
+}
+
+body.template-page-shipping #MainContent,
+body.template-page-returns #MainContent,
+body.template-page-privacy-policy #MainContent,
+body.template-page-terms-of-service #MainContent {
+  background-color: var(--sb-parchment) !important;
+}
+
+body.template-page-shipping .sb-policy-hero,
+body.template-page-returns .sb-policy-hero,
+body.template-page-privacy-policy .sb-policy-hero,
+body.template-page-terms-of-service .sb-policy-hero {
+  --sb-card-bg: #ffffff;
 }
 
 .template-page-terms-of-service .page-content {
