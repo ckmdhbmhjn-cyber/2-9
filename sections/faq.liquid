@@ -87,6 +87,25 @@
       background-image: none;
     }
 
+    body.template-page-faq #MainContent > .shopify-section.index-section {
+      margin: 28px 0 !important;
+    }
+
+    body.template-page-faq #MainContent > .shopify-section.index-section:first-child {
+      margin-top: 0 !important;
+      margin-bottom: 28px !important;
+    }
+
+    body.template-page-faq #MainContent > .shopify-section.index-section + .shopify-section.index-section {
+      margin-top: 28px !important;
+    }
+
+    body.template-page-faq .index-section + .index-section,
+    body.template-page-faq .index-section + .index-section--hidden,
+    body.template-page-faq .main-content + .index-section {
+      margin-top: 28px !important;
+    }
+
     .sb-faq-card {
       max-width: 1040px;
       margin: 0 auto;

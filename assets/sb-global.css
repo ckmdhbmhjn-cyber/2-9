@@ -1275,6 +1275,20 @@ body.template-page-terms-of-service .sb-policy-hero {
   --sb-card-bg: #ffffff;
 }
 
+body.sb-policy-page .main-content,
+body.sb-policy-page #MainContent {
+  background-color: var(--sb-parchment) !important;
+  background-image: none;
+}
+
+body.sb-policy-page .main-content .index-section {
+  margin: 28px 0 !important;
+}
+
+body.sb-policy-page .sb-policy-hero {
+  --sb-card-bg: #ffffff;
+}
+
 .template-page-terms-of-service .page-content {
   max-width: 980px;
   margin: var(--sb-section-gap-m) auto;
