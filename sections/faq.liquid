@@ -88,22 +88,48 @@
     }
 
     body.template-page-faq #MainContent > .shopify-section.index-section {
-      margin: 28px 0 !important;
+      margin: var(--sb-section-gap-m) 0 !important;
+    }
+
+    @media screen and (min-width: 750px) {
+      body.template-page-faq #MainContent > .shopify-section.index-section {
+        margin: var(--sb-section-gap-d) 0 !important;
+      }
     }
 
     body.template-page-faq #MainContent > .shopify-section.index-section:first-child {
       margin-top: 0 !important;
-      margin-bottom: 28px !important;
+      margin-bottom: var(--sb-section-gap-m) !important;
+    }
+
+    @media screen and (min-width: 750px) {
+      body.template-page-faq #MainContent > .shopify-section.index-section:first-child {
+        margin-bottom: var(--sb-section-gap-d) !important;
+      }
     }
 
     body.template-page-faq #MainContent > .shopify-section.index-section + .shopify-section.index-section {
-      margin-top: 28px !important;
+      margin-top: var(--sb-section-gap-m) !important;
+    }
+
+    @media screen and (min-width: 750px) {
+      body.template-page-faq #MainContent > .shopify-section.index-section + .shopify-section.index-section {
+        margin-top: var(--sb-section-gap-d) !important;
+      }
     }
 
     body.template-page-faq .index-section + .index-section,
     body.template-page-faq .index-section + .index-section--hidden,
     body.template-page-faq .main-content + .index-section {
-      margin-top: 28px !important;
+      margin-top: var(--sb-section-gap-m) !important;
+    }
+
+    @media screen and (min-width: 750px) {
+      body.template-page-faq .index-section + .index-section,
+      body.template-page-faq .index-section + .index-section--hidden,
+      body.template-page-faq .main-content + .index-section {
+        margin-top: var(--sb-section-gap-d) !important;
+      }
     }
 
     .sb-faq-card {

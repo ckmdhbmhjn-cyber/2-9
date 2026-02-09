@@ -1254,18 +1254,27 @@ body.template-page-terms-of-service .main-content {
   background-image: none;
 }
 
-body.template-page-shipping .main-content .index-section,
-body.template-page-returns .main-content .index-section,
-body.template-page-privacy-policy .main-content .index-section,
-body.template-page-terms-of-service .main-content .index-section {
-  margin: 28px 0 !important;
-}
-
 body.template-page-shipping #MainContent,
 body.template-page-returns #MainContent,
 body.template-page-privacy-policy #MainContent,
 body.template-page-terms-of-service #MainContent {
   background-color: var(--sb-parchment) !important;
+}
+
+body.template-page-shipping .main-content .index-section,
+body.template-page-returns .main-content .index-section,
+body.template-page-privacy-policy .main-content .index-section,
+body.template-page-terms-of-service .main-content .index-section {
+  margin: var(--sb-section-gap-m) 0 !important;
+}
+
+@media screen and (min-width: 750px) {
+  body.template-page-shipping .main-content .index-section,
+  body.template-page-returns .main-content .index-section,
+  body.template-page-privacy-policy .main-content .index-section,
+  body.template-page-terms-of-service .main-content .index-section {
+    margin: var(--sb-section-gap-d) 0 !important;
+  }
 }
 
 body.template-page-shipping .sb-policy-hero,
@@ -1282,7 +1291,13 @@ body.sb-policy-page #MainContent {
 }
 
 body.sb-policy-page .main-content .index-section {
-  margin: 28px 0 !important;
+  margin: var(--sb-section-gap-m) 0 !important;
+}
+
+@media screen and (min-width: 750px) {
+  body.sb-policy-page .main-content .index-section {
+    margin: var(--sb-section-gap-d) 0 !important;
+  }
 }
 
 body.sb-policy-page .sb-policy-hero {

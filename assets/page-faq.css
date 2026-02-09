@@ -6,19 +6,60 @@ body.template-page .sb-faq-section {
   overflow: hidden;
 }
 
-/* FAQ: remove header-to-hero cream band from index-section margin. */
-body.template-page-faq #MainContent > .shopify-section.index-section:first-child,
-body.template-page #MainContent > .shopify-section.index-section:first-child {
-  margin-top: 0;
+/* FAQ: apply design-system spacing + parchment base. */
+body.template-page-faq .main-content,
+body.template-page-faq #MainContent {
+  background-color: var(--sb-parchment);
+  background-image: none;
+}
+
+body.template-page-faq #MainContent > .shopify-section.index-section {
+  margin: var(--sb-section-gap-m) 0 !important;
   padding-top: 0;
 }
 
-body.template-page-faq #MainContent > .shopify-section.index-section:first-child {
-  margin-bottom: 28px;
+@media screen and (min-width: 750px) {
+  body.template-page-faq #MainContent > .shopify-section.index-section {
+    margin: var(--sb-section-gap-d) 0 !important;
+  }
+}
+
+body.template-page-faq #MainContent > .shopify-section.index-section:first-child,
+body.template-page #MainContent > .shopify-section.index-section:first-child {
+  margin-top: 0 !important;
+  margin-bottom: var(--sb-section-gap-m) !important;
+  padding-top: 0;
+}
+
+@media screen and (min-width: 750px) {
+  body.template-page-faq #MainContent > .shopify-section.index-section:first-child,
+  body.template-page #MainContent > .shopify-section.index-section:first-child {
+    margin-bottom: var(--sb-section-gap-d) !important;
+  }
 }
 
 body.template-page-faq #MainContent > .shopify-section.index-section + .shopify-section.index-section {
-  margin-top: 28px;
+  margin-top: var(--sb-section-gap-m) !important;
+}
+
+@media screen and (min-width: 750px) {
+  body.template-page-faq #MainContent > .shopify-section.index-section + .shopify-section.index-section {
+    margin-top: var(--sb-section-gap-d) !important;
+  }
+}
+
+body.template-page-faq .index-section + .index-section,
+body.template-page-faq .index-section + .index-section--hidden,
+body.template-page-faq .main-content + .index-section {
+  margin-top: var(--sb-section-gap-m) !important;
+}
+
+@media screen and (min-width: 750px) {
+  body.template-page-faq .index-section + .index-section,
+  body.template-page-faq .index-section + .index-section--hidden,
+  body.template-page-faq .main-content + .index-section {
+    margin-top: var(--sb-section-gap-d) !important;
+  }
 }
 
 body.template-page .sb-faq-help {
