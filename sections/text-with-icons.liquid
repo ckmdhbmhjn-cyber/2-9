@@ -248,32 +248,41 @@
   {% endif %}
 
   {% if is_email_signup and is_why_stonebrook %}
-    #shopify-section-{{ section.id }},
-    #shopify-section-{{ section.id }}.index-section {
+    body[data-sb-email-signup-page] #shopify-section-{{ section.id }},
+    body[data-sb-email-signup-page] #shopify-section-{{ section.id }}.index-section {
       background: transparent !important;
       margin-bottom: 0 !important;
     }
 
-    #shopify-section-{{ section.id }} .sb-why-stonebrook {
+    body[data-sb-email-signup-page] #shopify-section-{{ section.id }} .sb-why-stonebrook {
       background: transparent !important;
     }
 
-    #shopify-section-{{ section.id }} .text-with-icons,
-    #shopify-section-{{ section.id }} .text-with-icons__blocks {
+    body[data-sb-email-signup-page] #shopify-section-{{ section.id }} .text-with-icons,
+    body[data-sb-email-signup-page] #shopify-section-{{ section.id }} .text-with-icons__blocks {
       margin-bottom: 0 !important;
       padding-bottom: 0 !important;
     }
 
     @media only screen and (max-width: 749px) {
-      #shopify-section-{{ section.id }},
-      #shopify-section-{{ section.id }}.index-section {
+      body[data-sb-email-signup-page] #shopify-section-{{ section.id }},
+      body[data-sb-email-signup-page] #shopify-section-{{ section.id }}.index-section {
         padding-bottom: 40px !important;
+      }
+
+      body[data-sb-email-signup-page] #shopify-section-{{ section.id }} .text-with-icons__blocks .text-with-icons__block {
+        padding: 0 0 36px !important;
+        margin-bottom: 0 !important;
+      }
+
+      body[data-sb-email-signup-page] #shopify-section-{{ section.id }} .text-with-icons__blocks .text-with-icons__block:last-child {
+        padding-bottom: 0 !important;
       }
     }
 
     @media only screen and (min-width: 750px) {
-      #shopify-section-{{ section.id }},
-      #shopify-section-{{ section.id }}.index-section {
+      body[data-sb-email-signup-page] #shopify-section-{{ section.id }},
+      body[data-sb-email-signup-page] #shopify-section-{{ section.id }}.index-section {
         padding-bottom: 64px !important;
       }
     }
