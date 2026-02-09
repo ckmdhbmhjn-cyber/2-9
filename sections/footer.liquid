@@ -24,7 +24,115 @@
   {%- endstyle -%}
 {%- endif -%}
 
-<footer class="site-footer" data-section-id="{{ section.id }}" data-section-type="footer-section">
+{%- style -%}
+  @media only screen and (max-width: 749px) {
+    footer[data-footer-mobile-accordion="true"] [data-type="menu"] .footer__accordion-trigger {
+      align-items: center;
+      cursor: pointer;
+      display: flex;
+      gap: 12px;
+      justify-content: space-between;
+      letter-spacing: 0.2em;
+      min-height: 52px;
+      padding: 0;
+      font-weight: 600;
+    }
+
+    footer[data-footer-mobile-accordion="true"] [data-type="menu"] .footer__accordion-label {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      flex: 1 1 auto;
+      line-height: 1.2;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    footer[data-footer-mobile-accordion="true"] [data-type="menu"] .footer__accordion-trigger .collapsible-trigger__icon {
+      height: 12px;
+      margin-left: auto;
+      position: relative;
+      right: auto;
+      top: auto;
+      transform: none;
+      width: 12px;
+    }
+
+    footer[data-footer-mobile-accordion="true"] [data-type="menu"] .footer__accordion-trigger .collapsible-trigger__icon .icon {
+      height: 12px;
+      width: 12px;
+    }
+
+    footer[data-footer-mobile-accordion="true"] [data-type="menu"] .footer__accordion-body {
+      padding: 4px 0 8px;
+    }
+
+    footer[data-footer-mobile-accordion="true"] [data-type="menu"] .site-footer__linklist {
+      margin: 0;
+    }
+
+    footer[data-footer-mobile-accordion="true"] [data-type="menu"] .site-footer__linklist li {
+      margin: 0;
+    }
+
+    footer[data-footer-mobile-accordion="true"] [data-type="menu"] .site-footer__linklist a {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      line-height: 1.3;
+      min-height: 36px;
+      opacity: 0.82;
+      overflow: hidden;
+      padding: 9px 0;
+    }
+
+    footer[data-footer-mobile-accordion="true"] [data-type="menu"] .site-footer__linklist a.footer__cta-link {
+      align-items: center;
+      background-color: var(--colorFooterTextAlpha01);
+      border: 1px solid var(--colorFooterTextAlpha01);
+      border-radius: 999px;
+      display: flex;
+      justify-content: center;
+      margin-top: 6px;
+      min-height: 44px;
+      opacity: 1;
+      padding: 0 16px;
+      text-align: center;
+    }
+
+    footer[data-footer-mobile-accordion="true"] .grid__item:after {
+      opacity: 0.18;
+    }
+
+    footer[data-footer-mobile-accordion="true"] .footer__small-text {
+      opacity: 0.6;
+      padding: 4px 0;
+    }
+
+    footer[data-footer-mobile-accordion="true"] ul + .footer__small-text {
+      padding-top: 6px;
+    }
+  }
+
+  @media only screen and (min-width: 750px) and (max-width: 768px) {
+    footer[data-footer-mobile-accordion="true"] .footer__menu-block--no-title .footer__accordion-trigger {
+      display: none;
+    }
+
+    footer[data-footer-mobile-accordion="true"] .footer__menu-block--no-title .footer__accordion-content {
+      height: auto;
+      opacity: 1;
+      overflow: visible;
+      visibility: visible;
+    }
+
+    footer[data-footer-mobile-accordion="true"] .footer__menu-block--no-title .footer__accordion-content .collapsible-content__inner {
+      transform: none;
+    }
+  }
+{%- endstyle -%}
+
+<footer class="site-footer" data-footer-mobile-accordion="true" data-section-id="{{ section.id }}" data-section-type="footer-section">
   <div class="page-width">
 
     <div class="grid">
