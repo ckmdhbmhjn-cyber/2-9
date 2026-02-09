@@ -1,8 +1,12 @@
 {%- if linklists[block.settings.menu].links.size > 0 -%}
-  {%- assign menu_title = linklists[block.settings.menu].title -%}
+  {%- assign menu_title = linklists[block.settings.menu].title | default: 'Help' -%}
   <div class="footer__menu-block{% unless block.settings.show_footer_title %} footer__menu-block--no-title{% endunless %}">
     {%- if block.settings.show_footer_title -%}
       <h2 class="h4 footer__title small--hide">
+        {{ menu_title }}
+      </h2>
+    {%- else -%}
+      <h2 class="h4 footer__title footer__title--inferred small--hide">
         {{ menu_title }}
       </h2>
     {%- endif -%}
