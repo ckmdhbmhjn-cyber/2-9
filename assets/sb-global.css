@@ -1316,6 +1316,15 @@ body.sb-policy-page .sb-policy-body {
   box-shadow: var(--sb-shadow-soft);
 }
 
+@media screen and (max-width: 749px) {
+  body.sb-policy-page .sb-policy-hero,
+  body.sb-policy-page .sb-policy-body {
+    width: calc(100% - 24px);
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+}
+
 .template-page-terms-of-service .page-content {
   max-width: 980px;
   margin: var(--sb-section-gap-m) auto;

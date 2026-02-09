@@ -92,6 +92,12 @@ body.template-page .sb-faq-help .theme-block:nth-child(2) .rte p {
   margin: 0;
 }
 
+/* Ensure FAQ CTA anchors don’t hide under the header */
+body.template-page-faq .sb-faq-card,
+body.template-page-faq .sb-faq-cta {
+  scroll-margin-top: clamp(90px, 14vh, 140px);
+}
+
 /* FAQ CTA card: keep a white surface and remove the gold halo so it contrasts against parchment. */
 body.template-page-faq .sb-faq-cta {
   --sb-card-bg: #ffffff;
