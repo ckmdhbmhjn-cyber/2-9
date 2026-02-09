@@ -13,6 +13,14 @@ body.template-page #MainContent > .shopify-section.index-section:first-child {
   padding-top: 0;
 }
 
+body.template-page-faq #MainContent > .shopify-section.index-section:first-child {
+  margin-bottom: 28px;
+}
+
+body.template-page-faq #MainContent > .shopify-section.index-section + .shopify-section.index-section {
+  margin-top: 28px;
+}
+
 body.template-page .sb-faq-help {
   background: #fff;
   border: 1px solid rgba(15, 23, 42, 0.08);

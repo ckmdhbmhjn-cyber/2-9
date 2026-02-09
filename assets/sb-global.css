@@ -1246,6 +1246,21 @@ input[type=submit]:focus-visible,
   margin-bottom: 0;
 }
 
+body.template-page-shipping .main-content,
+body.template-page-returns .main-content,
+body.template-page-privacy-policy .main-content,
+body.template-page-terms-of-service .main-content {
+  background-color: var(--sb-parchment);
+  background-image: none;
+}
+
+body.template-page-shipping .main-content .index-section,
+body.template-page-returns .main-content .index-section,
+body.template-page-privacy-policy .main-content .index-section,
+body.template-page-terms-of-service .main-content .index-section {
+  margin: 28px 0;
+}
+
 .template-page-terms-of-service .page-content {
   max-width: 980px;
   margin: var(--sb-section-gap-m) auto;
