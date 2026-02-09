@@ -110,6 +110,63 @@
   margin: 8px auto 0;
 }
 
+/* Judge.me testimonials carousel card refresh */
+.template-index .jdgm-testimonials-carousel .jdgm-testimonials-container {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.template-index .jdgm-testimonials-carousel .jdgm-card.jdgm-testimonial {
+  background: var(--sb-card);
+  border-radius: 18px;
+  border: 1px solid rgba(11, 18, 32, 0.08);
+  box-shadow: var(--sb-shadow-soft);
+  overflow: hidden;
+}
+
+.template-index .jdgm-testimonials-carousel .jdgm-card-content {
+  padding: clamp(22px, 3vw, 32px) clamp(20px, 4vw, 36px) clamp(20px, 3vw, 28px);
+}
+
+.template-index .jdgm-testimonials-carousel .jdgm-text {
+  display: block;
+  margin: 0 0 14px;
+}
+
+.template-index .jdgm-testimonials-carousel .jdgm-text p {
+  margin: 0;
+  font-size: clamp(15px, 1.6vw, 18px);
+  line-height: 1.6;
+  color: var(--sb-ink);
+}
+
+.template-index .jdgm-testimonials-carousel .jdgm-rating-section {
+  margin-top: 4px;
+  gap: 8px;
+}
+
+.template-index .jdgm-testimonials-carousel .jdgm-reviewer-info {
+  gap: 6px;
+}
+
+.template-index .jdgm-testimonials-carousel .jdgm-product-name {
+  margin-top: 14px;
+  padding-top: 12px;
+  padding-bottom: 8px;
+  border-top: 1px solid var(--sb-line);
+}
+
+.template-index .jdgm-testimonials-carousel .jdgm-product-name a {
+  display: inline-block;
+  text-underline-offset: 3px;
+}
+
+@media screen and (max-width: 749px) {
+  .template-index .jdgm-testimonials-carousel .jdgm-card-content {
+    padding: 18px 18px 20px;
+  }
+}
+
 /* Homepage refinement: section titles + dividers on navy - high-contrast, confident */
 .template-index .section-header__title,
 .template-index .text-with-icons__title h2,
