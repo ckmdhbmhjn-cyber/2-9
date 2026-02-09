@@ -1,0 +1,227 @@
+<style>
+  {%- if settings.color_announcement == settings.color_body_bg -%}
+    #shopify-section-{{ section.id }} .announcement-bar {
+      border-bottom: 1px solid;
+    }
+  {%- endif -%}
+
+  #shopify-section-{{ section.id }} .announcement-bar {
+    --announcement-bar-height: 36px;
+    --announcement-bar-font-size: calc(var(--typeBaseSize) * 0.82);
+    align-items: center;
+    display: flex;
+    font-size: var(--announcement-bar-font-size);
+    height: var(--announcement-bar-height);
+    letter-spacing: 0.06em;
+    min-height: var(--announcement-bar-height);
+    overflow: hidden;
+    padding: 0;
+  }
+
+  #shopify-section-{{ section.id }} .announcement-bar .page-width {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    padding-bottom: 0;
+    padding-top: 0;
+    width: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .announcement-bar .slideshow-wrapper,
+  #shopify-section-{{ section.id }} .announcement-bar .announcement-slider,
+  #shopify-section-{{ section.id }} .announcement-bar .flickity-viewport,
+  #shopify-section-{{ section.id }} .announcement-bar .flickity-slider {
+    height: 100%;
+    width: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .announcement-bar .flickity-viewport {
+    height: 100% !important;
+  }
+
+  #shopify-section-{{ section.id }} .announcement-bar .announcement-slider__slide {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    min-height: var(--announcement-bar-height);
+    overflow: hidden;
+    padding: 0 12px;
+    text-align: center;
+  }
+
+  #shopify-section-{{ section.id }} .announcement-bar .announcement-message {
+    display: block;
+    line-height: 1.1;
+    margin: 0 auto;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #shopify-section-{{ section.id }} .announcement-bar .announcement-text,
+  #shopify-section-{{ section.id }} .announcement-bar .announcement-link-text {
+    display: inline;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  #shopify-section-{{ section.id }} .announcement-bar .announcement-link {
+    display: block;
+    max-width: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .announcement-bar .announcement-separator {
+    margin: 0 8px;
+  }
+
+  @media screen and (max-width: 768px) {
+    #shopify-section-{{ section.id }} .announcement-bar {
+      --announcement-bar-height: 30px;
+      --announcement-bar-font-size: calc(var(--typeBaseSize) * 0.72);
+      letter-spacing: 0.03em;
+    }
+
+    #shopify-section-{{ section.id }} .announcement-bar .announcement-slider__slide {
+      padding: 0 10px;
+    }
+
+    #shopify-section-{{ section.id }} .announcement-bar .announcement-text,
+    #shopify-section-{{ section.id }} .announcement-bar .announcement-link-text {
+      letter-spacing: 0.03em;
+    }
+  }
+</style>
+
+{%- render 'announcement-bar', section: section -%}
+
+<script>
+  (() => {
+    const sectionId = "{{ section.id }}";
+    const container = document.getElementById(`shopify-section-${sectionId}`);
+    if (!container) return;
+
+    const slider = container.querySelector('#AnnouncementSlider');
+    if (!slider) return;
+
+    const shouldRotate = slider.dataset.static !== 'true'
+      && Number(slider.dataset.blockCount) > 1;
+
+    if (!shouldRotate) return;
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let reducedMotion = prefersReducedMotion.matches;
+
+    const getFlickity = () => {
+      if (!window.Flickity || !slider.classList.contains('flickity-enabled')) {
+        return null;
+      }
+      return window.Flickity.data(slider);
+    };
+
+    const pause = () => {
+      const flkty = getFlickity();
+      if (flkty && typeof flkty.pausePlayer === 'function') {
+        flkty.pausePlayer();
+      }
+    };
+
+    const play = () => {
+      const flkty = getFlickity();
+      if (!reducedMotion && flkty && typeof flkty.playPlayer === 'function') {
+        flkty.playPlayer();
+      }
+    };
+
+    const handleReducedMotion = () => {
+      reducedMotion = prefersReducedMotion.matches;
+      if (reducedMotion) {
+        pause();
+      } else {
+        play();
+      }
+    };
+
+    slider.addEventListener('mouseenter', pause);
+    slider.addEventListener('mouseleave', play);
+    slider.addEventListener('focusin', pause);
+    slider.addEventListener('focusout', play);
+
+    if (prefersReducedMotion.addEventListener) {
+      prefersReducedMotion.addEventListener('change', handleReducedMotion);
+    } else if (prefersReducedMotion.addListener) {
+      prefersReducedMotion.addListener(handleReducedMotion);
+    }
+
+    let tries = 0;
+    const maxTries = 60;
+    const ensureReady = () => {
+      const flkty = getFlickity();
+      if (flkty) {
+        if (reducedMotion) {
+          pause();
+        }
+        return;
+      }
+      tries += 1;
+      if (tries < maxTries) {
+        window.requestAnimationFrame(ensureReady);
+      }
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', ensureReady);
+    } else {
+      ensureReady();
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.header.settings.header_announcement_bar",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "announcement_compact",
+      "label": "t:sections.header.settings.announcement_compact.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "announcement",
+      "name": "t:sections.header.blocks.announcement.name",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "t:sections.header.blocks.announcement.settings.text.label",
+          "default": "Hassle-free returns"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "t:sections.header.blocks.announcement.settings.link_text.label",
+          "default": "30-day postage paid returns"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.header.blocks.announcement.settings.link.label"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "settings": {}
+  },
+  "disabled_on": {
+    "groups": ["footer", "custom.popups"]
+  }
+}
+{% endschema %}

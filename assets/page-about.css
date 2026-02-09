@@ -1,0 +1,466 @@
+/* About page layout + section glue. */
+.template-page .main-content {
+  background-color: var(--sb-parchment);
+  background-image: none;
+}
+
+.template-page .main-content .index-section {
+  margin: 32px 0;
+}
+
+body.template-page .sb-about-first {
+  margin-top: 32px;
+}
+
+@media screen and (max-width: 749px) {
+  body.template-page .sb-about-first {
+    margin-top: 24px;
+  }
+}
+
+.template-page .sb-about-card {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+  color: #0b1220;
+  opacity: 1;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  --sb-card-padding: 40px 48px;
+}
+
+.template-page .sb-about-cta {
+  --sb-card-padding: 40px 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.template-page .sb-about-cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 48px;
+  right: 48px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(214, 178, 94, 0), rgba(214, 178, 94, 0.65), rgba(214, 178, 94, 0));
+  opacity: 0.9;
+}
+
+.template-page .sb-about-card h2,
+.template-page .sb-about-card h3 {
+  color: var(--sb-ink);
+}
+
+.template-page .sb-about-card .rte,
+.template-page .sb-about-card p,
+.template-page .sb-about-card li {
+  color: rgba(11, 18, 32, 0.72);
+}
+
+.template-page .sb-about-card strong {
+  color: var(--sb-ink);
+}
+
+.template-page .sb-about-card .theme-block {
+  margin-bottom: 16px;
+}
+
+.template-page .sb-about-card .theme-block:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 749px) {
+  .template-page .sb-about-cta {
+    --sb-card-padding: 32px 28px;
+  }
+}
+
+.template-page .sb-about-body .rte {
+  line-height: 1.75;
+  max-width: 860px;
+}
+
+body.template-page .sb-about-first .rte {
+  max-width: 68ch;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+@media screen and (max-width: 749px) {
+  body.template-page .sb-about-first .rte {
+    max-width: 62ch;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  body.template-page-about .sb-about-first .rte p,
+  body.template-page .sb-about-first .rte p {
+    font-size: 18px;
+    line-height: 1.75;
+  }
+
+  body.template-page-about .sb-about-features .text-with-icons__block-text p,
+  body.template-page-about .sb-about-features .text-with-icons__block-text li,
+  body.template-page .sb-about-features .text-with-icons__block-text p,
+  body.template-page .sb-about-features .text-with-icons__block-text li {
+    font-size: 18px;
+    line-height: 1.75;
+  }
+}
+
+.template-page .sb-about-features .text-with-icons__blocks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 0;
+}
+
+.template-page .sb-about-features .text-with-icons__block {
+  width: auto;
+  padding: 24px 26px;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.template-page .sb-about-features .text-with-icons__block-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  border: 1px solid rgba(214, 178, 94, 0.28);
+  background: rgba(214, 178, 94, 0.12);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.template-page .sb-about-features .text-with-icons__block-icon .icon {
+  width: 28px;
+  height: 28px;
+}
+
+.template-page .sb-about-features .text-with-icons__block-title h3 {
+  margin: 8px 0 6px;
+  color: var(--sb-ink);
+}
+
+.template-page .sb-about-features .text-with-icons__block-text,
+.template-page .sb-about-features .text-with-icons__block-text p,
+.template-page .sb-about-features .text-with-icons__block-text li {
+  color: rgba(11, 18, 32, 0.72);
+}
+
+.template-page .sb-about-features .text-with-icons__block-text ul {
+  margin: 0.65rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.template-page .sb-about-features .text-with-icons__block-text li {
+  margin: 0 0 6px;
+  line-height: 1.55;
+}
+
+.template-page .sb-about-features .text-with-icons__block-text li::marker {
+  color: var(--sb-gold);
+}
+
+.template-page .sb-about-features .text-with-icons__block-text li:last-child {
+  margin-bottom: 0;
+}
+
+.template-page .sb-about-cta {
+  text-align: center;
+}
+
+.template-page .sb-about-cta .btn {
+  background: var(--sb-gold);
+  border-color: var(--sb-gold);
+  color: #0b1220;
+  box-shadow: var(--sb-shadow-soft);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.template-page .sb-about-cta .btn:hover {
+  background: var(--sb-gold-hover);
+  border-color: var(--sb-gold-hover);
+  color: #0b1220;
+}
+
+.template-page .sb-about-cta .btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--sb-gold-focus);
+}
+
+@media screen and (min-width: 769px) {
+  .template-page .main-content {
+    background-image: none;
+  }
+}
+
+@media only screen and (min-width: 990px) {
+  /* About-only spacing rhythm: align hero/card/footer gaps. */
+  .template-page #MainContent {
+    display: flex;
+    flex-direction: column;
+    gap: 40px !important;
+    padding-top: 0;
+    padding-bottom: 64px;
+  }
+
+  .template-page #MainContent > .shopify-section,
+  .template-page .main-content .index-section {
+    margin: 0;
+  }
+
+  .template-page .sb-about-hero,
+  .template-page .sb-about-card,
+  .template-page .sb-about-cta,
+  .template-page .sb-about-features {
+    width: 100%;
+    max-width: 1040px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .template-page .sb-about-card,
+  .template-page .sb-about-cta {
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    overflow: hidden;
+    border-radius: 24px;
+  }
+
+  .template-page .sb-about-card {
+    --sb-card-padding: 40px 48px;
+  }
+
+  .template-page .sb-about-cta {
+    --sb-card-padding: 40px 48px;
+  }
+
+  .template-page .sb-about-body .rte {
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .template-page .sb-about-cta .rte {
+    max-width: 720px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .template-page .sb-about-cta .btn {
+    min-width: 200px;
+    padding: 12px 32px;
+  }
+
+  .template-page .sb-about-hero,
+  .template-page .sb-about-body {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .template-page .sb-about-features,
+  .template-page .sb-about-cta {
+    margin-top: 0 !important;
+    margin-bottom: 0;
+  }
+
+  .template-page .sb-about-cta {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "title button"
+      "text button";
+    align-items: center;
+    column-gap: 32px;
+    row-gap: 6px;
+    text-align: left;
+  }
+
+  .template-page .sb-about-cta .theme-block {
+    margin-bottom: 0;
+  }
+
+  .template-page .sb-about-cta .theme-block:nth-child(1) {
+    grid-area: title;
+  }
+
+  .template-page .sb-about-cta .theme-block:nth-child(2) {
+    grid-area: text;
+  }
+
+  .template-page .sb-about-cta .theme-block:nth-child(3) {
+    grid-area: button;
+    justify-self: end;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .template-page .main-content {
+    padding-top: 0;
+    padding-bottom: 48px;
+  }
+
+  .template-page .main-content .index-section {
+    margin: 0;
+  }
+
+  .template-page .sb-about-hero,
+  .template-page .sb-about-card,
+  .template-page .sb-about-cta,
+  .template-page .sb-about-features {
+    width: calc(100% - 32px);
+    max-width: calc(100% - 32px);
+    margin-left: 16px;
+    margin-right: 16px;
+    box-sizing: border-box;
+  }
+
+  /* About-only spacing rhythm: mobile card padding + gaps. */
+  .template-page .sb-about-card {
+    --sb-card-padding: 28px 26px !important;
+  }
+
+  .template-page .sb-about-card .theme-block {
+    margin-bottom: 12px;
+  }
+
+  .template-page .sb-about-body {
+    margin-bottom: 28px !important;
+  }
+
+  .template-page .sb-about-body .rte {
+    line-height: 1.65;
+  }
+
+  .template-page .sb-about-body p {
+    margin-bottom: 0.85em;
+  }
+
+  .template-page .sb-about-features .text-with-icons__blocks {
+    grid-template-columns: 1fr;
+    gap: 28px !important;
+  }
+
+  .template-page .sb-about-features .text-with-icons__block {
+    padding: 24px 24px !important;
+  }
+
+  .template-page .sb-about-features {
+    margin-bottom: 28px !important;
+  }
+
+  .template-page .sb-about-features .text-with-icons__block-icon .icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .template-page .sb-about-cta .btn {
+    width: 100%;
+    display: block;
+  }
+
+  .template-page .sb-about-cta {
+    margin-bottom: 0;
+  }
+
+  .template-page .sb-about-cta::before {
+    left: 26px;
+    right: 26px;
+  }
+}
+
+body.template-page .sb-about-join .theme-block {
+  margin: 0;
+}
+
+body.template-page .sb-about-join .theme-block:nth-child(1) h2 {
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.2;
+  color: var(--sb-ink);
+}
+
+body.template-page .sb-about-join .theme-block:nth-child(2) .rte,
+body.template-page .sb-about-join .theme-block:nth-child(2) .rte .enlarge-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(15, 23, 42, 0.72);
+  letter-spacing: normal;
+}
+
+body.template-page .sb-about-join .theme-block:nth-child(2) .rte p {
+  margin: 0;
+}
+
+@media screen and (min-width: 750px) {
+  body.template-page .sb-about-join {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "title button"
+      "text button";
+    align-items: center;
+    column-gap: 24px;
+    row-gap: 8px;
+    text-align: left;
+  }
+
+  body.template-page .sb-about-join .theme-block:nth-child(1) {
+    grid-area: title;
+    max-width: 620px;
+  }
+
+  body.template-page .sb-about-join .theme-block:nth-child(2) {
+    grid-area: text;
+    max-width: 620px;
+  }
+
+  body.template-page .sb-about-join .theme-block:nth-child(3) {
+    grid-area: button;
+    justify-self: end;
+  }
+
+  body.template-page .sb-about-join .btn {
+    min-height: 44px;
+    width: auto;
+    display: inline-flex;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  body.template-page .sb-about-join {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  body.template-page .sb-about-join .theme-block:nth-child(1) {
+    margin-bottom: 8px;
+  }
+
+  body.template-page .sb-about-join .theme-block:nth-child(2) {
+    margin-bottom: 16px;
+  }
+
+  body.template-page .sb-about-join .theme-block:nth-child(1) h2 {
+    font-size: 20px;
+  }
+
+  body.template-page .sb-about-join .btn {
+    min-height: 44px;
+    width: fit-content;
+    display: inline-flex;
+  }
+}

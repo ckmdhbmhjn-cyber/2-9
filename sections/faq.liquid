@@ -1,0 +1,456 @@
+{%- if section.settings.divider -%}<div class="section--divider">{%- endif -%}
+
+<div class="page-width page-width--narrow{% if section.settings.section_class != blank %} {{ section.settings.section_class }}{% endif %}"{% if section.settings.anchor_id != blank %} id="{{ section.settings.anchor_id | escape }}"{% endif %}>
+  {%- if section.settings.title != blank -%}
+    <header class="section-header">
+      <h2 class="section-header__title">
+        {{ section.settings.title | escape }}
+      </h2>
+    </header>
+  {%- endif -%}
+
+{%- if section.blocks.size > 0 -%}
+  {%- assign faq_items = section.blocks | where: "type", "question" -%}
+  {%- if faq_items.size > 0 -%}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {%- for block in faq_items -%}
+            {
+              "@type": "Question",
+              "name": {{ block.settings.title | json }},
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": {{ block.settings.text | json }}
+              }
+            }{%- unless forloop.last -%},{%- endunless -%}
+          {%- endfor -%}
+        ]
+      }
+    </script>
+  {%- endif -%}
+    {%- for block in section.blocks -%}
+      <div class="sb-faq-block{% if block.type == 'question' %} sb-faq-item{% endif %}" {{ block.shopify_attributes }}>
+        {% case block.type %}
+          {% when 'rich-text' %}
+            <div class="index-section index-section--faq">
+              <div class="text-{{ block.settings.align_text }}">
+                {%- if block.settings.title != blank -%}
+                  <p class="h2">
+                    {{ block.settings.title | escape }}
+                  </p>
+                {%- endif -%}
+                {%- if block.settings.text != blank -%}
+                  <div class="rte">
+                    {%- if block.settings.enlarge_text %}<div class="enlarge-text">{% endif -%}
+                    {{ block.settings.text }}
+                    {%- if block.settings.enlarge_text %}</div>{% endif -%}
+                  </div>
+                {%- endif -%}
+              </div>
+            </div>
+
+        {% when 'question' %}
+            <button
+              type="button"
+              class="collapsible-trigger collapsible-trigger--inline collapsible--auto-height text-left sb-faq-trigger"
+              aria-controls="FAQ-content-{{ block.id }}"
+            >
+              {%- render 'collapsible-icons-alt', no_circle: true -%}
+              <span class="sb-faq-question">{{ block.settings.title }}</span>
+            </button>
+            <div id="FAQ-content-{{ block.id }}" class="collapsible-content collapsible-content--all sb-faq-content">
+              <div class="collapsible-content__inner collapsible-content__inner--faq rte sb-faq-answer">
+                {{ block.settings.text }}
+              </div>
+            </div>
+        {% endcase %}
+      </div>
+    {%- endfor -%}
+  {%- endif -%}
+
+  {%- if section.blocks.size == 0 -%}
+    <div class="placeholder-noblocks">
+      {{ 'home_page.onboarding.no_content' | t }}
+    </div>
+  {%- endif -%}
+</div>
+
+{%- if section.settings.divider -%}</div>{%- endif -%}
+
+{%- if section.settings.include_styles -%}
+  <style>
+    .template-page .main-content {
+      background-color: var(--sb-parchment);
+      background-image: none;
+    }
+
+    .sb-faq-card {
+      max-width: 1040px;
+      margin: 0 auto;
+      scroll-margin-top: clamp(90px, 12vh, 140px);
+      --sb-faq-icon-space: clamp(50px, 6vw, 56px);
+      --sb-card-bg: rgba(255, 255, 255, 0.96);
+      --sb-card-border: rgba(15, 23, 42, 0.08);
+      --sb-card-radius: 26px;
+      --sb-card-shadow: 0 18px 40px rgba(11, 18, 32, 0.08);
+      position: relative;
+      z-index: 1;
+    }
+
+    .sb-faq-card:not(.sb-faq-hero) .section-header__title,
+    .sb-faq-card:not(.sb-faq-hero) .sb-faq-question {
+      color: var(--sb-ink);
+    }
+
+    .sb-faq-card:not(.sb-faq-hero) .rte,
+    .sb-faq-card:not(.sb-faq-hero) p,
+    .sb-faq-card:not(.sb-faq-hero) li,
+    .sb-faq-card:not(.sb-faq-hero) .sb-faq-answer {
+      color: rgba(11, 18, 32, 0.72);
+    }
+
+    .sb-faq-card:not(.sb-faq-hero)::before {
+      content: "";
+      position: absolute;
+      inset: -14px -10px;
+      border-radius: calc(var(--sb-card-radius, 20px) + 8px);
+      background: radial-gradient(120% 90% at 50% 0%, rgba(214, 178, 94, 0.12) 0%, rgba(248, 250, 252, 0) 70%);
+      opacity: 0.7;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .sb-faq.sb-faq-card::after {
+      content: "";
+      position: absolute;
+      left: clamp(36px, 8vw, 96px);
+      right: clamp(36px, 8vw, 96px);
+      bottom: -26px;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(15, 23, 42, 0), rgba(15, 23, 42, 0.18), rgba(15, 23, 42, 0));
+      opacity: 0.55;
+      pointer-events: none;
+    }
+
+    .sb-faq-card .section-header {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .sb-faq-card .section-header__title {
+      position: relative;
+      display: inline-block;
+      font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .sb-faq-card .section-header__title::after {
+      content: "";
+      display: block;
+      width: 72px;
+      height: 2px;
+      margin: 12px auto 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(214, 178, 94, 0), rgba(214, 178, 94, 0.85), rgba(214, 178, 94, 0));
+    }
+
+    .sb-faq-item {
+      position: relative;
+    }
+
+    .sb-faq-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: var(--sb-faq-icon-space);
+      right: 8px;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(15, 23, 42, 0.08), rgba(15, 23, 42, 0.18), rgba(15, 23, 42, 0.06));
+    }
+
+    .sb-faq-item:last-child::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: var(--sb-faq-icon-space);
+      right: 8px;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(15, 23, 42, 0.08), rgba(15, 23, 42, 0.18), rgba(15, 23, 42, 0.06));
+    }
+
+    .sb-faq-trigger {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px 8px 16px 0;
+      background: transparent;
+      border: 0;
+      text-align: left;
+      cursor: pointer;
+      min-height: 48px;
+      border-radius: 16px;
+      transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .sb-faq-trigger .collapsible-trigger__icon {
+      flex: 0 0 40px;
+      width: 40px;
+      height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+      position: relative;
+      top: auto;
+      left: auto;
+      right: auto;
+      transform: none;
+      border-radius: 999px;
+      border: 1px solid rgba(214, 178, 94, 0.5);
+      background: #ffffff;
+      box-shadow: 0 6px 14px rgba(11, 18, 32, 0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .sb-faq-question {
+      flex: 1;
+      display: block;
+      line-height: 1.45;
+      font-weight: 600;
+      color: #0b1220;
+    }
+
+    .sb-faq-content {
+      padding-bottom: 18px;
+    }
+
+    .sb-faq-answer {
+      line-height: 1.6;
+      color: rgba(11, 18, 32, 0.72);
+      padding-left: var(--sb-faq-icon-space);
+      padding-right: 8px;
+    }
+
+    .sb-faq-answer p {
+      margin-top: 0;
+    }
+
+    .sb-faq-answer a {
+      color: var(--sb-emerald);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .sb-faq-trigger.is-open {
+      background: rgba(15, 23, 42, 0.06);
+    }
+
+    .sb-faq-trigger.is-open .collapsible-trigger__icon {
+      border-color: rgba(214, 178, 94, 0.85);
+      box-shadow: 0 10px 20px rgba(11, 18, 32, 0.12);
+    }
+
+    .sb-faq-trigger .icon-chevron-down path {
+      stroke: #0b1220;
+    }
+
+    .sb-faq-cta {
+      --sb-card-padding: 44px 52px;
+      --sb-card-bg: linear-gradient(135deg, #ffffff, #f8fafc);
+      --sb-card-border: rgba(214, 178, 94, 0.28);
+      --sb-card-shadow: 0 20px 40px rgba(11, 18, 32, 0.12);
+      --sb-card-radius: 28px;
+      position: relative;
+      margin-bottom: clamp(60px, 12vw, 90px);
+    }
+
+    .sb-faq-cta .rte {
+      margin-bottom: 0;
+    }
+
+    .sb-faq-cta::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -24px;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(15, 23, 42, 0), rgba(15, 23, 42, 0.18), rgba(15, 23, 42, 0));
+      opacity: 0.45;
+    }
+
+    .sb-faq-trigger:hover {
+      background: rgba(15, 23, 42, 0.04);
+    }
+
+    .sb-faq-trigger:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(214, 178, 94, 0.35);
+    }
+
+    @media screen and (min-width: 1200px) {
+      .sb-faq.sb-faq-card .section-header {
+        margin-top: 8px;
+      }
+
+      .sb-faq-cta {
+        margin-bottom: clamp(80px, 6vw, 110px);
+      }
+
+      .sb-faq-cta::after {
+        opacity: 0.4;
+      }
+    }
+
+    @media screen and (max-width: 749px) {
+      .sb-faq-card {
+        width: calc(100% - 24px);
+        max-width: calc(100% - 24px);
+        margin-left: 12px;
+        margin-right: 12px;
+        scroll-margin-top: 96px;
+        --sb-card-padding: 22px 20px;
+      }
+
+      .sb-faq-card:not(.sb-faq-hero)::before {
+        inset: -12px -8px;
+      }
+
+      .sb-faq.sb-faq-card::after {
+        bottom: -20px;
+      }
+
+      .sb-faq-cta {
+        --sb-card-padding: 32px 26px;
+      }
+
+      .sb-faq-trigger {
+        padding: 14px 0;
+      }
+
+      .sb-faq-trigger .collapsible-trigger__icon {
+        flex: 0 0 34px;
+        width: 34px;
+        height: 34px;
+      }
+
+      .sb-faq-answer {
+        padding-left: var(--sb-faq-icon-space);
+      }
+
+      .sb-faq-cta::after {
+        bottom: -20px;
+      }
+    }
+  </style>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.faq.name",
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:sections.faq.settings.title.label",
+      "default": "FAQs"
+    },
+    {
+      "type": "text",
+      "id": "section_class",
+      "label": "Additional CSS classes"
+    },
+    {
+      "type": "checkbox",
+      "id": "include_styles",
+      "label": "Include FAQ styles",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "anchor_id",
+      "label": "Anchor ID"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "rich-text",
+      "name": "t:sections.faq.blocks.rich_text.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:sections.faq.blocks.rich_text.settings.title.label",
+          "default": "Rich text"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:sections.faq.blocks.rich_text.settings.text.label",
+          "default": "<p>Use this section for any descriptive text you need to fill out your pages or to add introductory headings between other blocks.</p>"
+        },
+        {
+          "type": "select",
+          "id": "align_text",
+          "label": "t:sections.faq.blocks.rich_text.settings.align_text.label",
+          "default": "left",
+          "options": [
+            {
+              "value": "left",
+              "label": "t:sections.faq.blocks.rich_text.settings.align_text.options.left.label"
+            },
+            {
+              "value": "center",
+              "label": "t:sections.faq.blocks.rich_text.settings.align_text.options.center.label"
+            },
+            {
+              "value": "right",
+              "label": "t:sections.faq.blocks.rich_text.settings.align_text.options.right.label"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "question",
+      "name": "t:sections.faq.blocks.question.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:sections.faq.blocks.question.settings.title.label",
+          "default": "Frequently asked question"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:sections.faq.blocks.question.settings.text.label",
+          "default": "<p>Use this text to answer questions in as much detail as possible for your customers.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.faq.presets.faq.name",
+      "blocks": [
+        {
+          "type": "question"
+        },
+        {
+          "type": "question"
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["footer", "header", "custom.popups"]
+  }
+}
+{% endschema %}

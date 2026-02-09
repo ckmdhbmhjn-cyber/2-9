@@ -1,0 +1,138 @@
+{%- if settings.cart_type == 'drawer' -%}
+  <div id="CartDrawer" class="drawer drawer--right sb-cart-drawer">
+    <form id="CartDrawerForm" action="{{ routes.cart_url }}" method="post" novalidate class="drawer__contents" data-location="cart-drawer">
+      <div class="drawer__fixed-header">
+        <div class="drawer__header appear-animation appear-delay-1">
+          <div class="h2 drawer__title">{{ 'cart.general.title' | t }}</div>
+          <div class="drawer__close">
+            <button type="button" class="drawer__close-button js-drawer-close">
+              <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 64 64"><title>icon-X</title><path d="m19 17.61 27.12 27.13m0-27.12L19 44.74"/></svg>
+              <span class="icon__fallback-text">{{ 'cart.general.close_cart' | t }}</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="drawer__inner">
+        <div class="drawer__scrollable">
+          <div data-products class="appear-animation appear-delay-2"></div>
+
+          {% if settings.cart_notes_enable %}
+            <div class="appear-animation appear-delay-3">
+              <label for="CartNoteDrawer">{{ 'cart.general.note' | t }}</label>
+              <textarea name="note" class="input-full cart-notes" id="CartNoteDrawer">{{ cart.note }}</textarea>
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="drawer__footer appear-animation appear-delay-4">
+          <div data-discounts>
+            {% if cart.cart_level_discount_applications != blank %}
+              <div class="cart__discounts cart__item-sub cart__item-row">
+                <div>{{ 'cart.general.discounts' | t }}</div>
+                <div class="text-right">
+                  {% for cart_discount in cart.cart_level_discount_applications %}
+                    <div class="cart__discount">
+                      {{ cart_discount.title }} (-{{ cart_discount.total_allocated_amount | money }})
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endif %}
+          </div>
+
+          <div class="cart__item-sub cart__item-row">
+            <div class="ajaxcart__subtotal">{{ 'cart.general.subtotal' | t }}</div>
+            <div data-subtotal>{{ cart.total_price | money }}</div>
+          </div>
+
+          {%- comment -%} Free shipping threshold: $150.00 (post-discount subtotal to match drawer display) {%- endcomment -%}
+          {%- assign free_shipping_threshold_cents = 15000 -%}
+          {%- assign flat_shipping_cents = 699 -%}
+          {%- comment -%} Use cart.total_price (post-discount) to match drawer subtotal {%- endcomment -%}
+          {%- assign cart_total_cents = cart.total_price -%}
+          {%- assign remaining_cents = free_shipping_threshold_cents | minus: cart_total_cents -%}
+          {%- if remaining_cents < 0 -%}{%- assign remaining_cents = 0 -%}{%- endif -%}
+
+          {%- assign progress_pct = cart_total_cents | times: 100 | divided_by: free_shipping_threshold_cents -%}
+          {%- if progress_pct > 100 -%}{%- assign progress_pct = 100 -%}{%- endif -%}
+          {%- if progress_pct < 0 -%}{%- assign progress_pct = 0 -%}{%- endif -%}
+
+          <div class="cart-free-ship" data-threshold="{{ free_shipping_threshold_cents }}" data-flat-shipping="{{ flat_shipping_cents }}">
+            <div class="cart-free-ship__text" data-free-ship-text aria-live="polite">
+              {%- if cart_total_cents >= free_shipping_threshold_cents -%}
+                ✅ You've unlocked free shipping.
+              {%- elsif remaining_cents <= 1500 and remaining_cents > 0 -%}
+                Almost there — add <strong data-free-ship-remaining>{{ remaining_cents | money }}</strong> to unlock free shipping.
+              {%- else -%}
+                You're <strong data-free-ship-remaining>{{ remaining_cents | money }}</strong> away from free shipping.
+              {%- endif -%}
+            </div>
+            {%- if cart_total_cents < free_shipping_threshold_cents -%}
+              <div class="cart-free-ship__flat-rate cart-shipping-flat-note" data-free-ship-flat-rate>
+                Flat {{ flat_shipping_cents | money_without_trailing_zeros }} shipping under $150.
+              </div>
+            {%- endif -%}
+            <div class="cart-free-ship__bar" aria-hidden="true">
+              <div class="cart-free-ship__fill" data-free-ship-fill style="width: {{ progress_pct }}%;"></div>
+            </div>
+            <div class="cart-free-ship__meta" data-free-ship-meta>
+              {%- if cart_total_cents >= free_shipping_threshold_cents -%}
+                Orders under $150 ship for a flat {{ flat_shipping_cents | money_without_trailing_zeros }}.
+              {%- else -%}
+                Free shipping at $150 (after discounts).
+              {%- endif -%}
+            </div>
+
+            {%- comment -%} Dynamic gap-add recommendation (managed by JS) {%- endcomment -%}
+            <div class="cart-gap-add" data-gap-add hidden>
+              <div class="cart-gap-add__image" data-gap-image></div>
+              <div class="cart-gap-add__meta">
+                <div class="cart-gap-add__title" data-gap-title></div>
+                <div class="cart-gap-add__price" data-gap-price></div>
+              </div>
+              <button type="button" class="btn btn--small cart-gap-add__btn" data-gap-add-btn disabled>ADD</button>
+              <div class="cart-gap-add__error" data-gap-error hidden></div>
+            </div>
+          </div>
+
+
+          <div class="cart__item-row text-center">
+            <small>
+              Taxes calculated at checkout. Flat {{ flat_shipping_cents | money_without_trailing_zeros }} shipping under $150 — free at $150+.<br />
+            </small>
+          </div>
+
+          {% if settings.cart_terms_conditions_enable %}
+            <div class="cart__item-row cart__terms">
+              <input type="checkbox" id="CartTermsDrawer" class="cart__terms-checkbox">
+              <label for="CartTermsDrawer">
+                {% if settings.cart_terms_conditions_page != blank %}
+                  {{ 'cart.general.terms_html' | t: url: settings.cart_terms_conditions_page.url }}
+                {% else %}
+                  {{ 'cart.general.terms' | t }}
+                {% endif %}
+              </label>
+            </div>
+          {% endif %}
+
+          <div class="cart__checkout-wrapper">
+            <button type="submit" name="checkout" data-terms-required="{{ settings.cart_terms_conditions_enable }}" class="btn cart__checkout">
+              {{ 'cart.general.checkout' | t }}
+            </button>
+
+            {% if additional_checkout_buttons and settings.cart_additional_buttons %}
+              <div class="additional-checkout-buttons additional-checkout-buttons--vertical">{{ content_for_additional_checkout_buttons }}</div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <div class="drawer__cart-empty appear-animation appear-delay-2">
+        <div class="drawer__scrollable">
+          {{ 'cart.general.empty' | t }}
+        </div>
+      </div>
+    </form>
+  </div>
+{%- endif -%}

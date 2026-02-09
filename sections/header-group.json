@@ -1,0 +1,95 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "t:sections.header-group.name",
+  "sections": {
+    "announcement": {
+      "type": "announcement",
+      "blocks": {
+        "announcement_shipping_over": {
+          "type": "announcement",
+          "settings": {
+            "text": "Free shipping $150+",
+            "link_text": "",
+            "link": ""
+          }
+        },
+        "announcement_shipping_flat": {
+          "type": "announcement",
+          "settings": {
+            "text": "$6.99 flat shipping under $150",
+            "link_text": "",
+            "link": ""
+          }
+        },
+        "announcement_trust": {
+          "type": "announcement",
+          "settings": {
+            "text": "500+ TCGplayer orders • 100% positive",
+            "link_text": "",
+            "link": ""
+          }
+        },
+        "announcement_speed": {
+          "type": "announcement",
+          "settings": {
+            "text": "Ships in 1–2 business days",
+            "link_text": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement_shipping_over",
+        "announcement_shipping_flat",
+        "announcement_speed",
+        "announcement_trust"
+      ],
+      "settings": {
+        "announcement_compact": true
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "logo": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Untitled_design_31.png",
+            "desktop_logo_width": 320,
+            "mobile_logo_width": 170
+          }
+        }
+      },
+      "block_order": [
+        "logo"
+      ],
+      "settings": {
+        "main_menu_link_list": "main-menu-copy",
+        "hover_menu": true,
+        "mega_menu_images": true,
+        "main_menu_alignment": "center-split",
+        "header_style": "sticky",
+        "sticky_index": false,
+        "sticky_collection": false,
+        "toolbar_menu": "",
+        "toolbar_social": true,
+        "show_locale_selector": false,
+        "show_currency_selector": false,
+        "show_currency_flags": false
+      }
+    }
+  },
+  "order": [
+    "announcement",
+    "header"
+  ]
+}

@@ -1,0 +1,174 @@
+{%- if section.settings.space_around -%}
+  <div class="index-section">
+{%- endif -%}
+
+{%- unless section.settings.full_width -%}
+  <div class="page-width">
+{%- endunless -%}
+
+  <div class="sb-email-signup-band">
+    <div class="sb-email-signup-card">
+      {%- for block in section.blocks -%}
+        {% render block %}
+      {%- endfor -%}
+    </div>
+  </div>
+
+{%- unless section.settings.full_width -%}
+  </div>
+{%- endunless -%}
+
+{%- if section.settings.space_around -%}
+  </div>
+{%- endif -%}
+
+{% style %}
+  #shopify-section-{{ section.id }} {
+    position: relative;
+    overflow: hidden;
+    background-color: #0b1220;
+    background-image:
+      radial-gradient(160% 160% at 50% 8%, rgba(27, 38, 60, 0.6) 0%, rgba(11, 18, 32, 0.98) 62%, rgba(10, 16, 30, 1) 100%),
+      linear-gradient(180deg, rgba(18, 28, 46, 0.35) 0%, rgba(10, 16, 30, 0.95) 100%);
+    background-repeat: no-repeat;
+    background-position: center top;
+    padding: clamp(32px, 5vw, 64px) 0;
+  }
+
+  #shopify-section-{{ section.id }}::before {
+    content: '';
+    position: absolute;
+    inset: -20% -10% -20% -10%;
+    background: radial-gradient(520px 520px at 20% 24%, rgba(214, 178, 94, 0.1), rgba(11, 18, 32, 0) 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  #shopify-section-{{ section.id }}::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 80px;
+    background: linear-gradient(180deg, rgba(11, 18, 32, 0) 0%, #0b1220 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  #shopify-section-{{ section.id }} .index-section {
+    margin: 0;
+    padding: 0;
+  }
+
+  #shopify-section-{{ section.id }} .sb-email-signup-band {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+  }
+
+  #shopify-section-{{ section.id }} .sb-email-signup-card {
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 22px;
+    box-shadow: 0 10px 24px rgba(11, 18, 32, 0.12);
+    color: var(--sb-ink);
+    margin: 0 auto;
+    max-width: 960px;
+    padding: clamp(28px, 4vw, 48px);
+    text-align: center;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  #shopify-section-{{ section.id }} .klaviyo-form-SvVPFK {
+    margin: 0 auto;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  #shopify-section-{{ section.id }} .klaviyo-form-SvVPFK input:not([type='hidden']):not([type='checkbox']):not([type='radio']),
+  #shopify-section-{{ section.id }} .klaviyo-form-SvVPFK select,
+  #shopify-section-{{ section.id }} .klaviyo-form-SvVPFK textarea,
+  #shopify-section-{{ section.id }} .klaviyo-form-SvVPFK button {
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 520px;
+    width: 100% !important;
+  }
+
+  #shopify-section-{{ section.id }} .klaviyo-form-SvVPFK button {
+    min-height: 48px;
+  }
+
+  #shopify-section-{{ section.id }} .klaviyo-form-SvVPFK p,
+  #shopify-section-{{ section.id }} .klaviyo-form-SvVPFK small,
+  #shopify-section-{{ section.id }} .klaviyo-form-SvVPFK label {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 749px) {
+    #shopify-section-{{ section.id }} {
+      padding: 32px 0;
+    }
+
+    #shopify-section-{{ section.id }} .sb-email-signup-card {
+      padding: 28px;
+    }
+
+    #shopify-section-{{ section.id }} .klaviyo-form-SvVPFK input:not([type='hidden']):not([type='checkbox']):not([type='radio']),
+    #shopify-section-{{ section.id }} .klaviyo-form-SvVPFK select,
+    #shopify-section-{{ section.id }} .klaviyo-form-SvVPFK textarea,
+    #shopify-section-{{ section.id }} .klaviyo-form-SvVPFK button {
+      max-width: 100%;
+    }
+  }
+
+  @media (min-width: 750px) {
+    #shopify-section-{{ section.id }} {
+      background-image:
+        radial-gradient(180% 170% at 50% 6%, rgba(31, 44, 68, 0.65) 0%, rgba(11, 18, 32, 0.97) 60%, rgba(9, 14, 26, 1) 100%),
+        linear-gradient(180deg, rgba(18, 28, 46, 0.5) 0%, rgba(10, 16, 30, 0.96) 100%);
+    }
+
+    #shopify-section-{{ section.id }}::before {
+      background: radial-gradient(560px 560px at 18% 22%, rgba(214, 178, 94, 0.14), rgba(11, 18, 32, 0) 72%);
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Email signup apps",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "t:sections.apps.settings.full_width.label",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "space_around",
+      "label": "t:sections.apps.settings.space_around.label",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Email signup apps"
+    }
+  ]
+}
+{% endschema %}

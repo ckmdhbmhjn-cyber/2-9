@@ -1,0 +1,443 @@
+<!doctype html>
+<html class="no-js" lang="{{ request.locale.iso_code }}" dir="{{ settings.text_direction }}">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="{{ settings.color_button }}">
+  <meta name="color-scheme" content="light dark">
+  <meta name="supported-color-schemes" content="light dark">
+  <link rel="canonical" href="{{ canonical_url }}">
+  <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+  {% comment %} theme-check-disable RemoteAsset {% endcomment %}
+  <link rel="dns-prefetch" href="https://productreviews.shopifycdn.com">
+  <link rel="dns-prefetch" href="https://ajax.googleapis.com">
+  <link rel="dns-prefetch" href="https://maps.googleapis.com">
+  <link rel="dns-prefetch" href="https://maps.gstatic.com">
+
+  {%- if settings.favicon != blank -%}
+    <link rel="shortcut icon" href="{{ settings.favicon | image_url: width: 32, height: 32 }}" type="image/png" />
+  {%- endif -%}
+
+  {%- render 'seo-title' -%}
+
+  {%- if page_description -%}
+  <meta name="description" content="{{ page_description | escape }}">
+  {%- endif -%}
+
+  {%- render 'social-meta-tags' -%}
+  {%- render 'head.import-map' -%}
+  {%- render 'head.is-land' -%}
+
+  {%- render 'font-face' -%}
+  {{ 'theme.css' | asset_url | stylesheet_tag: preload: true }}
+  {{ 'sb-global.css' | asset_url | stylesheet_tag }}
+  {%- if template.name == 'index' -%}
+    {{ 'homepage-headings-fix.css' | asset_url | stylesheet_tag }}
+  {%- endif -%}
+  {%- if template.name == 'page' and template.suffix == 'about' -%}
+    {{ 'page-about.css' | asset_url | stylesheet_tag }}
+  {%- endif -%}
+  {%- if template.name == 'page' and template.suffix == 'faq' -%}
+    {{ 'page-faq.css' | asset_url | stylesheet_tag }}
+  {%- endif -%}
+  {%- if template.name == 'product' -%}
+    {{ 'page-product.css' | asset_url | stylesheet_tag }}
+  {%- endif -%}
+  {%- if template.name == 'collection' -%}
+    {{ 'page-collection.css' | asset_url | stylesheet_tag }}
+  {%- endif -%}
+  {%- render 'css-variables' -%}
+
+  <script>
+    document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+
+    window.theme = window.theme || {};
+    theme.routes = {
+      home: "{{ routes.root_url }}",
+      cart: "{{ routes.cart_url | append: '.js' }}",
+      cartPage: "{{ routes.cart_url }}",
+      cartAdd: "{{ routes.cart_add_url | append: '.js' }}",
+      cartChange: "{{ routes.cart_change_url | append: '.js' }}",
+      search: "{{ routes.search_url }}",
+      predictiveSearch: "{{ routes.predictive_search_url }}"
+    };
+    theme.strings = {
+      soldOut: {{ 'products.product.sold_out' | t | json }},
+      unavailable: {{ 'products.product.unavailable' | t | json }},
+      inStockLabel: {{ 'products.product.in_stock_label' | t | json }},
+      oneStockLabel: {{ 'products.product.stock_label.one' | t: count: '[count]' | json }},
+      otherStockLabel: {{ 'products.product.stock_label.other' | t: count: '[count]' | json }},
+      willNotShipUntil: {{ 'products.product.will_not_ship_until' | t: date: '[date]' | json }},
+      willBeInStockAfter: {{ 'products.product.will_be_in_stock_after' | t: date: '[date]' | json }},
+      waitingForStock: {{ 'products.product.waiting_for_stock' | t | json }},
+      savePrice: {{ 'products.general.save_html' | t: saved_amount: '[saved_amount]' | json }},
+      cartEmpty: {{ 'cart.general.empty' | t | json }},
+      cartTermsConfirmation: {{ 'cart.general.terms_confirm' | t | json }},
+      searchCollections: {{ 'general.search.collections' | t | json }},
+      searchPages: {{ 'general.search.pages' | t | json }},
+      searchArticles: {{ 'general.search.articles' | t | json }},
+      productFrom: {{ 'products.general.from_text_html' | t: price: '' | json }},
+      maxQuantity: {{ 'cart.general.max_quantity' | t: quantity: '[quantity]', title: '[title]' | json }},
+      restockingSoon: {{ 'products.product.restocking_soon' | t | json }}
+    };
+    theme.settings = {
+      cartType: {{ settings.cart_type | json }},
+      isCustomerTemplate: {% if request.page_type contains 'customers/' %}true{% else %}false{% endif %},
+      moneyFormat: {{ shop.money_format | json }},
+      saveType: {{ settings.product_save_type | json }},
+      productImageSize: {{ settings.product_grid_image_size | json }},
+      productImageCover: {{ settings.product_grid_image_fill }},
+      predictiveSearch: {{ settings.predictive_search_enabled }},
+      predictiveSearchType: {{ settings.search_type | json }},
+      predictiveSearchVendor: {{ settings.predictive_search_show_vendor | json }},
+      predictiveSearchPrice: {{ settings.predictive_search_show_price | json }},
+      quickView: {{ settings.quick_shop_enable }},
+      themeName: 'Impulse',
+      themeVersion: "8.1.0"
+    };
+  </script>
+
+  {{ content_for_header }}
+
+  <!-- Klaviyo Embed -> Meta Pixel Lead tracking (Form ID: SvVPFK) -->
+  <script>
+    (function () {
+      var tracked = false;
+
+      window.addEventListener("klaviyoForms", function (e) {
+        try {
+          if (!e || !e.detail) return;
+          if (e.detail.type !== "submit") return;
+
+          var id =
+            e.detail.formId ||
+            e.detail.form_id ||
+            e.detail.formIdentifier ||
+            e.detail.form_identifier ||
+            "";
+
+          var name =
+            e.detail.formTitle ||
+            e.detail.form_name ||
+            e.detail.formName ||
+            "";
+
+          // STRICT: require matching form id
+          if (String(id) !== "SvVPFK") return;
+
+          // Prevent double firing
+          if (tracked) return;
+          tracked = true;
+
+          if (typeof window.fbq === "function") {
+            window.fbq("track", "Lead", {
+              source: "klaviyo_embed",
+              form_id: "SvVPFK",
+              form_name: name || ""
+            });
+          }
+        } catch (err) {
+          // fail silently
+        }
+      });
+    })();
+  </script>
+
+  {% style %}
+    :root {
+      /* Root Variables */
+      /* ========================= */
+      --root-color-primary: {{ settings.color_body_text }};
+      --color-primary: {{ settings.color_body_text }};
+      --root-color-secondary: {{ settings.color_body_bg }};
+      --color-secondary: {{ settings.color_body_bg }};
+      --color-sale-tag: {{ settings.color_sale_tag }};
+      --color-sale-tag-text: {{ settings.color_sale_tag_text }};
+      --layout-section-padding-block: 3rem;
+      --layout-section-padding-inline--md: 40px;
+      --layout-section-max-inline-size: 1420px; 
+
+
+      /* Text */
+      /* ========================= */
+      
+      /* Body Font Styles */
+      --element-text-font-family--body: {{ settings.type_base_font_family.family }};
+      --element-text-font-family-fallback--body: {{ settings.type_base_font_family.fallback_families }};
+      --element-text-font-weight--body: {{ settings.type_base_font_family.weight }};
+      --element-text-letter-spacing--body: {{ settings.type_base_spacing | default: '50' | divided_by: 1000.00 | append: 'em' }};
+      --element-text-text-transform--body: none;
+
+      /* Body Font Sizes */
+      --element-text-font-size--body: initial;
+      --element-text-font-size--body-xs: {{ settings.type_base_size | minus: 4 | default: 12 | append: 'px' }};
+      --element-text-font-size--body-sm: {{ settings.type_base_size | minus: 2 | default: 14 | append: 'px' }};
+      --element-text-font-size--body-md: {{ settings.type_base_size | default: 16 | append: 'px' }};
+      --element-text-font-size--body-lg: {{ settings.type_base_size | plus: 2 | default: 18 | append: 'px' }};
+      
+      /* Body Line Heights */
+      --element-text-line-height--body: {{ settings.type_base_line_height | default: 1.4 }};
+
+      /* Heading Font Styles */
+      --element-text-font-family--heading: {{ settings.type_header_font_family.family }};
+      --element-text-font-family-fallback--heading: {{ settings.type_header_font_family.fallback_families }};
+      --element-text-font-weight--heading: {{ settings.type_header_font_family.weight }};
+      --element-text-letter-spacing--heading: {{ settings.type_header_spacing | default: '25' | divided_by: 1000.00 | append: 'em' }};
+      
+      {% if settings.type_header_capitalize %}
+      --element-text-text-transform--heading: uppercase;
+      {% endif %} 
+      
+      
+      /* Heading Font Sizes */
+      --element-text-font-size--heading-2xl: {{ settings.type_header_base_size | plus: 16 | default: '48' | append: 'px' }};
+      --element-text-font-size--heading-xl: {{ settings.type_header_base_size | default: '32' | append: 'px' }};
+      --element-text-font-size--heading-lg: {{ settings.type_header_base_size | minus: 6 | default: '24' | append: 'px' }};
+      --element-text-font-size--heading-md: {{ settings.type_header_base_size | minus: 8 | default: '20' | append: 'px' }};
+      --element-text-font-size--heading-sm: {{ settings.type_header_base_size | minus: 14 | default: '18' | append: 'px' }};
+      --element-text-font-size--heading-xs: {{ settings.type_header_base_size | minus: 16 | default: '16' | append: 'px' }};
+      
+      /* Heading Line Heights */
+      --element-text-line-height--heading: {{ settings.type_header_line_height | default: 1.4 }};
+
+      /* Buttons */
+      /* ========================= */
+      {% if settings.button_style == 'round-slight' %}
+          --element-button-radius: 3px;
+      {% elsif settings.button_style == 'round' %}
+          --element-button-radius: 50px;
+      {% else %}
+          --element-button-radius: 0;
+      {% endif %}
+
+      --element-button-padding-block: 12px;
+      --element-button-text-transform: uppercase;
+      --element-button-font-weight: 800;
+      --element-button-font-size: max(calc(var(--typeBaseSize) - 4px), 13px);
+      --element-button-letter-spacing: .3em;
+
+      /* Base Color Variables */
+      --element-button-color-primary: {{ settings.color_button }};
+      --element-button-color-secondary: {{ settings.color_button_text }};
+      --element-button-shade-border: 100%;
+
+      /* Hover State Variables */
+      --element-button-shade-background--hover: 0%;
+      --element-button-shade-border--hover: 100%;
+
+      /* Focus State Variables */
+      --element-button-color-focus: var(--color-focus);
+
+      /* Inputs */
+      /* ========================= */
+      {% if settings.button_style == 'round-slight' %}
+          --element-icon-radius: 3px;
+      {% elsif settings.button_style == 'round' %}
+          --element-icon-radius: 50px;
+      {% else %}
+          --element-icon-radius: 0;
+      {% endif %}
+
+      --element-input-font-size: var(--element-text-font-size--body-sm);
+      --element-input-box-shadow-shade: 100%;
+
+      /* Hover State Variables */
+      --element-input-background-shade--hover: 0%;
+      --element-input-box-shadow-spread-radius--hover: 1px;
+    }
+
+    @media only screen and (max-width: 768px) {
+      :root {
+        --element-button-font-size: max(calc(var(--typeBaseSize) - 5px), 11px);
+      }
+    }
+
+    .element-radio {
+        &:has(input[type='radio']:checked) {
+          --element-button-color: var(--element-button-color-secondary);
+        }
+    }
+
+    /* ATC Button Overrides */
+    /* ========================= */
+
+    .element-button[type="submit"],
+    .element-button[type="submit"] .element-text,
+    .element-button--shopify-payment-wrapper button {
+      --element-button-padding-block: 13px;
+      --element-button-padding-inline: 20px;
+      --element-button-line-height: 1.42;
+      --_font-size--body-md: var(--element-button-font-size);
+
+      line-height: 1.42 !important;
+    }
+
+    /* When dynamic checkout is enabled */
+    product-form:has(.element-button--shopify-payment-wrapper) {
+      --element-button-color: {{ settings.color_body_text }};
+
+      .element-button[type="submit"],
+      .element-button--shopify-payment-wrapper button {
+        min-height: 50px !important;
+      }
+
+      .shopify-payment-button {
+        margin: 0;
+      }
+    }
+
+    /* Hover animation for non-angled buttons */
+    body:not([data-button_style='angled']) .element-button[type="submit"] {
+      position: relative;
+      overflow: hidden;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 150%;
+        width: 200%;
+        height: 100%;
+        transform: skewX(-20deg);
+        background-image: linear-gradient(to right,transparent, rgba(255,255,255,.25),transparent);
+      }
+
+      &:hover:after {
+        animation: shine 0.75s cubic-bezier(0.01, 0.56, 1, 1);
+      }
+    }
+
+    /* ANGLED STYLE - ATC Button Overrides */
+    /* ========================= */
+    
+    [data-button_style='angled'] {
+      --element-button-shade-background--active: var(--element-button-shade-background);
+      --element-button-shade-border--active: var(--element-button-shade-border);
+
+      .element-button[type="submit"] {
+        --_box-shadow: none;
+
+        position: relative;
+        max-width: 94%;
+        border-top: 1px solid {{ settings.color_button }};
+        border-bottom: 1px solid {{ settings.color_button }};
+        
+        &:before,
+        &:after {
+          content: '';
+          position: absolute;
+          display: block;
+          top: -1px;
+          bottom: -1px;
+          width: 20px;
+          transform: skewX(-12deg);
+          background-color: {{ settings.color_button }};
+        }
+        
+        &:before {
+          left: -6px;
+        }
+        
+        &:after {
+          right: -6px;
+        }
+      }
+
+      /* When dynamic checkout is enabled */
+      product-form:has(.element-button--shopify-payment-wrapper) {
+        .element-button[type="submit"]:before,
+        .element-button[type="submit"]:after {
+          background-color: color-mix(in srgb,var(--_color-text) var(--_shade-background),var(--_color-background));
+          border-top: 1px solid {{ settings.color_button }};
+          border-bottom: 1px solid {{ settings.color_button }};
+        }
+
+        .element-button[type="submit"]:before {
+          border-left: 1px solid {{ settings.color_button }};
+        }
+        
+        .element-button[type="submit"]:after {
+          border-right: 1px solid {{ settings.color_button }};
+        }
+      }
+
+      .element-button--shopify-payment-wrapper {
+        --_color-background: {{ settings.color_button }};
+
+        button:hover,
+        button:before,
+        button:after {
+          background-color: color-mix(in srgb,var(--_color-text) var(--_shade-background),var(--_color-background)) !important;
+        }
+
+        button:not(button:focus-visible) {
+          box-shadow: none !important;
+        }
+      }
+    }
+  {% endstyle %}
+
+  <script src="{{ 'vendor-scripts-v11.js' | asset_url | split: '?' | first }}" defer="defer"></script>
+
+  {%- if shop.enabled_currencies.size > 1 -%}
+    <link rel="stylesheet" href="{{ 'country-flags.css' | asset_url | split: '?' | first }}">
+  {%- endif -%}
+
+  <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
+
+  {%- if request.page_type contains 'customers/' -%}
+    <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer="defer"></script>
+  {%- endif -%}
+
+  {% if request.design_mode %}
+    <script>theme.settings.email = {{ shop.email | json }}</script>
+    {% comment %} theme-check-disable RemoteAsset {% endcomment %}
+    <script src="https://api.archetypethemes.co/design-mode.js" defer="defer"></script>
+  {% endif %}
+</head>
+
+<body class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}{% if request.path == '/challenge' %} template-challange{% endif %}" data-center-text="{{ settings.type_body_align_text }}" data-button_style="{{ settings.button_style }}" data-type_header_capitalize="{{ settings.type_header_capitalize }}" data-type_headers_align_text="{{ settings.type_headers_align_text }}" data-type_product_capitalize="{{ settings.type_product_capitalize }}" data-swatch_style="{{ settings.swatch_style }}" {% if settings.disable_animations %}data-disable-animations="true"{% endif %}>
+
+  <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
+
+  <div id="PageContainer" class="page-container">
+    <div class="transition-body">
+
+    {%- sections 'header-group' -%}
+    {%- sections 'popup-group' -%}
+
+      <main class="main-content" id="MainContent">
+        {{ content_for_layout }}
+      </main>
+
+    {%- sections 'footer-group' -%}
+
+    </div>
+  </div>
+
+  {%- liquid
+    render 'video-modal'
+    render 'photoswipe-template'
+    render 'tool-tip'
+  -%}
+
+  {% comment %} Image markup used when building product grid item via JS {% endcomment %}
+  <template id="naturalImageMarkup">
+    <div class="image-wrap" style="height: 0;">
+      <image-element data-aos="image-fade-in" data-aos-offset="150">
+        <img class="grid-product__image image-element" width="1" height="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" srcset="" loading="lazy" alt="">
+      </image-element>
+    </div>
+  </template>
+  <template id="fixedRatioImageMarkup">
+    <div class="grid__image-ratio">
+      <image-element data-aos="image-fade-in" data-aos-offset="150">
+        <img class="image-element" width="1" height="1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" srcset="" loading="lazy" alt="">
+      </image-element>
+    </div>
+  </template>
+  <script src="{{ 'cart-free-shipping.js' | asset_url }}" defer="defer"></script>
+</body>
+</html>

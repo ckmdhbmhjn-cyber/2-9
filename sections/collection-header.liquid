@@ -1,0 +1,419 @@
+{%- assign disable_sticky_header = false -%}
+{%- assign header_img = collection.metafields.custom.header_banner.value | default: collection.image -%}
+{%- assign is_product_collection = false -%}
+{%- if template.suffix == 'product-collection' -%}
+  {%- assign is_product_collection = true -%}
+{%- endif -%}
+{%- assign hero_bg_color = '#f6f7fb' -%}
+{%- if is_product_collection -%}
+  {%- assign header_img = blank -%}
+  {%- assign hero_bg_color = '#0b1220' -%}
+  {%- assign sb_collection_bg = 'radial-gradient(120% 140% at 12% 10%, rgba(15, 107, 79, 0.38) 0%, rgba(11, 18, 32, 0.12) 42%, rgba(11, 18, 32, 0) 72%), radial-gradient(90% 120% at 88% -8%, rgba(212, 175, 55, 0.28) 0%, rgba(212, 175, 55, 0) 58%), linear-gradient(180deg, #0b1220 0%, #121b2f 100%)' -%}
+  {%- assign collection_chip_list = 'Factory sealed|Ships fast from the U.S.|Packed with care' -%}
+  {%- assign sb_bg_blur = '14px' -%}
+  {%- assign sb_bg_scale = '1.18' -%}
+  {%- assign sb_bg_pos_x = '50%' -%}
+  {%- assign sb_bg_pos_y = '50%' -%}
+  {%- assign sb_bg_saturate = '0.9' -%}
+  {%- assign sb_overlay = 'linear-gradient(180deg, rgba(7, 11, 22, 0.85) 0%, rgba(9, 13, 24, 0.55) 100%), linear-gradient(90deg, rgba(7, 11, 22, 0.72) 0%, rgba(7, 11, 22, 0.35) 60%, rgba(7, 11, 22, 0) 100%)' -%}
+  {%- assign sb_bg_scale_mobile = sb_bg_scale -%}
+  {%- assign sb_bg_pos_x_mobile = sb_bg_pos_x -%}
+  {%- assign sb_bg_pos_y_mobile = sb_bg_pos_y -%}
+  {%- if collection.handle == 'acrylic-display-cases' -%}
+    {%- assign collection_chip_list = 'Crystal-clear 5mm acrylic|Magnetic lid|UV resistant' -%}
+    {%- assign sb_bg_blur = '0px' -%}
+    {%- assign sb_bg_scale = '1.06' -%}
+    {%- assign sb_bg_pos_x = '100%' -%}
+    {%- assign sb_bg_pos_y = '50%' -%}
+    {%- assign sb_bg_saturate = '1' -%}
+    {%- assign sb_overlay = 'linear-gradient(180deg, rgba(7, 11, 22, 0.78) 0%, rgba(9, 13, 24, 0.48) 100%), linear-gradient(90deg, rgba(7, 11, 22, 0.8) 0%, rgba(7, 11, 22, 0.46) 52%, rgba(7, 11, 22, 0.16) 74%, rgba(7, 11, 22, 0) 100%)' -%}
+    {%- assign sb_bg_scale_mobile = '1.1' -%}
+    {%- assign sb_bg_pos_x_mobile = '50%' -%}
+    {%- assign sb_bg_pos_y_mobile = '50%' -%}
+  {%- endif -%}
+  {%- assign collection_chip_items = collection_chip_list | split: '|' -%}
+{%- endif -%}
+
+{%- if is_product_collection -%}
+  <style>
+    #shopify-section-{{ section.id }} .collection-hero {
+      height: clamp(220px, 18vw, 280px) !important;
+      margin-bottom: 0;
+      background-color: #0b1220 !important;
+      --sb-collection-hero-bg: {{ sb_collection_bg }};
+      --sb-bg-blur: {{ sb_bg_blur }};
+      --sb-bg-scale: {{ sb_bg_scale }};
+      --sb-bg-pos-x: {{ sb_bg_pos_x }};
+      --sb-bg-pos-y: {{ sb_bg_pos_y }};
+      --sb-bg-saturate: {{ sb_bg_saturate }};
+      --sb-overlay: {{ sb_overlay }};
+      --sb-bg-scale-mobile: {{ sb_bg_scale_mobile }};
+      --sb-bg-pos-x-mobile: {{ sb_bg_pos_x_mobile }};
+      --sb-bg-pos-y-mobile: {{ sb_bg_pos_y_mobile }};
+      background-image: var(--sb-collection-hero-bg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+    }
+
+    #shopify-section-{{ section.id }} .collection-hero__image {
+      background-color: #0b1220 !important;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: blur(var(--sb-bg-blur)) saturate(var(--sb-bg-saturate));
+      transform: scale(var(--sb-bg-scale));
+      transform-origin: center;
+      object-position: var(--sb-bg-pos-x) var(--sb-bg-pos-y);
+    }
+
+    #shopify-section-{{ section.id }} .collection-hero__media {
+      overflow: hidden;
+    }
+
+    #shopify-section-{{ section.id }} .collection-hero--no-image {
+      background-color: #0b1220;
+      background-image: var(--sb-collection-hero-bg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    #shopify-section-{{ section.id }} .collection-hero__content {
+      align-items: flex-end;
+      padding: clamp(22px, 4vw, 44px) 0;
+    }
+
+    #shopify-section-{{ section.id }} .collection-hero__content:before {
+      background: var(--sb-overlay);
+      opacity: 1;
+    }
+
+    #shopify-section-{{ section.id }} .collection-hero__content .section-header {
+      max-width: 760px;
+      transform: none;
+      text-align: left;
+    }
+
+    #shopify-section-{{ section.id }} .section-header {
+      background: transparent !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+    }
+
+    #shopify-section-{{ section.id }} .section-header__shadow {
+      background: linear-gradient(120deg, rgba(8, 12, 24, 0.7) 0%, rgba(8, 12, 24, 0.42) 55%, rgba(8, 12, 24, 0.14) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: clamp(16px, 2.6vw, 24px) clamp(18px, 3.2vw, 30px);
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      max-width: 100%;
+      box-shadow: 0 12px 26px rgba(5, 8, 18, 0.32);
+      backdrop-filter: blur(12px) saturate(1.1);
+      -webkit-backdrop-filter: blur(12px) saturate(1.1);
+    }
+
+    #shopify-section-{{ section.id }} .breadcrumb {
+      font-size: 12px;
+      line-height: 1.4;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 600;
+      margin: 0;
+      text-align: left;
+    }
+
+    #shopify-section-{{ section.id }} .breadcrumb a {
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    #shopify-section-{{ section.id }} .breadcrumb__divider {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    #shopify-section-{{ section.id }} .section-header__title {
+      color: #f7f9ff;
+      font-size: clamp(38px, 4.3vw, 54px);
+      line-height: 1.06;
+      font-weight: 700;
+      margin: 0;
+      text-shadow: 0 12px 28px rgba(4, 8, 18, 0.5), 0 2px 6px rgba(4, 8, 18, 0.35);
+      letter-spacing: -0.02em;
+      max-width: 100%;
+      display: block;
+      overflow: visible;
+      -webkit-line-clamp: unset;
+      -webkit-box-orient: unset;
+      overflow-wrap: break-word;
+      word-break: normal;
+    }
+
+    #shopify-section-{{ section.id }} .section-header__title:after {
+      content: "";
+      display: block;
+      width: 56px;
+      height: 3px;
+      margin-top: 10px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(212, 175, 55, 0.9), rgba(212, 175, 55, 0));
+    }
+
+    #shopify-section-{{ section.id }} .collection-header__chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 8px;
+      margin: 0;
+      max-width: 100%;
+      list-style: none;
+      padding: 0;
+    }
+
+    #shopify-section-{{ section.id }} .collection-header__chip {
+      font-size: 12px;
+      line-height: 1.2;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.14);
+      color: rgba(255, 255, 255, 0.94);
+      letter-spacing: 0.02em;
+      font-weight: 600;
+      white-space: nowrap;
+      max-width: 100%;
+      text-align: center;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 4px 10px rgba(5, 8, 18, 0.2);
+    }
+
+
+    #shopify-section-{{ section.id }} + .shopify-section .collection-content {
+      padding-top: 4px;
+    }
+
+    #shopify-section-{{ section.id }} + .shopify-section .collection-filter {
+      margin-top: 0;
+      padding-top: 4px;
+      border-top: 1px solid rgba(11, 18, 32, 0.12);
+    }
+
+    #shopify-section-{{ section.id }} + .shopify-section .collection-filter__item {
+      margin-bottom: 6px;
+    }
+
+    @media only screen and (max-width: 768px) {
+      #shopify-section-{{ section.id }} .collection-hero {
+        height: clamp(170px, 40vw, 210px) !important;
+        margin-bottom: 0;
+      }
+
+      #shopify-section-{{ section.id }} .collection-hero__content {
+        padding: 16px 0 20px;
+      }
+
+      #shopify-section-{{ section.id }} .section-header__title {
+        font-size: clamp(30px, 8vw, 40px);
+        line-height: 1.1;
+      }
+
+      #shopify-section-{{ section.id }} .breadcrumb {
+        display: none;
+      }
+
+      #shopify-section-{{ section.id }} .section-header__shadow {
+        padding: 14px 16px 18px;
+        border-radius: 16px;
+        gap: 8px;
+      }
+
+      #shopify-section-{{ section.id }} .section-header__title:after {
+        width: 46px;
+        margin-top: 8px;
+      }
+
+      #shopify-section-{{ section.id }} .collection-header__chips {
+        gap: 6px;
+      }
+
+      #shopify-section-{{ section.id }} .collection-header__chip {
+        font-size: 11px;
+        padding: 3px 8px;
+        white-space: normal;
+      }
+
+      #shopify-section-{{ section.id }} .collection-hero__image {
+        transform: scale(var(--sb-bg-scale-mobile));
+        object-position: var(--sb-bg-pos-x-mobile) var(--sb-bg-pos-y-mobile);
+      }
+
+      #shopify-section-{{ section.id }} + .shopify-section .collection-content {
+        padding-top: 4px;
+      }
+    }
+  </style>
+{%- endif -%}
+
+
+{%- if section.settings.enable -%}
+  {%- if is_product_collection -%}
+    <div
+      id="CollectionHeaderSection"
+      class="collection-header collection-header--product-collection"
+      data-section-id="{{ section.id }}"
+      data-section-type="collection-header">
+      <div class="collection-hero collection-hero--no-image">
+        <div class="collection-hero__content">
+          <div class="page-width">
+            <header class="section-header section-header--hero">
+              <div class="section-header__shadow">
+                {%- render 'breadcrumbs' -%}
+                <h1 class="section-header__title">
+                  {{ collection.title }}
+                </h1>
+                <ul class="collection-header__chips" aria-label="Trust badges">
+                  {%- for chip in collection_chip_items -%}
+                    <li class="collection-header__chip">{{ chip }}</li>
+                  {%- endfor -%}
+                </ul>
+              </div>
+            </header>
+          </div>
+        </div>
+      </div>
+    </div>
+  {%- elsif section.settings.collection_image_enable and header_img -%}
+    <div
+      id="CollectionHeaderSection"
+      class="collection-header{% if is_product_collection %} collection-header--product-collection{% endif %}"
+      data-section-id="{{ section.id }}"
+      data-section-type="collection-header"
+      {% if section.settings.parallax %}data-parallax="true"{% endif %}>
+
+      <div class="collection-hero" style="background-color: {{ hero_bg_color }} !important;">
+
+        {%- if section.settings.parallax -%}
+          <parallax-image class="parallax-container">
+            <div class="parallax-image" data-movement="15%" data-parallax-image data-angle="{{ section.settings.parallax_direction }}">
+              <div class="collection-hero__media">
+                {%- render 'image-element',
+                  img: header_img,
+                  img_width: 2400,
+                  classes: 'collection-hero__image image-fit',
+                  preload: true,
+                  loading: 'eager',
+                  style: 'background-color: ' | append: hero_bg_color,
+                -%}
+              </div>
+            </div>
+          </parallax-image>
+        {%- else -%}
+          <div class="collection-hero__media">
+            {%- render 'image-element',
+              img: header_img,
+              img_width: 2400,
+              classes: 'collection-hero__image image-fit',
+              preload: true,
+              loading: 'eager',
+              style: 'background-color: ' | append: hero_bg_color,
+            -%}
+          </div>
+        {%- endif -%}
+
+        <div class="collection-hero__content">
+          <div class="page-width">
+            <header class="section-header section-header--hero">
+              <div class="section-header__shadow">
+                {%- render 'breadcrumbs' -%}
+                <h1 class="section-header__title">
+                  {{ collection.title }}
+                </h1>
+                {%- if is_product_collection -%}
+                  <ul class="collection-header__chips" aria-label="Trust badges">
+                    {%- for chip in collection_chip_items -%}
+                      <li class="collection-header__chip">{{ chip }}</li>
+                    {%- endfor -%}
+                  </ul>
+                {%- endif -%}
+              </div>
+            </header>
+          </div>
+        </div>
+      </div>
+    </div>
+  {%- else -%}
+    {%- assign disable_sticky_header = true -%}
+    <div class="page-width page-content page-content--top">
+      <header class="section-header section-header--flush">
+        {%- render 'breadcrumbs' -%}
+        <h1 class="section-header__title">
+          {{ collection.title }}
+        </h1>
+      </header>
+    </div>
+  {%- endif -%}
+{% else %}
+  {%- assign disable_sticky_header = true -%}
+{%- endif -%}
+
+{%- if disable_sticky_header -%}
+  {% comment %}
+    Div to trigger theme.CollectionHeader JS
+  {% endcomment %}
+  <div
+    id="CollectionHeaderSection"
+    data-section-id="{{ section.id }}"
+    data-section-type="collection-header">
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.collection-header.name",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable",
+      "label": "t:sections.collection-header.settings.enable.label",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "collection_image_enable",
+      "label": "t:sections.collection-header.settings.collection_image_enable.label",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "parallax",
+      "label": "t:sections.collection-header.settings.parallax.label",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "parallax_direction",
+      "label": "t:sections.background-image-text.settings.parallax_direction.label",
+      "default": "top",
+      "options": [
+        {
+          "value": "top",
+          "label": "t:sections.background-image-text.settings.parallax_direction.options.top.label"
+        },
+        {
+          "value": "left",
+          "label": "t:sections.background-image-text.settings.parallax_direction.options.left.label"
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["footer", "header", "custom.popups"]
+  }
+}
+{% endschema %}

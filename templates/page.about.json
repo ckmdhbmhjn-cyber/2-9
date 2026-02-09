@@ -1,0 +1,191 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "slideshow_T8TVdg": {
+      "type": "slideshow",
+      "blocks": {
+        "image_7fEjN9": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "",
+            "title": "",
+            "title_size": 40,
+            "subheading": "",
+            "link": "",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_align": "vertical-bottom horizontal-center",
+            "image": "shopify://shop_images/ChatGPT_Image_Dec_30_2025_07_19_55_PM.png",
+            "image_mobile": "shopify://shop_images/ChatGPT_Image_Dec_30_2025_07_20_59_PM.png",
+            "parallax_direction": "left",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_7fEjN9"
+      ],
+      "disabled": true,
+      "name": "t:sections.slideshow.presets.hero_optional_slideshow.name",
+      "settings": {
+        "section_height": "450px",
+        "mobile_height": "250px",
+        "parallax": true,
+        "style": "bars",
+        "autoplay": false,
+        "autoplay_speed": 5,
+        "lazyload_images": true
+      }
+    },
+    "rich-text": {
+      "type": "stonebrook-page-hero",
+      "blocks": {
+        "heading_gG8x4V": {
+          "type": "heading",
+          "settings": {
+            "title": "About Stonebrook Collectibles"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": false,
+            "text": "<h3>A sealed-first shop for Pok\u00e9mon + One Piece</h3><p>Trusted sealed inventory, careful packing, and fast support for every order.</p>"
+          }
+        },
+        "button_TaJ8yG": {
+          "type": "button",
+          "settings": {
+            "link": "shopify:\/\/collections\/new-arrivals",
+            "link_text": "Shop New Arrivals"
+          }
+        }
+      },
+      "block_order": [
+        "heading_gG8x4V",
+        "text",
+        "button_TaJ8yG"
+      ],
+      "custom_css": [],
+      "settings": {
+        "hero_variant": "about",
+        "heading_tag": "h1",
+        "align_text": "left",
+        "narrow_column": false,
+        "divider": false,
+        "section_class": "sb-about-hero sb-heading-compact sb-max-1100"
+      }
+    },
+    "rich_text_about_body": {
+      "type": "rich-text",
+      "blocks": {
+        "text_about": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": false,
+            "text": "<p>Stonebrook Collectibles is a <strong>sealed-first</strong> shop focused on trust, careful packing, and fast support. Everything we sell is <strong>100% authentic and factory sealed</strong>. Whether you're grabbing a single box or placing a bulk order, you'll get consistent communication and secure packaging every time.</p><p>When it fits your order, we can also bundle acrylic display cases at our cost to help protect your sealed product. Acrylic cases are limited and subject to availability.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_about"
+      ],
+      "custom_css": [],
+      "settings": {
+        "align_text": "left",
+        "narrow_column": false,
+        "divider": false,
+        "section_class": "sb-card sb-card--radius-24 sb-card--shadow-soft sb-card--border-muted sb-max-900 sb-heading-ink sb-body-ink sb-about-card sb-about-intro sb-about-body sb-about-stack sb-body sb-about-page sb-about-first"
+      }
+    },
+    "text_with_icons_gAfkBn": {
+      "type": "text-with-icons",
+      "blocks": {
+        "text_block_NbPiDc": {
+          "type": "text_block",
+          "settings": {
+            "icon": "store",
+            "title": "What you\u2019ll find",
+            "text": "<ul><li>English + Japanese sealed Pok\u00e9mon (booster boxes, ETBs, bundles)</li><li>One Piece booster boxes and sealed product</li><li>Bundles when they\u2019re the best value</li><li>Acrylic display cases to protect sealed boxes</li></ul>"
+          }
+        },
+        "text_block_f8X9if": {
+          "type": "text_block",
+          "settings": {
+            "icon": "package",
+            "title": "How we handle orders",
+            "text": "<ul><li>Tracking on every order</li><li>Fast support if there\u2019s an issue</li><li>Protective packing for sealed product</li><li>Based in Maryland, USA</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "text_block_NbPiDc",
+        "text_block_f8X9if"
+      ],
+      "custom_css": [],
+      "name": "t:common.text_with_icons.presets.text_with_icons.name",
+      "settings": {
+        "title": "",
+        "align_text": "left",
+        "desktop_columns_per_row": 2,
+        "icon_color": "#d4af37",
+        "button_label": "",
+        "button_link": "",
+        "divider": false,
+        "section_class": "sb-about-features sb-about-stack sb-icon-gold sb-heading-ink sb-body sb-body-ink sb-max-1100 sb-about-page"
+      }
+    },
+    "rich_text_BXfkMg": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_tkAbNf": {
+          "type": "heading",
+          "settings": {
+            "title": "Join the list"
+          }
+        },
+        "text_CXEN3Y": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": true,
+            "text": "<p>Get restock alerts + your welcome discount.</p>"
+          }
+        },
+        "button_kAhLGi": {
+          "type": "button",
+          "settings": {
+            "link": "/pages/signup",
+            "link_text": "Join the list"
+          }
+        }
+      },
+      "block_order": [
+        "heading_tkAbNf",
+        "text_CXEN3Y",
+        "button_kAhLGi"
+      ],
+      "custom_css": [],
+      "name": "t:sections.rich-text.presets.rich_text.name",
+      "settings": {
+        "align_text": "center",
+        "narrow_column": false,
+        "divider": false,
+        "section_class": "sb-card sb-card--radius-24 sb-card--shadow-soft sb-card--border-muted sb-max-900 sb-about-card sb-about-cta sb-about-join sb-about-stack sb-btn-rounded sb-heading-ink sb-body sb-body-ink sb-h2 sb-about-page"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "slideshow_T8TVdg",
+    "rich-text",
+    "rich_text_about_body",
+    "text_with_icons_gAfkBn",
+    "rich_text_BXfkMg"
+  ]
+}

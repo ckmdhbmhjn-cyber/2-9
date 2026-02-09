@@ -1,0 +1,217 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "trust_badge_9CrGG3": {
+          "type": "trust_badge",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "separator": {
+          "type": "separator",
+          "settings": {}
+        },
+        "size_chart": {
+          "type": "size_chart",
+          "settings": {
+            "size_chart": "size-chart"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "variant_labels": true,
+            "picker_type": "button",
+            "product_dynamic_variants_enable": true,
+            "color_swatches": false
+          }
+        },
+        "sales_point_kzcJHe": {
+          "type": "sales_point",
+          "settings": {
+            "icon": "shield",
+            "text": "Packed by collectors"
+          }
+        },
+        "sales_point_9FPW6V": {
+          "type": "sales_point",
+          "settings": {
+            "icon": "package",
+            "text": "Ships in 1-2 business days"
+          }
+        },
+        "sales_point_dXBQFJ": {
+          "type": "sales_point",
+          "settings": {
+            "icon": "truck",
+            "text": "Free shipping $100+"
+          }
+        },
+        "text_mLcnTC": {
+          "type": "text",
+          "settings": {
+            "text": "$6.99 flat shipping under $100 (Free $100+)"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "surface_pickup_enable": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "is_tab": false
+          }
+        },
+        "tab_6WX4hU": {
+          "type": "tab",
+          "settings": {
+            "title": "Shipping information",
+            "content": "<ul><li>Orders ship in <strong>1-2 business days</strong> (excluding weekends/holidays).</li><li>Tracking is emailed when your label is created.</li></ul>",
+            "page": ""
+          }
+        },
+        "tab": {
+          "type": "tab",
+          "settings": {
+            "title": "Returns & Refunds",
+            "content": "<ul><li>Returns accepted only if your item arrives <strong>damaged in transit</strong> or <strong>incorrect</strong>.</li><li>Contact us within <strong>48 hours of delivery</strong> with photos of the shipping box and product.</li><li><strong>Opened items are not eligible</strong>.</li></ul>",
+            "page": ""
+          }
+        },
+        "tab_qXWtq4": {
+          "type": "tab",
+          "settings": {
+            "title": "Authenticity",
+            "content": "<ul><li>All products are <strong>100% authentic and factory sealed</strong>.</li><li>We do not sell resealed or tampered product.</li><li>If you have concerns on arrival, contact us and we\u2019ll make it right.</li></ul>",
+            "page": ""
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "trust_badge_9CrGG3",
+        "price",
+        "separator",
+        "size_chart",
+        "variant_picker",
+        "sales_point_kzcJHe",
+        "sales_point_9FPW6V",
+        "sales_point_dXBQFJ",
+        "text_mLcnTC",
+        "buy_buttons",
+        "description",
+        "tab_6WX4hU",
+        "tab",
+        "tab_qXWtq4",
+        "share"
+      ],
+      "custom_css": [],
+      "settings": {
+        "sku_enable": false,
+        "image_position": "left",
+        "image_size": "large",
+        "product_zoom_enable": true,
+        "thumbnail_position": "beside",
+        "thumbnail_height": "flexible",
+        "thumbnail_arrows": false,
+        "mobile_layout": "full",
+        "enable_video_looping": true,
+        "product_video_style": "muted",
+        "section_class": "sb-product-card"
+      }
+    },
+    "sub": {
+      "type": "product-full-width",
+      "disabled": true,
+      "settings": {
+        "max_width": true
+      }
+    },
+    "text_and_image_B6GzJW": {
+      "type": "text-and-image",
+      "custom_css": [
+        ".page-width {border-radius: 24px; padding: 34px; background: linear-gradient(90deg, #2ee59d, #35a7ff, #6d28d9);}",
+        ".page-width h2,.page-width p {color: #0b1220;}",
+        ".btn {background: #0b1220; color: #fff; border-radius: 12px;}"
+      ],
+      "name": "t:sections.text-and-image.presets.image_with_text.name",
+      "settings": {
+        "image": "shopify://shop_images/Screenshot_2026-01-03_at_5.13.03_PM.png",
+        "image_mask": "none",
+        "image2_mask": "none",
+        "subtitle": "",
+        "title": "Trusted Seller on TCGplayer",
+        "text": "<p>We\u2019ve completed 500+ orders on TCGplayer with 100% positive feedback.</p>",
+        "button_label": "TCGPlayer Seller Profile",
+        "button_link": "https://shop.tcgplayer.com/sellerfeedback/c6f7ef88",
+        "button_style": "primary",
+        "align_text": "left",
+        "image_width": "33",
+        "layout": "right",
+        "divider": false,
+        "top_padding": true,
+        "bottom_padding": true,
+        "lazyload_images": true
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "custom_css": [],
+      "settings": {
+        "product_recommendations_heading": "You may also like",
+        "related_count": 5,
+        "products_per_row": 5,
+        "section_class": "sb-card sb-card--pad-40 sb-card--shadow-soft sb-card--border-muted sb-heading-ink"
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "disabled": true,
+      "settings": {
+        "recent_count": 5
+      }
+    },
+    "collection-return": {
+      "type": "collection-return",
+      "disabled": true,
+      "settings": {}
+    },
+    "1768933476400522de": {
+      "type": "apps",
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sub",
+    "text_and_image_B6GzJW",
+    "product-recommendations",
+    "recently-viewed",
+    "collection-return",
+    "1768933476400522de"
+  ]
+}

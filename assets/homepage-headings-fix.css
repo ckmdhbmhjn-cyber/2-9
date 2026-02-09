@@ -1,0 +1,1571 @@
+/* Homepage-specific overrides migrated from theme.css.liquid. */
+
+/* ===== Stonebrook: Homepage base ===== */
+.template-index .main-content {
+  background: #f7f4ed;
+}
+
+.template-index .index-section {
+  padding: 32px 0;
+  border-bottom: 1px solid rgba(248, 250, 252, 0.06);
+}
+
+.template-index .index-section:first-of-type {
+  padding-top: 20px;
+}
+
+.template-index .index-section:last-of-type {
+  border-bottom: none;
+}
+
+.template-index .index-section:focus,
+.template-index .sb-section-card:focus {
+  outline: none;
+}
+
+.template-index [data-section-type="slideshow-section"] {
+  padding-top: 24px;
+}
+
+.template-index .sb-featured-collection--homepage,
+.template-index .sb-shop-by-category,
+.template-index .sb-shop-by-category__grid,
+.template-index .sb-why-stonebrook,
+.template-index .sb-trusted-seller {
+  background: transparent;
+}
+
+.template-index .sb-shop-by-category,
+.template-index .sb-shop-by-category__grid {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.template-index .sb-shop-by-category {
+  padding-top: 20px;
+}
+
+.template-index .sb-shop-by-category__grid {
+  padding: 0 0 24px;
+}
+
+/* ===== Stonebrook: Homepage headings ===== */
+.sb-homepage-heading {
+  text-align: center;
+}
+
+.sb-homepage-heading .section-header__title {
+  text-align: center;
+  color: var(--sb-ink) !important;
+}
+
+.sb-homepage-heading .section-header__title::after {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 750px) {
+  .sb-homepage-heading--desktop .section-header__title {
+    font-size: 42px !important;
+    white-space: nowrap;
+    text-align: center;
+    color: var(--sb-ink) !important;
+    text-shadow: none !important;
+  }
+
+  .sb-homepage-heading--desktop .section-header__subheading {
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+    color: rgba(11, 18, 32, 0.72) !important;
+    opacity: 1;
+  }
+}
+
+@media screen and (min-width: 750px) and (max-width: 1024px) {
+  .sb-homepage-heading--desktop .section-header__title {
+    font-size: 38px !important;
+  }
+}
+
+.template-index .section-header__title::after {
+  background: var(--sb-gold);
+}
+
+/* Judge.me testimonials carousel heading divider */
+.template-index .jdgm-testimonials-carousel .jdgm-title {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+.template-index .jdgm-testimonials-carousel .jdgm-title::after {
+  content: '';
+  display: block;
+  width: 64px;
+  height: 3px;
+  background: var(--sb-gold);
+  border-radius: 2px;
+  margin: 8px auto 0;
+}
+
+/* Homepage refinement: section titles + dividers on navy - high-contrast, confident */
+.template-index .section-header__title,
+.template-index .text-with-icons__title h2,
+.template-index .text-with-icons__block-title h3 {
+  color: #ffffff !important;
+  font-weight: 700;
+  opacity: 1;
+}
+
+/* Navy section headings only: remove ghost effect (root cause: .section-header__title color #0b1220 + text-shadow from theme). */
+@media only screen and (min-width: 750px) {
+  .template-index .sb-shop-by-category .section-header__title,
+  .template-index .sb-featured-collection--homepage .section-header__title {
+    color: #ffffff !important;
+    text-shadow: none !important;
+  }
+}
+
+.template-index .section-header__subheading {
+  color: rgba(11, 18, 32, 0.80) !important;
+  opacity: 1;
+}
+
+.template-index .section-header__title {
+  color: var(--sb-ink) !important;
+  opacity: 1;
+}
+
+.template-index .text-with-icons__block-text,
+.template-index .text-with-icons__block-text p {
+  color: rgba(226, 232, 240, 0.9) !important;
+}
+
+/* ===== Stonebrook: Slideshow ===== */
+.template-index .slideshow__pause {
+  display: none !important;
+}
+
+.template-index .hero__text-wrap .page-width:before {
+  background: linear-gradient(90deg, rgba(11,18,32,0.78) 0%, rgba(11,18,32,0.45) 55%, rgba(11,18,32,0) 100%);
+}
+
+@media only screen and (max-width: 768px) {
+  .template-index .sb-hero-trust {
+    margin-top: 10px;
+    gap: 8px 12px;
+    font-size: 0.85rem;
+  }
+
+  .template-index .sb-hero-trust span {
+    padding: 4px 8px;
+  }
+}
+
+@media only screen and (max-width: 749px) {
+  .template-index .hero__link .btn + .btn {
+    display: none !important;
+  }
+
+  .template-index .hero__image {
+    object-position: right bottom;
+    z-index: 0;
+    opacity: 0.85;
+  }
+
+  .template-index .hero__image-wrapper:before {
+    z-index: 1;
+  }
+
+  .template-index .hero__text-content {
+    padding: 18px 18px 22px;
+    padding-right: 26px;
+    max-width: 100%;
+    z-index: 3;
+  }
+
+  .template-index .hero__top-subtitle,
+  .template-index .hero__title {
+    color: #ffffff !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+  }
+
+  .template-index .hero__subtitle {
+    color: #ffffff !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+  }
+
+  .template-index .sb-hero-trust span {
+    background: rgba(8, 14, 22, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    color: #ffffff;
+    padding: 4px 8px;
+  }
+
+  .template-index .hero__link .btn:before,
+  .template-index .hero__link .btn:after {
+    display: none !important;
+  }
+
+  .template-index .sb-hero-trust {
+    gap: 6px 10px;
+    font-size: 0.8rem;
+  }
+
+  .template-index .sb-hero-trust span:nth-child(n+4) {
+    display: none;
+  }
+}
+
+/* ===== Stonebrook: Homepage hero (text + image) ===== */
+@media only screen and (max-width: 768px) {
+  .sb-home-hero.index-section {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .sb-home-hero .page-width {
+    padding: 30px 20px !important;
+    background: #0F2F2A !important;
+  }
+
+  .sb-home-hero .feature-row {
+    gap: 15px !important;
+  }
+
+  .sb-home-hero .feature-row__item {
+    margin-bottom: 10px !important;
+  }
+
+  .sb-home-hero .feature-row__text {
+    padding: 15px 0 !important;
+  }
+
+  .sb-home-hero .feature-row__text h2 {
+    margin-top: 0 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .sb-home-hero .feature-row__text .rte {
+    margin-top: 8px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .sb-home-hero .feature-row__text .btn {
+    margin-top: 10px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .sb-home-hero .feature-row__images {
+    margin-bottom: 10px !important;
+  }
+}
+
+/* ===== Stonebrook: Featured Collection ===== */
+@media screen and (min-width: 750px) {
+  .sb-featured-collection--homepage .section-header {
+    text-align: center;
+    margin-bottom: 24px !important;
+  }
+
+  .template-index .sb-featured-collection--homepage-desktop-tuning .section-header {
+    margin-bottom: 32px !important;
+  }
+
+  .sb-featured-collection--homepage .grid-overflow-wrapper,
+  .sb-featured-collection--homepage .grid {
+    margin-top: 0 !important;
+  }
+
+  .sb-featured-collection--homepage .sb-featured-collection__view-all {
+    margin-top: 12px !important;
+    text-align: center;
+  }
+
+  .sb-featured-collection--homepage .sb-featured-collection__link {
+    display: inline-flex !important;
+  }
+
+  .sb-featured-collection--homepage .grid-product__image-mask .grid__image-ratio:before {
+    padding-bottom: 75% !important;
+  }
+
+  .sb-featured-collection--homepage .grid-product__image-mask .grid__image-ratio img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .sb-featured-collection--homepage .grid-product__image-mask .image-wrap {
+    padding-bottom: 75% !important;
+  }
+
+  .sb-featured-collection--homepage .grid-product__image-mask .image-wrap img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+}
+
+.template-index .sb-featured-collection--homepage .section-header__title {
+  position: relative;
+  display: inline-block;
+}
+
+.template-index .sb-featured-collection--homepage .section-header__title::after {
+  content: '';
+  display: block;
+  width: 64px;
+  height: 3px;
+  background: #D6B25E;
+  border-radius: 2px;
+  margin-top: 8px;
+}
+
+.template-index .sb-featured-collection--homepage .grid-product__content {
+  border: 1px solid rgba(217, 225, 238, 0.5);
+  border-radius: 12px;
+  padding: 6px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  background: #ffffff;
+}
+
+.template-index .sb-featured-collection--homepage .grid-product__title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  min-height: calc(1.3em * 2);
+  line-height: 1.3;
+  word-break: break-word;
+}
+
+@media only screen and (min-width: 769px) {
+  .template-index .sb-featured-collection--homepage .grid-product__content:hover {
+    border-color: rgba(214, 178, 94, 0.6);
+    box-shadow: 0 2px 12px rgba(11, 18, 32, 0.06);
+  }
+}
+
+.template-index .sb-featured-collection--homepage .section-header--with-link {
+  align-items: stretch;
+}
+
+.template-index .sb-featured-collection--homepage .section-header__subheading {
+  margin: 0;
+  white-space: normal;
+}
+
+.template-index .grid-product__content {
+  border-radius: var(--sb-radius);
+  border: 1px solid var(--sb-line);
+  box-shadow: var(--sb-shadow-soft);
+  overflow: hidden;
+}
+
+.template-index .grid-product__image-mask {
+  border-radius: calc(var(--sb-radius) - 6px);
+  overflow: hidden;
+}
+
+.template-index .grid-product__image-mask {
+  padding: 10px;
+}
+
+.template-index .grid-product__image-mask .grid__image-ratio {
+  padding-bottom: 100%;
+}
+
+.template-index .grid-product__image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.template-index .grid-product__content {
+  padding: 10px;
+  border-color: rgba(11, 18, 32, 0.1);
+  box-shadow: 0 6px 16px rgba(11, 18, 32, 0.06);
+}
+
+.template-index .grid-product__tag,
+.template-index .grid-product__badge {
+  font-size: 0.7rem;
+  padding: 3px 8px;
+}
+
+@media only screen and (max-width: 768px) {
+  .template-index .grid-product__content {
+    padding: 10px;
+  }
+}
+
+/* Carousel: ~1.2-1.4 cards on mobile. Apply only at <= 749px (no visible change at >= 750px). */
+@media only screen and (max-width: 749px) {
+  .template-index .sb-featured-collection .grid-overflow-wrapper .grid__item {
+    width: 78vw;
+    flex: 0 0 78vw;
+  }
+
+  .template-index .sb-featured-collection .grid-product__has-quick-shop .quick-product__btn {
+    display: inline-flex !important;
+  }
+
+  .template-index .sb-featured-collection .quick-product__btn {
+    background: var(--sb-gold) !important;
+    color: #0b1220 !important;
+    border-color: var(--sb-gold) !important;
+    font-size: 0.75rem;
+    padding: 8px 12px;
+  }
+
+  .template-index .sb-featured-collection .quick-product__btn:hover {
+    background: var(--sb-gold-hover) !important;
+    border-color: var(--sb-gold-hover) !important;
+    color: #0b1220 !important;
+  }
+
+  .template-index .sb-featured-collection .grid-product__content {
+    padding: 3px;
+  }
+
+  .template-index .sb-featured-collection .grid-product__image-mask {
+    padding: 8px;
+  }
+
+  .template-index .sb-featured-collection .grid-product__title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    line-height: 1.25;
+    margin-top: 4px;
+    margin-bottom: 3px;
+    font-size: 0.875rem;
+    min-height: calc(1.25em * 2);
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .template-index .sb-featured-collection .grid-product__title a {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    line-height: inherit;
+  }
+
+  .template-index .sb-featured-collection .grid-product__microtrust {
+    font-size: 0.65rem;
+    letter-spacing: 0.03em;
+    color: rgba(100, 116, 139, 0.75);
+    margin-top: 0;
+    margin-bottom: 2px;
+    padding: 2px 5px;
+    gap: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+  }
+
+  .template-index .sb-featured-collection .grid-product__microtrust-icon {
+    width: 10px;
+    height: 10px;
+    min-width: 10px;
+    flex-shrink: 0;
+    background: rgba(212, 175, 55, 0.15);
+  }
+
+  .template-index .sb-featured-collection .grid-product__microtrust-icon svg {
+    width: 8px;
+    height: 8px;
+  }
+
+  .template-index .sb-featured-collection .grid-product__microtrust > span:not(.grid-product__microtrust-icon) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+    white-space: nowrap;
+  }
+
+  .template-index .sb-featured-collection .grid-product__price {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-top: auto;
+    margin-bottom: 0;
+    line-height: 1.2;
+  }
+
+  .template-index .sb-featured-collection .grid-product__meta {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(1.25em * 2 + 22px);
+    padding: 5px 4px 4px;
+    gap: 5px;
+  }
+
+  .template-index .sb-featured-collection--new-arrivals .grid-product__meta {
+    gap: 5px;
+  }
+
+  .template-index .sb-featured-collection .grid-product__link {
+    margin-top: 5px;
+  }
+
+  .template-index .sb-featured-collection .quick-product__btn {
+    margin-top: 4px !important;
+    padding: 5px 8px !important;
+    font-size: 0.65rem !important;
+    min-height: auto;
+    line-height: 1.2;
+  }
+
+  .template-index .sb-featured-collection .grid__item-image-wrapper {
+    margin-bottom: 0;
+  }
+}
+
+/* ===== Stonebrook: New Arrivals ===== */
+.template-index .sb-featured-collection--new-arrivals {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.template-index .sb-featured-collection--new-arrivals .sb-section-card {
+  padding-top: 24px;
+  padding-bottom: 28px;
+}
+
+.template-index .sb-featured-collection--new-arrivals .section-header {
+  margin-bottom: 14px;
+}
+
+.template-index .sb-featured-collection--new-arrivals .sb-featured-collection__link {
+  padding: 10px 18px;
+  font-weight: 600;
+}
+
+.template-index .sb-featured-collection--new-arrivals .grid__item.grid-product {
+  display: flex;
+}
+
+.template-index .sb-featured-collection--new-arrivals .grid-product__content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.template-index .sb-featured-collection--new-arrivals .grid-product__meta {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  gap: 6px;
+}
+
+.template-index .sb-featured-collection--new-arrivals .grid-product__price {
+  margin-top: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .template-index .sb-featured-collection--new-arrivals {
+    padding-top: 0;
+    margin-top: -8px;
+  }
+
+  .template-index .sb-featured-collection--new-arrivals .sb-section-card {
+    padding-top: 16px;
+    padding-bottom: 20px;
+  }
+
+  .template-index .sb-featured-collection--new-arrivals .section-header {
+    margin-bottom: 16px;
+  }
+}
+
+/* ===== Stonebrook: Top Picks ===== */
+.sb-top-picks .section-header {
+  margin-bottom: 12px;
+}
+
+.template-index .sb-top-picks .sb-section-card {
+  padding-top: 22px;
+}
+
+@media only screen and (max-width: 768px) {
+  .sb-top-picks .section-header {
+    margin-bottom: 10px !important;
+    padding-bottom: 5px !important;
+  }
+
+  .sb-top-picks .page-width {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+
+  .sb-top-picks .grid {
+    margin-top: 0 !important;
+  }
+
+  .sb-top-picks .page-width > .grid-overflow-wrapper,
+  .sb-top-picks .page-width > div:first-of-type {
+    margin-top: 0 !important;
+  }
+
+  .sb-top-picks .sb-section-card {
+    padding-top: 18px;
+  }
+}
+
+/* ===== Stonebrook: Shop By Category ===== */
+.template-index .sb-shop-by-category .section-header__title {
+  position: relative;
+  display: inline-block;
+}
+
+.template-index .sb-shop-by-category .section-header__title::after {
+  content: '';
+  display: block;
+  width: 64px;
+  height: 3px;
+  background: #D6B25E;
+  border-radius: 2px;
+  margin-top: 8px;
+}
+
+.template-index .sb-shop-by-category__grid .collection-item {
+  border: 1px solid rgba(217, 225, 238, 0.5);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  background: #f8fafc;
+}
+
+.template-index .sb-shop-by-category__grid .collection-image {
+  background: #f1f5f9;
+}
+
+.template-index .sb-shop-by-category__grid .collection-item__title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+@media only screen and (min-width: 769px) {
+  .template-index .sb-shop-by-category__grid .collection-item:hover {
+    border-color: rgba(214, 178, 94, 0.6);
+    box-shadow: 0 2px 12px rgba(11, 18, 32, 0.06);
+  }
+}
+
+.template-index .sb-shop-by-category {
+  margin-top: clamp(16px, 3vw, 28px);
+}
+
+.template-index .sb-shop-by-category__grid {
+  margin-bottom: clamp(16px, 3vw, 28px);
+}
+
+.template-index .sb-shop-by-category__grid::after {
+  content: '';
+  flex: 0 0 100%;
+  height: 1px;
+  margin-top: clamp(16px, 2.6vw, 24px);
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0), rgba(212, 175, 55, 0.5), rgba(212, 175, 55, 0));
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: min(880px, 80%) 1px;
+}
+
+.template-index .sb-shop-by-category__grid .collection-item {
+  border-radius: 20px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.template-index .sb-shop-by-category__grid .collection-image {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.template-index .sb-shop-by-category__grid .collection-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== Stonebrook: Trusted Seller ===== */
+.template-index .sb-trusted-seller {
+  background: transparent;
+  padding: 24px 0;
+}
+
+@media only screen and (max-width: 768px) {
+  .template-index .sb-trusted-seller {
+    padding: 20px 0;
+  }
+}
+
+.template-index .sb-trusted-seller .page-width {
+  background: #ffffff;
+  border: 1px solid var(--sb-line);
+  border-radius: var(--sb-radius);
+  box-shadow: var(--sb-shadow-strong);
+  padding: 40px;
+}
+
+.template-index .sb-trusted-seller .text-and-image__image {
+  display: none;
+}
+
+.template-index .sb-trusted-seller h3,
+.template-index .sb-trusted-seller p,
+.template-index .sb-trusted-seller .rte {
+  color: #0b1220 !important;
+}
+
+.template-index .sb-trusted-seller .btn {
+  background: var(--sb-gold) !important;
+  color: #0B1F1A !important;
+  border-color: var(--sb-gold) !important;
+  font-weight: 700;
+  position: relative;
+}
+
+.template-index .sb-trusted-seller .btn:hover {
+  background: #C59F2E !important;
+  border-color: #C59F2E !important;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(11,18,32,0.18);
+}
+
+.template-index .sb-trusted-seller .btn:after {
+  content: '\2192';
+  margin-left: 8px;
+  font-weight: 700;
+}
+
+.template-index .sb-trusted-seller .text-and-image__content {
+  gap: 16px;
+}
+
+.template-index .sb-trusted-seller .text-and-image__content ul {
+  margin: 16px 0 0;
+  padding-left: 20px;
+}
+
+.template-index .sb-trusted-seller .text-and-image__content li {
+  color: #475569;
+}
+
+.template-index .sb-trusted-seller .text-and-image__content .rte strong {
+  color: #0b1220;
+}
+
+.template-index .sb-trusted-seller .sb-trust-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(212,175,55,0.18);
+  color: #0b1220;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.template-index .sb-trusted-seller .rte a[href*="tcgplayer.com"] {
+  display: none;
+}
+
+.template-index .sb-trusted-seller .sb-trust-stats {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #0b1220;
+}
+
+.template-index .sb-trusted-seller .sb-trust-bullets {
+  list-style: none;
+  margin: 0 0 12px;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.template-index .sb-trusted-seller .sb-trust-bullets li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  line-height: 1.4;
+}
+
+.template-index .sb-trusted-seller .sb-trust-bullets li:before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--sb-gold);
+  box-shadow: 0 0 0 3px rgba(212,175,55,0.2);
+  flex-shrink: 0;
+}
+
+.template-index .sb-trusted-seller .sb-trust-micro {
+  font-size: 0.9rem;
+  color: #475569;
+  margin-top: 8px;
+}
+
+.template-index .sb-trusted-seller .feature-row {
+  align-items: center;
+  gap: 28px;
+}
+
+.template-index .sb-trusted-seller .feature-row__text h2 {
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.template-index .sb-trusted-seller .feature-row__images {
+  align-self: stretch;
+}
+
+.template-index .sb-trusted-seller .feature-row__text {
+  flex: 1 1 50%;
+}
+
+.template-index .sb-trusted-seller .feature-row__images .image-wrap {
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 24px rgba(11, 18, 32, 0.12);
+}
+
+.template-index .sb-trusted-seller .feature-row__images img {
+  border-radius: 18px;
+}
+
+@media only screen and (max-width: 768px) {
+  .template-index .sb-trusted-seller .page-width {
+    padding: 24px;
+  }
+
+  .template-index .sb-trusted-seller .feature-row {
+    flex-direction: column;
+  }
+
+  .template-index .sb-trusted-seller .feature-row__images {
+    order: 1;
+    width: 100%;
+  }
+
+  .template-index .sb-trusted-seller .feature-row__text {
+    order: 2;
+    width: 100%;
+  }
+}
+
+/* Trusted Seller: TCG trust styling (legacy class) */
+.sb-tcg-trust .page-width {
+  background: #F6F1E6 !important;
+  background-image: none !important;
+}
+
+.sb-tcg-trust .page-width h2,
+.sb-tcg-trust .page-width p {
+  color: var(--colorTextBody) !important;
+}
+
+.sb-tcg-trust .btn {
+  background: var(--colorBtnPrimary) !important;
+  color: var(--colorBtnPrimaryText) !important;
+  border-radius: 4px;
+}
+
+@media only screen and (max-width: 768px) {
+  .sb-tcg-trust.index-section {
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+  }
+
+  .sb-tcg-trust .page-width {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+  }
+
+  .sb-tcg-trust .feature-row__image,
+  .sb-tcg-trust .feature-row__images img {
+    max-width: 100% !important;
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 8px;
+    object-fit: contain;
+  }
+
+  .sb-tcg-trust .feature-row__images {
+    max-width: 100% !important;
+  }
+}
+
+/* ===== Stonebrook: Why Stonebrook ===== */
+.sb-why-stonebrook {
+  background: linear-gradient(180deg, rgba(247,244,237,0.9) 0%, rgba(255,255,255,0.95) 100%);
+}
+
+.sb-why-stonebrook .text-with-icons__blocks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-left: 0;
+}
+
+.sb-why-stonebrook .text-with-icons__block {
+  width: auto;
+  background: var(--sb-card);
+  border: 1px solid var(--sb-line);
+  border-radius: 18px;
+  padding: 14px 16px;
+  box-shadow: var(--sb-shadow-soft);
+}
+
+.sb-why-stonebrook h3 {
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.sb-why-stonebrook .text-with-icons__block-text {
+  line-height: 1.6;
+  color: #334155;
+}
+
+.sb-why-stonebrook .text-with-icons__block-icon .icon {
+  width: 48px;
+  height: 48px;
+}
+
+.sb-why-stonebrook .icon {
+  color: var(--sb-gold);
+}
+
+.sb-why-stonebrook .text-with-icons__button {
+  margin-top: 22px;
+}
+
+@media only screen and (max-width: 768px) {
+  .sb-why-stonebrook {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+  }
+
+  .sb-why-stonebrook .text-with-icons__blocks {
+    gap: 20px !important;
+    margin-top: 15px !important;
+  }
+
+  .sb-why-stonebrook .text-with-icons__block {
+    padding: 12px 14px;
+    margin-bottom: 15px !important;
+  }
+
+  .sb-why-stonebrook .text-with-icons__button {
+    margin-top: 16px;
+  }
+}
+
+.sb-why-stonebrook .text-with-icons__button .sb-btn-primary {
+  background: var(--sb-gold);
+  border-color: var(--sb-gold);
+  color: #0B1F1A;
+}
+
+.sb-why-stonebrook .text-with-icons__button .sb-btn-primary:hover {
+  background: #C59F2E;
+  border-color: #C59F2E;
+  color: #0B1F1A;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(11,18,32,0.18);
+}
+
+.sb-why-stonebrook .text-with-icons__button .btn {
+  background: var(--sb-gold);
+  color: #0b1220;
+  border-color: var(--sb-gold);
+}
+
+.sb-why-stonebrook .text-with-icons__button .btn:hover {
+  background: var(--sb-gold-hover);
+  border-color: var(--sb-gold-hover);
+  color: #0b1220;
+}
+
+/* Match "Why Stonebrook Collectibles?" heading size to "Top Picks" section */
+.template-index .sb-why-stonebrook .text-with-icons__title h2 {
+  font-size: calc(var(--typeHeaderSize) * 0.73);
+}
+
+@media only screen and (min-width: 769px) {
+  .template-index .sb-why-stonebrook .text-with-icons__title h2 {
+    font-size: calc(var(--typeHeaderSize) * 0.85);
+  }
+}
+
+@media (min-width: 750px) {
+  .template-index .stonebrook-hero__actions {
+    margin-bottom: 14px;
+  }
+
+  .template-index .stonebrook-hero__cta,
+  .template-index .stonebrook-hero__btn--primary {
+    min-height: 52px;
+  }
+
+  .template-index .stonebrook-hero__trust {
+    margin-top: 0;
+    gap: 10px 16px;
+  }
+
+  .template-index .sb-featured-collection--homepage .sb-featured-collection__header--with-cta .sb-featured-collection__header-row {
+    align-items: center;
+  }
+
+  .template-index .sb-featured-collection--homepage .sb-featured-collection__cta {
+    align-self: center;
+    margin-top: 0;
+  }
+
+  .template-index .sb-featured-collection--new-arrivals .sb-featured-collection__cta,
+  .template-index .sb-top-picks .sb-featured-collection__cta {
+    min-height: 44px;
+    padding: 10px 18px;
+    font-size: 0.95rem;
+    letter-spacing: 0.06em;
+    line-height: 1;
+  }
+
+  .template-index .sb-featured-collection--new-arrivals .sb-section-card,
+  .template-index .sb-top-picks .sb-section-card {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  .template-index .sb-featured-collection--new-arrivals .section-header,
+  .template-index .sb-top-picks .section-header {
+    margin-bottom: 24px;
+  }
+
+  .template-index .sb-shop-by-category {
+    padding-top: 56px;
+    margin-top: 0;
+    margin-bottom: 24px;
+  }
+
+  .template-index .sb-shop-by-category__grid {
+    padding-bottom: 56px;
+    margin-bottom: 0;
+  }
+
+  .template-index .sb-featured-collection--homepage .grid-product__content {
+    padding: 12px;
+    transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+    will-change: transform;
+  }
+
+  .template-index .sb-featured-collection--homepage .grid-product__image-mask {
+    padding: 12px;
+    min-height: 240px;
+  }
+
+  .template-index .sb-featured-collection--homepage .grid-product__image-mask .grid__image-ratio {
+    aspect-ratio: 1 / 1;
+  }
+
+  .template-index .sb-featured-collection--homepage .grid-product__image-mask .grid__image-ratio:before,
+  .template-index .sb-featured-collection--homepage .grid-product__image-mask .image-wrap {
+    padding-bottom: 100% !important;
+  }
+
+  .template-index .sb-featured-collection--homepage .grid-product__image-mask img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain !important;
+    object-position: center !important;
+  }
+
+  .template-index .sb-featured-collection--homepage .grid-product__title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.35;
+    min-height: calc(1.35em * 2);
+  }
+
+  .template-index .sb-featured-collection--homepage .grid-product__microtrust {
+    color: rgba(15, 23, 42, 0.6);
+    font-size: 0.8rem;
+    gap: 8px;
+    letter-spacing: 0.02em;
+  }
+
+  .template-index .sb-featured-collection--homepage .grid-product__price {
+    font-weight: 700;
+    color: rgba(15, 23, 42, 0.92);
+  }
+
+  .template-index .sb-featured-collection--homepage .grid-product__content:hover,
+  .template-index .sb-featured-collection--homepage .grid-product__content:focus-within {
+    transform: translateY(-2px);
+    border-color: rgba(212, 175, 55, 0.35);
+    box-shadow: 0 14px 26px rgba(11, 18, 32, 0.12);
+  }
+
+  .template-index .sb-featured-collection--homepage .grid-product__content:focus-within {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.26), 0 14px 26px rgba(11, 18, 32, 0.12);
+  }
+
+  .template-index .sb-shop-by-category__grid .collection-image {
+    aspect-ratio: 5 / 4;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 12px;
+    box-sizing: border-box;
+  }
+
+  .template-index .sb-shop-by-category__grid .collection-image image-element {
+    position: static;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .template-index .sb-shop-by-category__grid .collection-image img {
+    position: static;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    object-position: 50% 50% !important;
+    margin: 0;
+    padding: 0;
+  }
+
+  .template-index .sb-proof .page-width {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .template-index .sb-proof__card {
+    padding: 28px 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .template-index .sb-proof__title {
+    font-size: 30px;
+    line-height: 1.2;
+  }
+
+  .template-index .sb-proof__rte,
+  .template-index .sb-proof__rte li {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .template-index .sb-proof__cta .btn {
+    min-height: 44px;
+    padding: 12px 22px;
+    font-size: 1rem;
+  }
+
+  .template-index .sb-why-stonebrook .text-with-icons__blocks {
+    gap: 22px;
+  }
+
+  .template-index .sb-why-stonebrook .text-with-icons__block {
+    padding: 24px;
+  }
+
+  .template-index .sb-why-stonebrook .text-with-icons__block-title h3 {
+    font-size: 19px;
+    line-height: 1.25;
+  }
+
+  .template-index .sb-why-stonebrook .text-with-icons__block-text,
+  .template-index .sb-why-stonebrook .text-with-icons__block-text p,
+  .template-index .sb-why-stonebrook .text-with-icons__block-text li {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .template-index .sb-why-stonebrook .text-with-icons__block-icon .icon {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+/* ===== Stonebrook: Responsive adjustments ===== */
+@media only screen and (max-width: 749px) {
+  /* Trusted Seller density + remove brown line above footer */
+  .template-index .sb-trusted-seller {
+    padding-top: 14px !important;
+    padding-bottom: 14px !important;
+  }
+
+  .template-index .sb-trusted-seller .page-width {
+    padding: 18px 16px !important;
+  }
+
+  .template-index .sb-trusted-seller--proof-only .feature-row__text.sb-trusted-seller__row {
+    gap: 10px;
+  }
+
+  .template-index .sb-trusted-seller .sb-trusted-seller__stats {
+    margin: 8px 0 10px;
+    gap: 8px 10px;
+  }
+
+  .template-index .sb-trusted-seller .feature-row__text h2 {
+    margin-bottom: 8px;
+  }
+
+  .template-index .sb-trusted-seller .rte ul {
+    gap: 8px;
+    padding-top: 0;
+  }
+
+  .template-index .sb-trusted-seller .rte li {
+    margin-bottom: 0;
+  }
+
+  .template-index .sb-why-stonebrook {
+    background: transparent !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+    border-bottom: none !important;
+  }
+
+  .template-index .sb-why-stonebrook .text-with-icons {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    background: transparent !important;
+  }
+
+  .template-index .sb-why-stonebrook .text-with-icons__button {
+    margin-bottom: 20px !important;
+  }
+
+  .template-index .site-footer {
+    border-top: none !important;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+}
+
+/* SB_APPLIED_PROOF_2026-01-25_RUN1: Fix "Why Stonebrook Collectibles?" card text contrast on mobile */
+@media only screen and (max-width: 749px) {
+  .template-index .sb-why-stonebrook .text-with-icons__block-text,
+  .template-index .sb-why-stonebrook .text-with-icons__block-text p {
+    color: #0b1220 !important;
+    opacity: 1 !important;
+  }
+
+  .template-index .sb-why-stonebrook .text-with-icons__block {
+    background: #ffffff !important;
+    opacity: 1 !important;
+  }
+}
+
+/* ===== Stonebrook: Mobile Run 01 polish ===== */
+@media (max-width: 749px) {
+  .template-index .index-section {
+    margin-top: 0;
+    margin-bottom: 28px;
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+
+  .template-index .index-section:last-of-type {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .template-index .stonebrook-hero {
+    padding-top: 28px;
+    padding-bottom: 24px;
+  }
+
+  .template-index .stonebrook-hero__actions {
+    margin-bottom: 12px;
+  }
+
+  .template-index .stonebrook-hero__cta {
+    min-height: 52px;
+    width: 100%;
+  }
+
+  .template-index .stonebrook-hero__trust {
+    margin-top: 12px;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .template-index .stonebrook-hero__trust-item {
+    line-height: 1.3;
+  }
+
+  .template-index .sb-featured-collection--new-arrivals .sb-section-card,
+  .template-index .sb-top-picks .sb-section-card {
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+
+  .template-index .sb-featured-collection--new-arrivals .section-header {
+    margin-bottom: 12px;
+  }
+
+  .template-index .sb-top-picks .section-header {
+    margin-bottom: 12px !important;
+    padding-bottom: 0 !important;
+  }
+
+  .template-index .sb-featured-collection--new-arrivals .sb-featured-collection__cta,
+  .template-index .sb-top-picks .sb-featured-collection__cta {
+    min-height: 44px;
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+
+  .template-index .sb-featured-collection--new-arrivals .sb-featured-collection__cta--stacked,
+  .template-index .sb-top-picks .sb-featured-collection__cta--stacked {
+    align-self: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .template-index .sb-featured-collection .grid-product__title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    font-size: 1.05rem;
+    line-height: 1.2;
+    min-height: calc(1.2em * 2);
+  }
+
+  .template-index .sb-featured-collection .grid-product__microtrust {
+    font-size: 12px;
+    color: rgba(15, 23, 42, 0.6);
+  }
+
+  .template-index .sb-featured-collection .grid-product__price {
+    font-weight: 700;
+  }
+
+  .template-index .sb-shop-by-category {
+    padding-top: 28px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .template-index .sb-shop-by-category__grid {
+    padding-bottom: 28px;
+    margin-bottom: 0;
+  }
+
+  .template-index .sb-shop-by-category.section-header {
+    margin-bottom: 12px;
+  }
+
+  .template-index .sb-shop-by-category__grid.grid {
+    margin-bottom: 0;
+  }
+
+  .template-index .sb-shop-by-category .collection-image {
+    aspect-ratio: 5 / 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #ffffff;
+  }
+
+  .template-index .sb-shop-by-category .collection-image image-element {
+    position: static;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .template-index .sb-shop-by-category .collection-image img {
+    position: static;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    object-position: 50% 50% !important;
+    padding: 10px;
+    box-sizing: border-box;
+    transform: none !important;
+  }
+
+  .template-index .sb-shop-by-category .collection-item__title {
+    padding-top: 10px;
+  }
+
+  .template-index .text-with-icons.sb-why-stonebrook .section-header__title,
+  .template-index .text-with-icons.sb-why-stonebrook h2 {
+    color: var(--sb-ink) !important;
+  }
+
+  .template-index .sb-proof__card {
+    padding: 22px;
+  }
+
+  .template-index .sb-proof__title {
+    color: var(--sb-ink);
+  }
+
+  .template-index .sb-proof__cta .btn {
+    width: 100%;
+    min-height: 52px;
+  }
+
+  .template-index .sb-proof {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .template-index .text-with-icons.sb-why-stonebrook {
+    margin-top: 0;
+    padding-top: 0;
+  }
+}
+
+/* ===== Stonebrook: Home mobile section spacing normalization ===== */
+@media (max-width: 749px) {
+  /* === SB: Home mobile section spacing normalization === */
+
+  /* Featured Collection (New Arrivals + Top Picks) */
+  .template-index [data-context="featured-collection"] .sb-section-card {
+    margin-top: -12px;
+    margin-bottom: -12px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .template-index [data-context="featured-collection"] .section-header {
+    margin-bottom: 18px !important;
+  }
+
+  .template-index [data-context="featured-collection"] .section-header + * {
+    margin-top: 0;
+  }
+
+  .template-index .sb-featured-collection--new-arrivals {
+    margin-top: 0;
+  }
+
+  /* Seam fix: Shop By Category → Top Picks */
+  .template-index .sb-top-picks .sb-section-card {
+    margin-top: -12px;
+    padding-top: 12px;
+  }
+
+  /* Shop By Category */
+  .template-index .sb-shop-by-category.section-header {
+    margin-top: -12px;
+    margin-bottom: 18px !important;
+    padding-top: 12px;
+  }
+
+  .template-index .sb-shop-by-category.section-header + * {
+    margin-top: 0;
+  }
+
+  .template-index .sb-shop-by-category__grid {
+    margin-top: 0;
+    margin-bottom: -12px;
+    padding-bottom: 12px;
+  }
+
+  /* Restore breathing room between hero and first Featured Collection */
+  .template-index .stonebrook-hero-section + .shopify-section [data-context="featured-collection"] .sb-section-card {
+    margin-top: -12px;
+    padding-top: 12px;
+  }
+
+  /* Release spotlight: let wrapper control section gap */
+  body.template-index #PageContainer #MainContent .sb-release-spotlight {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Judge.me: avoid stacking app spacing on mobile */
+  body.template-index #PageContainer #MainContent .jdgm-testimonials-carousel {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+}
+
+/* ===== Stonebrook: Homepage rhythm + divider reset ===== */
+body.template-index #PageContainer #MainContent {
+  --sb-home-section-gap: 72px;
+  --sb-home-divider-width: 160px;
+  --sb-home-divider-color: rgba(0, 0, 0, 0.12);
+}
+
+@media (max-width: 749px) {
+  body.template-index #PageContainer #MainContent {
+    --sb-home-section-gap: 44px;
+    --sb-home-divider-width: 120px;
+    --sb-home-divider-color: rgba(0, 0, 0, 0.16);
+  }
+}
+
+body.template-index #PageContainer #MainContent .index-section {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+
+body.template-index #PageContainer #MainContent > .shopify-section {
+  position: relative;
+  margin: 0 !important;
+  padding-top: calc(var(--sb-home-section-gap) / 2) !important;
+  padding-bottom: calc(var(--sb-home-section-gap) / 2) !important;
+}
+
+body.template-index #PageContainer #MainContent > .shopify-section:first-child {
+  padding-top: 0 !important;
+}
+
+body.template-index #PageContainer #MainContent > .shopify-section + .shopify-section::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: var(--sb-home-divider-width) !important;
+  height: 1px !important;
+  background: var(--sb-home-divider-color) !important;
+  opacity: 1 !important;
+  pointer-events: none;
+}

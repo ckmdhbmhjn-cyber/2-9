@@ -1,0 +1,222 @@
+<div class="page-width page-content{% if section.settings.section_class != blank %} {{ section.settings.section_class }}{% endif %}">
+
+  {%- render 'breadcrumbs' -%}
+
+  <header class="section-header text-center{% if cart.item_count == 0 %} section-header--404{% endif %}">
+    <h1 class="section-header__title">{{ 'cart.general.title' | t }}</h1>
+    <div class="rte text-spacing">
+      {%- if cart.item_count == 0 -%}
+        <p>{{ 'cart.general.empty' | t }}</p>
+      {%- endif -%}
+      {%- liquid
+        assign continue_url = routes.all_products_collection_url
+        if collections['best-pokemon-picks'] != blank
+          assign continue_url = collections['best-pokemon-picks'].url
+        elsif collections['all-products-copy'] != blank
+          assign continue_url = collections['all-products-copy'].url
+        endif
+      -%}
+      <p>{{ 'cart.general.continue_browsing_html' | t: url: continue_url }}</p>
+    </div>
+  </header>
+
+  {%- if cart.item_count > 0 -%}
+    <form action="{{ routes.cart_url }}" method="post" novalidate data-location="page" id="CartPageForm">
+      <div class="cart__page">
+        <div data-products class="cart__page-col">
+          {% for item in cart.items %}
+            {%- render 'cart-item', product: item, sizes: '150px', -%}
+          {%- endfor -%}
+        </div>
+        <div class="cart__page-col">
+          {% if settings.cart_notes_enable %}
+            <div>
+              <label for="CartNote">{{ 'cart.general.note' | t }}</label>
+              <textarea name="note" class="input-full cart-notes" id="CartNote">{{ cart.note }}</textarea>
+            </div>
+          {% endif %}
+
+          <div data-discounts>
+            {% if cart.cart_level_discount_applications != blank %}
+              <div class="cart__discounts cart__item-sub cart__item-row">
+                <div>{{ 'cart.general.discounts' | t }}</div>
+                <div class="text-right">
+                  {% for cart_discount in cart.cart_level_discount_applications %}
+                    <div class="cart__discount">
+                      {{ cart_discount.title }} (-{{ cart_discount.total_allocated_amount | money }})
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+              <div class="cart__discount-hint">
+                <small>Have a code? Enter it at checkout.</small>
+              </div>
+            {% else %}
+              <div class="cart__discount-hint">
+                <small>Have a code? Enter it at checkout.</small>
+              </div>
+            {% endif %}
+          </div>
+
+          <div class="cart__item-sub cart__item-row">
+            <div>{{ 'cart.general.subtotal' | t }}</div>
+            <div data-subtotal>{{ cart.total_price | money }}</div>
+          </div>
+
+          {%- comment -%} Cart conversion enhancements: Free shipping progress {%- endcomment -%}
+          {%- liquid
+            assign free_shipping_threshold_cents = 10000
+            assign cart_total_cents = cart.total_price
+            assign remaining_cents = free_shipping_threshold_cents | minus: cart_total_cents
+            if remaining_cents < 0
+              assign remaining_cents = 0
+            endif
+            assign progress_pct = cart_total_cents | times: 100 | divided_by: free_shipping_threshold_cents
+            if progress_pct > 100
+              assign progress_pct = 100
+            endif
+            if progress_pct < 0
+              assign progress_pct = 0
+            endif
+          -%}
+          <div class="cart-free-ship-page" data-threshold="{{ free_shipping_threshold_cents }}">
+            <div class="cart-free-ship-page__text" aria-live="polite">
+              {%- if cart_total_cents >= free_shipping_threshold_cents -%}
+                You unlocked FREE shipping 🎉
+              {%- else -%}
+                You're {{ remaining_cents | money }} away from free shipping
+              {%- endif -%}
+            </div>
+            <div class="cart-free-ship-page__bar" role="progressbar" aria-valuenow="{{ progress_pct }}" aria-valuemin="0" aria-valuemax="100" aria-label="Free shipping progress">
+              <div class="cart-free-ship-page__fill" style="width: {{ progress_pct }}%;"></div>
+            </div>
+            {%- if remaining_cents > 0 -%}
+              <div class="cart-free-ship-page__hint">Most orders hit free shipping with 1-2 add-ons.</div>
+            {%- endif -%}
+          </div>
+
+          {% if settings.cart_terms_conditions_enable %}
+            <div class="cart__item-row cart__terms">
+              <input type="checkbox" id="CartTerms" class="cart__terms-checkbox">
+              <label for="CartTerms">
+                {% if settings.cart_terms_conditions_page != blank %}
+                  {{ 'cart.general.terms_html' | t: url: settings.cart_terms_conditions_page.url }}
+                {% else %}
+                  {{ 'cart.general.terms' | t }}
+                {% endif %}
+              </label>
+            </div>
+          {% endif %}
+
+          <div class="cart__item-row cart__checkout-wrapper">
+            <button type="submit" name="checkout" data-terms-required="{{ settings.cart_terms_conditions_enable }}" class="btn cart__checkout">
+              {{ 'cart.general.checkout' | t }}
+            </button>
+          </div>
+
+          {%- comment -%} Cart conversion enhancements: Express checkout buttons {%- endcomment -%}
+          {% if additional_checkout_buttons and settings.cart_additional_buttons %}
+            <div class="cart__item-row cart-express-checkout">
+              <div class="additional-checkout-buttons">{{ content_for_additional_checkout_buttons }}</div>
+            </div>
+          {% endif %}
+
+          {%- comment -%} Cart conversion enhancements: Shipping + trust block {%- endcomment -%}
+          <div class="cart-conversion-trust">
+            <div class="cart-conversion-trust__shipping">$6.99 flat shipping under $100 • Free shipping $100+</div>
+            <div class="cart-conversion-trust__delivery">Ships in 1-2 business days</div>
+            <ul class="cart-conversion-trust__features">
+              <li>Factory sealed</li>
+              <li>Packed for collectors</li>
+              <li>Secure checkout</li>
+            </ul>
+          </div>
+
+          <div class="cart__item-row text-center cart-shipping-disclaimer">
+            <small>
+              {{ 'cart.general.shipping_at_checkout' | t }}<br />
+            </small>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    {%- comment -%} Cart conversion enhancements: Cart add-ons upsell {%- endcomment -%}
+    {%- if cart.item_count > 0 -%}
+      {%- render 'cart-addons' -%}
+    {%- endif -%}
+  {%- endif -%}
+</div>
+
+{%- comment -%} Cart conversion enhancements: Cart add-ons JavaScript {%- endcomment -%}
+{%- if cart.item_count > 0 -%}
+<script>
+(function() {
+  if (!document.body.classList.contains('template-cart')) return;
+  
+  const addButtons = document.querySelectorAll('.cart-addons__add-btn');
+  if (addButtons.length === 0) return;
+  
+  addButtons.forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      if (btn.disabled || btn.classList.contains('btn--loading')) return;
+      
+      const variantId = btn.dataset.variantId;
+      if (!variantId) {
+        alert('Unable to add item. Please try again.');
+        return;
+      }
+      
+      btn.disabled = true;
+      btn.classList.add('btn--loading');
+      const originalText = btn.querySelector('.btn__text');
+      const originalTextContent = originalText ? originalText.textContent : 'Add';
+      if (originalText) originalText.textContent = 'Adding...';
+      
+      const formData = new FormData();
+      formData.append('id', variantId);
+      formData.append('quantity', '1');
+      
+      fetch((window.theme && window.theme.routes && window.theme.routes.cartAdd) || '/cart/add.js', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest'
+        }
+      })
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+        if (data.status === 422 || data.status) {
+          throw new Error(data.message || data.description || 'Failed to add item');
+        }
+        window.location.reload();
+      })
+      .catch(function(error) {
+        alert(error.message || 'Unable to add item. Please try again.');
+        btn.disabled = false;
+        btn.classList.remove('btn--loading');
+        if (originalText) originalText.textContent = originalTextContent;
+      });
+    });
+  });
+})();
+</script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.main-cart.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_class",
+      "label": "Additional CSS classes"
+    }
+  ]
+}
+{% endschema %}

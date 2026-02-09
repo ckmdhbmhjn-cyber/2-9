@@ -1,0 +1,97 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "1767665719ca950175": {
+      "type": "email-signup-apps",
+      "blocks": {
+        "klaviyo_email_marketing_sms_form_embed_block_iLt7r9": {
+          "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/form-embed-block/2632fe16-c075-4321-a88b-50b567f42507",
+          "settings": {
+            "formId": "<div class=\"klaviyo-form-SvVPFK\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "klaviyo_email_marketing_sms_form_embed_block_iLt7r9"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    },
+    "text_with_icons_RCEhAm": {
+      "type": "text-with-icons",
+      "blocks": {
+        "text_block_AExhbm": {
+          "type": "text_block",
+          "settings": {
+            "icon": "shield",
+            "title": "AUTHENTIC + FACTORY SEALED",
+            "text": "<p>No reseals. No re-shrink.</p>"
+          }
+        },
+        "text_block_tw8wVW": {
+          "type": "text_block",
+          "settings": {
+            "icon": "sales-tag",
+            "title": "FOR COLLECTORS",
+            "text": "<p>Packed to protect sealed condition.</p>"
+          }
+        },
+        "text_block_q4BRqF": {
+          "type": "text_block",
+          "settings": {
+            "icon": "package",
+            "title": "REAL VALUE",
+            "text": "<p>Fair pricing + bundle-friendly offers.</p>"
+          }
+        },
+        "text_block_hqffbP": {
+          "type": "text_block",
+          "settings": {
+            "icon": "envelope",
+            "title": "FAST HANDLING",
+            "text": "<p>Ships in 1-2 business days w/ tracking.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_block_AExhbm",
+        "text_block_tw8wVW",
+        "text_block_q4BRqF",
+        "text_block_hqffbP"
+      ],
+      "custom_css": [],
+      "name": "t:common.text_with_icons.presets.text_with_icons.name",
+      "settings": {
+        "title": "Why Stonebrook Collectibles?",
+        "align_text": "left",
+        "desktop_columns_per_row": 4,
+        "icon_color": "#d4af37",
+        "button_label": "",
+        "button_link": "",
+        "sb_variant": true,
+        "divider": false,
+        "section_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1767665719ca950175",
+    "text_with_icons_RCEhAm"
+  ]
+}

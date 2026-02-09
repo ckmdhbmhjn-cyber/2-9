@@ -1,0 +1,53 @@
+{%- assign description_toggle_enabled = enable_description_toggle | default: false -%}
+{%- if is_tab -%}
+  {%- assign description_toggle_enabled = false -%}
+{%- endif -%}
+
+{% capture description %}
+  {%- if product.empty? -%}
+    {{ 'home_page.onboarding.product_description' | t }}
+  {%- else -%}
+    {{ product.description }}
+  {%- endif -%}
+{% endcapture %}
+{%- if template == 'product.product-acrylics' and description != blank -%}
+  {%- assign description_downcase = description | downcase -%}
+  {%- if description_downcase contains 'packs per box' or description_downcase contains 'cards per pack' or description_downcase contains 'set number' -%}
+    {%- assign description_parts = description | split: '<li' -%}
+    {%- capture filtered_description -%}
+      {%- assign description_prefix = description_parts | first -%}
+      {{ description_prefix }}
+      {%- for part in description_parts offset: 1 -%}
+        {%- assign segment = '<li' | append: part -%}
+        {%- assign segment_downcase = segment | downcase -%}
+        {%- if segment_downcase contains 'packs per box' or segment_downcase contains 'cards per pack' or segment_downcase contains 'set number' -%}
+          {%- continue -%}
+        {%- endif -%}
+        {{ segment }}
+      {%- endfor -%}
+    {%- endcapture -%}
+    {%- assign description = filtered_description -%}
+  {%- endif -%}
+{%- endif -%}
+{%- if is_tab -%}
+  {% assign title = 'products.product.description' | t %}
+  {%- render 'tab', id: id, title: title, content: description -%}
+{%- else -%}
+  {%- if description_toggle_enabled -%}
+    <div class="product-description product-description--collapsed" data-product-description>
+      <div class="rte">
+        {{ description }}
+      </div>
+      <button type="button" class="product-description__toggle" data-product-description-toggle aria-expanded="false">
+        Read more
+      </button>
+    </div>
+  {%- else -%}
+    <div class="rte">
+      {{ description }}
+    </div>
+  {%- endif -%}
+{%- endif -%}
+{%- if description_toggle_enabled -%}
+  {%- render 'product-description-toggle-script' -%}
+{%- endif -%}

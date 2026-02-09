@@ -1,0 +1,265 @@
+{%- comment -%}
+  Cart page add-ons upsell section
+  Shows products from 'cart-addons' collection (or fallback to 'all' filtered)
+  Excludes items already in cart
+  Cart page only - not rendered in cart drawer
+{%- endcomment -%}
+
+{%- liquid
+  assign collection_handle = 'cart-addons'
+  assign collection = collections[collection_handle]
+  
+  if collection == blank or collection.products_count == 0
+    assign collection_handle = 'all'
+    assign collection = collections[collection_handle]
+  endif
+  
+  if collection == blank
+    assign show_section = false
+  else
+    assign show_section = true
+  endif
+  
+  assign max_items = 6
+  
+  assign free_shipping_threshold_cents = 10000
+  assign cart_total_cents = cart.total_price
+  assign remaining_cents = free_shipping_threshold_cents | minus: cart_total_cents
+  if remaining_cents < 0
+    assign remaining_cents = 0
+  endif
+  
+  if remaining_cents <= 2500
+    assign mode = 'top-off'
+    assign min_price_cents = 0
+    assign max_price_cents = 3000
+    assign ideal_min_cents = remaining_cents | minus: 1500
+    if ideal_min_cents < 0
+      assign ideal_min_cents = 0
+    endif
+    assign ideal_max_cents = remaining_cents | plus: 1500
+  else
+    assign mode = 'build'
+    assign min_price_cents = 3000
+    assign max_price_cents = 25000
+    assign ideal_min_cents = 0
+    assign ideal_max_cents = 0
+    assign tier2_min_cents = remaining_cents | times: 70 | divided_by: 100
+    if tier2_min_cents < 5000
+      assign tier2_min_cents = 5000
+    endif
+  endif
+-%}
+
+{%- if show_section -%}
+  {%- liquid
+    assign cart_product_ids = ''
+    assign cart_variant_ids = ''
+    for item in cart.items
+      if cart_product_ids == ''
+        assign cart_product_ids = item.product_id | append: ''
+      else
+        assign cart_product_ids = cart_product_ids | append: ',' | append: item.product_id
+      endif
+      if cart_variant_ids == ''
+        assign cart_variant_ids = item.variant_id | append: ''
+      else
+        assign cart_variant_ids = cart_variant_ids | append: ',' | append: item.variant_id
+      endif
+    endfor
+    assign cart_product_ids_array = cart_product_ids | split: ','
+    assign cart_variant_ids_array = cart_variant_ids | split: ','
+  -%}
+
+  <div class="cart-addons" data-cart-addons>
+    <hr class="hr--large">
+    <div class="index-section index-section--small">
+      <div class="page-width">
+        <header class="section-header">
+          {%- if remaining_cents > 0 -%}
+            {%- if mode == 'top-off' -%}
+              <h3 class="section-header__title">Add to reach free shipping</h3>
+              <p class="section-header__subtext" style="font-size:13px;color:var(--colorTextBody);opacity:0.7;margin-top:4px;">You're {{ remaining_cents | money }} away — popular add-ons below.</p>
+            {%- else -%}
+              <h3 class="section-header__title">Add more sealed to unlock free shipping</h3>
+              <p class="section-header__subtext" style="font-size:13px;color:var(--colorTextBody);opacity:0.7;margin-top:4px;">Free shipping kicks in at $100 — these get you there faster.</p>
+              <p class="section-header__fallback-hint" style="font-size:11px;color:var(--colorTextBody);opacity:0.7;margin-top:6px;display:none;">Most customers unlock free shipping with 2 items.</p>
+            {%- endif -%}
+          {%- else -%}
+            <h3 class="section-header__title">Popular add-ons</h3>
+            <p class="section-header__subtext" style="font-size:13px;color:var(--colorTextBody);opacity:0.7;margin-top:4px;">Top picks collectors add to sealed orders.</p>
+          {%- endif -%}
+        </header>
+      </div>
+
+      <div class="page-width page-width--flush-small">
+        <div class="grid grid--uniform grid--view-items cart-addons__grid">
+          {%- assign item_count = 0 -%}
+          {%- assign tier1_count = 0 -%}
+          {%- assign items_rendered = 0 -%}
+          {%- for product in collection.products limit: 50 -%}
+            {%- if item_count >= max_items -%}
+              {%- break -%}
+            {%- endif -%}
+            
+            {%- assign product_in_cart = false -%}
+            {%- for cart_product_id in cart_product_ids_array -%}
+              {%- if cart_product_id == product.id -%}
+                {%- assign product_in_cart = true -%}
+                {%- break -%}
+              {%- endif -%}
+            {%- endfor -%}
+            
+            {%- if product_in_cart -%}
+              {%- continue -%}
+            {%- endif -%}
+            
+            {%- assign has_valid_variant = false -%}
+            {%- assign first_available_variant = null -%}
+            {%- assign best_variant = null -%}
+            {%- assign best_variant_score = 0 -%}
+            {%- assign is_sealed_product = false -%}
+            
+            {%- comment -%} Mode B: Check if product is sealed (ETBs, booster bundles, boxes) {%- endcomment -%}
+            {%- if mode == 'build' -%}
+              {%- if product.type contains 'ETB' or product.type contains 'Elite Trainer Box' or product.type contains 'Booster Bundle' or product.type contains 'Booster Box' -%}
+                {%- assign is_sealed_product = true -%}
+              {%- endif -%}
+              {%- for tag in product.tags -%}
+                {%- if tag == 'sealed' or tag == 'Sealed' -%}
+                  {%- assign is_sealed_product = true -%}
+                  {%- break -%}
+                {%- endif -%}
+              {%- endfor -%}
+            {%- endif -%}
+            
+            {%- for variant in product.variants -%}
+              {%- assign variant_in_cart = false -%}
+              {%- for cart_variant_id in cart_variant_ids_array -%}
+                {%- if cart_variant_id == variant.id -%}
+                  {%- assign variant_in_cart = true -%}
+                  {%- break -%}
+                {%- endif -%}
+              {%- endfor -%}
+              
+              {%- if variant.available and variant_in_cart == false -%}
+                {%- if variant.price >= min_price_cents and variant.price <= max_price_cents -%}
+                  {%- assign variant_score = 0 -%}
+                  
+                  {%- comment -%} Mode A: Score based on proximity to remaining amount {%- endcomment -%}
+                  {%- if mode == 'top-off' -%}
+                    {%- if variant.price >= ideal_min_cents and variant.price <= ideal_max_cents -%}
+                      {%- assign price_diff = variant.price | minus: remaining_cents -%}
+                      {%- if price_diff < 0 -%}
+                        {%- assign price_diff = price_diff | times: -1 -%}
+                      {%- endif -%}
+                      {%- assign variant_score = 1000 | minus: price_diff -%}
+                    {%- else -%}
+                      {%- assign variant_score = variant.price -%}
+                    {%- endif -%}
+                  {%- comment -%} Mode B: Tiered threshold-aware selection {%- endcomment -%}
+                  {%- else -%}
+                    {%- comment -%} Tier 1: Items that unlock free shipping (price >= remaining) {%- endcomment -%}
+                    {%- if variant.price >= remaining_cents -%}
+                      {%- assign price_overshoot = variant.price | minus: remaining_cents -%}
+                      {%- assign variant_score = 200000 | minus: price_overshoot -%}
+                      {%- if is_sealed_product -%}
+                        {%- assign variant_score = variant_score | plus: 1000 -%}
+                      {%- endif -%}
+                    {%- comment -%} Tier 2: Items that meaningfully help (>= 70% of remaining OR >= $50) {%- endcomment -%}
+                    {%- elsif variant.price >= tier2_min_cents -%}
+                      {%- assign variant_score = 100000 | plus: variant.price -%}
+                      {%- if is_sealed_product -%}
+                        {%- assign variant_score = variant_score | plus: 1000 -%}
+                      {%- endif -%}
+                    {%- comment -%} Other items in range {%- endcomment -%}
+                    {%- else -%}
+                      {%- assign variant_score = variant.price -%}
+                      {%- if is_sealed_product -%}
+                        {%- assign variant_score = variant_score | plus: 500 -%}
+                      {%- endif -%}
+                    {%- endif -%}
+                  {%- endif -%}
+                  
+                  {%- if best_variant == null or variant_score > best_variant_score -%}
+                    {%- assign best_variant = variant -%}
+                    {%- assign best_variant_score = variant_score -%}
+                    {%- assign has_valid_variant = true -%}
+                  {%- endif -%}
+                {%- endif -%}
+              {%- endif -%}
+            {%- endfor -%}
+            
+            {%- if has_valid_variant and best_variant != null -%}
+              {%- assign first_available_variant = best_variant -%}
+              {%- comment -%} Check if this is Tier 1 (unlocks free shipping) {%- endcomment -%}
+              {%- if mode == 'build' and first_available_variant.price >= remaining_cents -%}
+                {%- assign tier1_count = tier1_count | plus: 1 -%}
+              {%- endif -%}
+              {%- comment -%} Calculate remaining after adding this item {%- endcomment -%}
+              {%- assign new_remaining_cents = remaining_cents | minus: first_available_variant.price -%}
+              {%- if new_remaining_cents < 0 -%}
+                {%- assign new_remaining_cents = 0 -%}
+              {%- endif -%}
+              <div class="grid__item grid-product small--one-half medium-up--one-third" data-product-id="{{ product.id }}" data-variant-id="{{ first_available_variant.id }}">
+                <div class="grid-product__content">
+                  <a href="{{ product.url }}" class="grid-product__link">
+                    <div class="grid-product__image-mask">
+                      {%- if product.featured_image -%}
+                        <img
+                          src="{{ product.featured_image | image_url: width: 300 }}"
+                          alt="{{ product.featured_image.alt | escape }}"
+                          loading="lazy"
+                          width="300"
+                          height="{{ 300 | divided_by: product.featured_image.aspect_ratio | round }}"
+                        >
+                      {%- else -%}
+                        {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                      {%- endif -%}
+                    </div>
+                    <div class="grid-product__meta">
+                      <div class="grid-product__title">{{ product.title }}</div>
+                      <div class="grid-product__price-wrap">
+                        <span class="grid-product__price">{{ first_available_variant.price | money }}</span>
+                      </div>
+                      {%- if mode == 'build' -%}
+                        <div class="cart-addons__helper">
+                          {%- if new_remaining_cents <= 0 -%}
+                            <span class="cart-addons__helper-text">Unlocks free shipping</span>
+                          {%- else -%}
+                            <span class="cart-addons__helper-text">Leaves {{ new_remaining_cents | money }} to free shipping</span>
+                          {%- endif -%}
+                        </div>
+                      {%- endif -%}
+                    </div>
+                  </a>
+                  <button
+                    type="button"
+                    class="btn btn--small cart-addons__add-btn"
+                    data-variant-id="{{ first_available_variant.id }}"
+                    data-product-id="{{ product.id }}"
+                    aria-label="Add {{ product.title }} to cart"
+                  >
+                    <span class="btn__text">Add</span>
+                  </button>
+                </div>
+              </div>
+              {%- assign item_count = item_count | plus: 1 -%}
+              {%- assign items_rendered = items_rendered | plus: 1 -%}
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+  {%- if items_rendered == 0 -%}
+    <style>.cart-addons{display:none !important;}</style>
+  {%- elsif mode == 'build' and tier1_count == 0 -%}
+    <script>
+      (function(){
+        var hint = document.querySelector('.cart-addons .section-header__fallback-hint');
+        if(hint) hint.style.display = 'block';
+      })();
+    </script>
+  {%- endif -%}
+{%- endif -%}

@@ -1,0 +1,42 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "rich_text_WHG7dT": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_hFbGr4": {
+          "type": "heading",
+          "settings": {
+            "title": "Returns"
+          }
+        },
+        "text_BxXzBA": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": true,
+            "text": "<p><strong>Sealed product (Pok\u00e9mon / One Piece / other sealed TCG)<br/></strong>All sealed products are final sale once delivered. Please inspect your delivery upon arrival. Issues must be reported within <strong>48 hours of delivery</strong>.</p><p>We only offer a replacement or refund if your sealed item arrives:</p><ul><li>Damaged in transit</li><li>Incorrect (wrong item received)</li><li>With missing shrink, broken seals, or signs of tampering <strong>on arrival</strong></li></ul><p>Not eligible (sealed):</p><ul><li>Opened items or ripped packs</li><li>Buyer\u2019s remorse (including \u201cdidn\u2019t pull what I wanted\u201d)</li><li>Claims submitted more than 48 hours after delivery</li></ul><p><strong>Accessories (acrylic cases, etc.)<br/></strong>Accessories can be returned <strong>within 30 days of delivery</strong> if <strong>unused</strong> and in original packaging. Return requests must be submitted within that 30-day window.</p><p>Not eligible (accessories):</p><ul><li>Used items</li><li>Returns missing original packaging when packaging is required to protect the item in transit</li><li>Damage caused after delivery</li></ul><p><strong>How to request help / start a return<br/></strong>Email support@stonebrookcollectibles.com within the allowed timeframe and include:</p><ul><li>Order number (proof of purchase)</li><li>Short description of the issue</li><li>Photos of the shipping box, packing material, product, and shipping label</li></ul><p>If approved, we\u2019ll send next steps. <strong>Do not send returns without approval.</strong> If a return is required, we\u2019ll provide return instructions and the return address. <strong>We may require the item be returned and inspected before issuing a refund or replacement.</strong></p><p><strong>Return shipping</strong></p><ul><li>If we made an error or the item arrived damaged in transit, we\u2019ll cover return shipping when applicable.</li><li>For approved accessory returns not caused by our error, return shipping is the buyer\u2019s responsibility.</li><li>Returned accessories must be packed securely. Returns that arrive damaged due to insufficient packaging may be refused or refunded at a reduced amount.</li><li>Original shipping charges (if any) aren\u2019t refunded unless the return is due to our error.</li></ul><p><strong>Refunds<br/></strong>If approved, refunds are issued to the original payment method within 10 business days after we receive and inspect the return (if required). Banks/card issuers may take additional time to post the refund.</p><p><strong>Exchanges<br/></strong>We don\u2019t offer direct exchanges. For accessories, return the item (if eligible) and place a new order.</p><p><strong>Sale items / discount codes<br/></strong>Discount codes apply to eligible items at checkout. Unless otherwise stated, discounted items follow the same return policy as non-discounted items. Sealed products remain final sale once delivered (except for issues on arrival as described above). Gift cards (if offered) are non-refundable.</p><p><strong>Lost or stolen packages<br/></strong>If tracking shows delivered but you didn\u2019t receive the package, contact us and we\u2019ll help you file a claim with the carrier. Replacements/refunds are not guaranteed for theft after delivery.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_hFbGr4",
+        "text_BxXzBA"
+      ],
+      "custom_css": [],
+      "settings": {
+        "align_text": "left",
+        "narrow_column": true,
+        "divider": false,
+        "section_class": "sb-page-title"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_WHG7dT"
+  ]
+}

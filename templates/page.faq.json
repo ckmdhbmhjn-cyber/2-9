@@ -1,0 +1,199 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {}
+    },
+    "rich_text_faq_hero": {
+      "type": "stonebrook-page-hero",
+      "blocks": {
+        "text_faq_hero": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": false,
+            "text": "<h1>Frequently Asked Questions</h1><p>Answers to common questions about products, shipping, and returns.</p><ul><li><a href=\"/pages/contact\">Contact</a></li><li><a href=\"/pages/shipping\">Shipping Policy</a></li><li><a href=\"/pages/returns\">Returns Policy</a></li></ul><ul><li><a href=\"#faq-launch-products\">Launch &amp; Products</a></li><li><a href=\"#faq-shipping\">Shipping</a></li><li><a href=\"#faq-orders-returns\">Orders &amp; Returns</a></li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "text_faq_hero"
+      ],
+      "custom_css": [],
+      "name": "t:sections.rich-text.presets.rich_text.name",
+      "settings": {
+        "hero_variant": "faq",
+        "heading_tag": "h2",
+        "align_text": "center",
+        "narrow_column": true,
+        "divider": false,
+        "section_class": "sb-card sb-card--pad-lg sb-card--border-muted sb-card--shadow-soft sb-heading-ink sb-link-clean sb-faq-hero sb-faq-card"
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "faq-1": {
+          "type": "question",
+          "settings": {
+            "title": "What products do you offer?",
+            "text": "<p>We focus on sealed Pok\u00e9mon and One Piece items \u2014 including booster boxes, booster bundles, and ETBs. We also carry display accessories like acrylic cases.</p>"
+          }
+        },
+        "question_jkycte": {
+          "type": "question",
+          "settings": {
+            "title": "Do you offer bundles or deals?",
+            "text": "<p>Yes. We offer simplified bundles when they provide better value. You'll also find tiered discounts based on order total.</p>"
+          }
+        },
+        "question_6nj66y": {
+          "type": "question",
+          "settings": {
+            "title": "Do you sell singles?",
+            "text": "<p>Not at the moment. We specialize in sealed products only.</p>"
+          }
+        },
+        "question_HiHVwY": {
+          "type": "question",
+          "settings": {
+            "title": "Will you carry accessories like acrylic cases?",
+            "text": "<p>Yes. We sell clear acrylic display cases to help protect and showcase your sealed collection.</p>"
+          }
+        },
+        "question_gdwDr9": {
+          "type": "question",
+          "settings": {
+            "title": "Will you expand beyond sealed?",
+            "text": "<p>Possibly \u2014 but for now, we're a sealed-first shop.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq-1",
+        "question_jkycte",
+        "question_6nj66y",
+        "question_HiHVwY",
+        "question_gdwDr9"
+      ],
+      "custom_css": [],
+      "settings": {
+        "title": "LAUNCH & PRODUCTS",
+        "section_class": "sb-card sb-card--pad-md sb-card--border-muted sb-card--shadow-soft sb-heading-ink sb-body-slate sb-faq sb-faq-card sb-faq-stack sb-h2 sb-body sb-faq-page sb-faq-section",
+        "include_styles": true,
+        "anchor_id": "faq-launch-products"
+      }
+    },
+    "faq_k6rDMX": {
+      "type": "faq",
+      "blocks": {
+        "question_mX87QP": {
+          "type": "question",
+          "settings": {
+            "title": "Do orders include tracking?",
+            "text": "<p>Yes. We ship with tracking so you can follow your package end-to-end.</p>"
+          }
+        },
+        "question_7jhejb": {
+          "type": "question",
+          "settings": {
+            "title": "How do you package orders?",
+            "text": "<p>We pack sealed items to protect corners and shrink wrap, using sturdy packaging and fill as needed so items arrive clean.</p>"
+          }
+        },
+        "question_rc7FFX": {
+          "type": "question",
+          "settings": {
+            "title": "Where do you ship from?",
+            "text": "<p>We ship from <strong>Maryland, USA</strong>. Every order is packed carefully to protect sealed condition and ships with tracking.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_mX87QP",
+        "question_7jhejb",
+        "question_rc7FFX"
+      ],
+      "custom_css": [],
+      "settings": {
+        "title": "Shipping",
+        "section_class": "sb-card sb-card--pad-md sb-card--border-muted sb-card--shadow-soft sb-heading-ink sb-body-slate sb-faq sb-faq-card sb-faq-stack sb-h2 sb-body sb-faq-page sb-faq-section",
+        "anchor_id": "faq-shipping"
+      }
+    },
+    "faq_zH8k7w": {
+      "type": "faq",
+      "blocks": {
+        "question_8i4eVx": {
+          "type": "question",
+          "settings": {
+            "title": "Are your products authentic and factory-sealed?",
+            "text": "<p>Yes. We only sell authentic Pok\u00e9mon TCG products. Sealed items are factory-sealed as received. If anything looks compromised, we won\u2019t ship it.</p>"
+          }
+        },
+        "question_YNPHgB": {
+          "type": "question",
+          "settings": {
+            "title": "What is your return policy?",
+            "text": "<p>All sales are final on sealed Pok\u00e9mon products. We do not accept returns on opened items.<br/><br/>If your order arrives damaged or there\u2019s an issue with delivery, contact us and we\u2019ll make it right.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_8i4eVx",
+        "question_YNPHgB"
+      ],
+      "custom_css": [],
+      "settings": {
+        "title": "Orders & Returns",
+        "section_class": "sb-card sb-card--pad-md sb-card--border-muted sb-card--shadow-soft sb-heading-ink sb-body-slate sb-faq sb-faq-card sb-faq-stack sb-h2 sb-body sb-faq-page sb-faq-section",
+        "anchor_id": "faq-orders-returns"
+      }
+    },
+    "rich_text_faq_cta": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_faq_cta": {
+          "type": "heading",
+          "settings": {
+            "title": "Still need help?"
+          }
+        },
+        "text_faq_cta": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": false,
+            "text": "<p>We\u2019re happy to help with any order or product questions.</p>"
+          }
+        },
+        "button_faq_cta": {
+          "type": "button",
+          "settings": {
+            "link": "/pages/contact",
+            "link_text": "Contact"
+          }
+        }
+      },
+      "block_order": [
+        "heading_faq_cta",
+        "text_faq_cta",
+        "button_faq_cta"
+      ],
+      "custom_css": [],
+      "settings": {
+        "align_text": "center",
+        "narrow_column": true,
+        "divider": false,
+        "section_class": "sb-card sb-card--pad-md sb-card--border-muted sb-card--shadow-soft sb-heading-ink sb-body sb-body-ink sb-btn-rounded sb-btn-gold sb-faq-card sb-faq-cta sb-faq-help sb-faq-stack sb-h2"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_faq_hero",
+    "faq",
+    "faq_k6rDMX",
+    "faq_zH8k7w",
+    "rich_text_faq_cta"
+  ]
+}

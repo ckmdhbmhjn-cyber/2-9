@@ -1,0 +1,164 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product-sealed-pokemon",
+      "blocks": {
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "judge_me_reviews_preview_badge_MzfFz9": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "separator": {
+          "type": "separator",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "surface_pickup_enable": false,
+            "show_gift_card_recipient": false
+          }
+        },
+        "text_mLcnTC": {
+          "type": "text",
+          "settings": {
+            "text": "<p class=\"product-shipping-note\">Flat $6.99 shipping under $150 · Free over $150</p>"
+          }
+        },
+        "sales_point_MqN84E": {
+          "type": "sales_point",
+          "settings": {
+            "icon": "package",
+            "text": "Factory sealed"
+          }
+        },
+        "sales_point_packed": {
+          "type": "sales_point",
+          "settings": {
+            "icon": "package",
+            "text": "Packed for collectors"
+          }
+        },
+        "sales_point_9FPW6V": {
+          "type": "sales_point",
+          "settings": {
+            "icon": "truck",
+            "text": "Ships in 1-2 business days"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "is_tab": false,
+            "enable_description_toggle": true
+          }
+        },
+        "tab_6WX4hU": {
+          "type": "tab",
+          "settings": {
+            "title": "Shipping information",
+            "content": "<ul><li>Orders ship in <strong>1-2 business days</strong> (excluding weekends/holidays).</li><li>Tracking is emailed when your label is created.</li></ul>",
+            "page": ""
+          }
+        },
+        "tab": {
+          "type": "tab",
+          "settings": {
+            "title": "Returns & Refunds",
+            "content": "<ul><li>Returns accepted only if your item arrives <strong>damaged in transit</strong> or <strong>incorrect</strong>.</li><li>Contact us within <strong>48 hours of delivery</strong> with photos of the shipping box and product.</li><li><strong>Opened items are not eligible</strong>.</li></ul>",
+            "page": ""
+          }
+        },
+        "tab_qXWtq4": {
+          "type": "tab",
+          "settings": {
+            "title": "Authenticity",
+            "content": "<ul><li>All products are <strong>100% authentic and factory sealed</strong>.</li><li>We do not sell resealed or tampered product.</li><li>If you have concerns on arrival, contact us and we’ll make it right.</li></ul>",
+            "page": ""
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "price",
+        "judge_me_reviews_preview_badge_MzfFz9",
+        "separator",
+        "buy_buttons",
+        "text_mLcnTC",
+        "sales_point_MqN84E",
+        "sales_point_packed",
+        "sales_point_9FPW6V",
+        "description",
+        "tab_6WX4hU",
+        "tab",
+        "tab_qXWtq4",
+        "share"
+      ],
+      "custom_css": [],
+      "settings": {
+        "sku_enable": false,
+        "image_position": "left",
+        "image_size": "large",
+        "product_zoom_enable": true,
+        "thumbnail_position": "beside",
+        "thumbnail_height": "fixed",
+        "thumbnail_arrows": false,
+        "mobile_layout": "full",
+        "enable_video_looping": true,
+        "product_video_style": "muted",
+        "section_class": "sb-product-card sb-product-card--sealed-pokemon"
+      }
+    },
+    "sub": {
+      "type": "product-full-width",
+      "disabled": true,
+      "settings": {
+        "max_width": true
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "custom_css": [],
+      "settings": {
+        "product_recommendations_heading": "You may also like",
+        "related_count": 5,
+        "products_per_row": 5,
+        "is_sealed_variant": true,
+        "section_class": ""
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {
+        "recent_count": 5
+      }
+    },
+    "collection-return": {
+      "type": "collection-return",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "sub",
+    "product-recommendations",
+    "recently-viewed",
+    "collection-return"
+  ]
+}

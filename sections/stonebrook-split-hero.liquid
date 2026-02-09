@@ -1,0 +1,1103 @@
+<section class="stonebrook-hero" data-section-id="{{ section.id }}">
+  {% style %}
+    /* Stonebrook Split Hero: scoped styles, desktop + mobile separated */
+    #shopify-section-{{ section.id }} .stonebrook-hero {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      min-height: clamp(560px, 64vh, 640px);
+      padding: clamp(32px, 6vh, 64px) 0;
+      background-color: #0b1220;
+      background-image:
+        radial-gradient(160% 160% at 50% 8%, rgba(27, 38, 60, 0.6) 0%, rgba(11, 18, 32, 0.98) 62%, rgba(10, 16, 30, 1) 100%),
+        linear-gradient(180deg, rgba(18, 28, 46, 0.35) 0%, rgba(10, 16, 30, 0.95) 100%);
+      background-repeat: no-repeat;
+      background-position: center top;
+      color: #f8fafc;
+      border-bottom: 1px solid rgba(248, 250, 252, 0.08);
+    }
+
+    @media screen and (min-width: 750px) {
+      #shopify-section-{{ section.id }} .stonebrook-hero {
+        background-image:
+          radial-gradient(180% 170% at 50% 6%, rgba(31, 44, 68, 0.65) 0%, rgba(11, 18, 32, 0.97) 60%, rgba(9, 14, 26, 1) 100%),
+          linear-gradient(180deg, rgba(18, 28, 46, 0.5) 0%, rgba(10, 16, 30, 0.96) 100%);
+      }
+
+      #shopify-section-{{ section.id }} .stonebrook-hero::before {
+        background: radial-gradient(560px 560px at 18% 22%, rgba(214, 178, 94, 0.14), rgba(11, 18, 32, 0) 72%);
+      }
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero::before {
+      content: '';
+      position: absolute;
+      inset: -20% -10% -20% -10%;
+      background: radial-gradient(520px 520px at 20% 24%, rgba(214, 178, 94, 0.1), rgba(11, 18, 32, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 80px;
+      background: linear-gradient(180deg, rgba(11, 18, 32, 0) 0%, #0b1220 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero .page-width {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 1200px);
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-left: clamp(20px, 4vw, 40px);
+      padding-right: clamp(20px, 4vw, 40px);
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: clamp(24px, 4vw, 48px);
+      align-items: center;
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__content {
+      align-self: center;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      padding: 0;
+      box-shadow: none;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      width: min(100%, 620px);
+      justify-self: start;
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__heading {
+      font-size: clamp(2.6rem, 3.4vw, 3.9rem);
+      line-height: 1.15;
+      margin: 0 0 16px;
+      color: inherit;
+      letter-spacing: -0.01em;
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__heading::after {
+      content: '';
+      display: block;
+      width: 64px;
+      height: 3px;
+      background: var(--sb-gold);
+      border-radius: 2px;
+      margin-top: 8px;
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__subheading {
+      font-size: 1.45rem;
+      line-height: 1.6;
+      color: rgba(248, 250, 252, 0.96);
+      margin: 0 0 14px;
+      max-width: 58ch;
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__microcopy {
+      font-size: 1.05rem;
+      line-height: 1.55;
+      color: rgba(226, 232, 240, 0.75);
+      margin: 0 0 18px;
+      max-width: 56ch;
+    }
+
+    @media screen and (min-width: 1440px) {
+      #shopify-section-{{ section.id }} .stonebrook-hero__subheading {
+        font-size: 1.55rem;
+      }
+
+      #shopify-section-{{ section.id }} .stonebrook-hero__microcopy {
+        font-size: 1.1rem;
+      }
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 14px;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__btn {
+      min-width: 168px;
+      min-height: 48px;
+      padding: 12px 24px;
+      font-size: 0.95rem;
+      text-align: center;
+      border-radius: 999px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__btn--primary {
+      background: var(--sb-gold);
+      border-color: var(--sb-gold);
+      color: #0b1220;
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__btn--primary:hover,
+    #shopify-section-{{ section.id }} .stonebrook-hero__btn--primary:focus {
+      background: #c7a24d;
+      border-color: #c7a24d;
+      color: #0b1220;
+      box-shadow: 0 10px 24px rgba(214, 178, 94, 0.2);
+      transform: translateY(-1px);
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__btn--secondary {
+      background: transparent;
+      border-color: rgba(248, 250, 252, 0.5);
+      color: rgba(248, 250, 252, 0.94);
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__btn--secondary:hover,
+    #shopify-section-{{ section.id }} .stonebrook-hero__btn--secondary:focus {
+      background: rgba(248, 250, 252, 0.12);
+      border-color: rgba(248, 250, 252, 0.7);
+      color: #f8fafc;
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 24px;
+      color: rgba(248, 250, 252, 0.9);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 999px;
+      border: 1px solid rgba(214, 178, 94, 0.55);
+      background: rgba(11, 18, 32, 0.55);
+      box-shadow: 0 10px 20px rgba(2, 6, 23, 0.2);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__actions .stonebrook-hero__link {
+      flex-basis: 100%;
+      margin-top: 6px;
+      margin-bottom: 2px;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+      opacity: 1;
+    }
+
+    @media screen and (min-width: 990px) {
+      #shopify-section-{{ section.id }} .stonebrook-hero .page-width {
+        width: min(100%, 1280px);
+        max-width: 1280px;
+      }
+
+      #shopify-section-{{ section.id }} .stonebrook-hero__content {
+        width: min(100%, 680px);
+      }
+
+      #shopify-section-{{ section.id }} .stonebrook-hero__heading {
+        font-size: clamp(3rem, 3.6vw, 4.2rem);
+      }
+
+      #shopify-section-{{ section.id }} .stonebrook-hero__subheading {
+        font-size: 1.55rem;
+      }
+
+      #shopify-section-{{ section.id }} .stonebrook-hero__microcopy {
+        font-size: 1.1rem;
+      }
+
+      #shopify-section-{{ section.id }} .stonebrook-hero__actions {
+        gap: 14px 16px;
+        margin-bottom: 20px;
+      }
+
+      #shopify-section-{{ section.id }} .stonebrook-hero__btn {
+        min-width: 190px;
+        min-height: 54px;
+        font-size: 1rem;
+      }
+
+      #shopify-section-{{ section.id }} .stonebrook-hero__link {
+        min-height: 46px;
+        font-size: 0.9rem;
+        letter-spacing: 0.24em;
+      }
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__link:hover,
+    #shopify-section-{{ section.id }} .stonebrook-hero__link:focus {
+      color: #0b1220;
+      background: var(--sb-gold);
+      border-color: var(--sb-gold);
+      box-shadow: 0 12px 24px rgba(214, 178, 94, 0.25);
+      transform: translateY(-1px);
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__link:active {
+      transform: translateY(0);
+      box-shadow: 0 8px 18px rgba(214, 178, 94, 0.2);
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__link:focus-visible {
+      outline: 2px solid rgba(214, 178, 94, 0.55);
+      outline-offset: 3px;
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 24px;
+      list-style: none;
+      margin: 12px 0 0;
+      padding: 0;
+      max-width: none;
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__trust-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.25rem;
+      color: rgba(226, 232, 240, 0.95);
+      line-height: 1.4;
+      white-space: normal;
+      min-width: 0;
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__trust-item::before,
+    #shopify-section-{{ section.id }} .stonebrook-hero__trust-item::marker {
+      content: none;
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__trust-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      background: rgba(214, 178, 94, 0.16);
+      color: #d6b25e;
+      flex: 0 0 16px;
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__trust-icon svg {
+      width: 10px;
+      height: 10px;
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__trust-text {
+      min-width: 0;
+      text-wrap: balance;
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__tiles {
+      display: grid;
+      gap: 16px;
+      align-content: center;
+      justify-items: center;
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__tile {
+      display: grid;
+      grid-template-rows: auto auto;
+      gap: 10px;
+      text-decoration: none;
+      background: rgba(20, 30, 48, 0.92);
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      border-radius: 20px;
+      padding: 16px;
+      box-shadow: 0 14px 28px rgba(2, 6, 23, 0.28);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+      width: min(100%, 340px);
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__tile:hover,
+    #shopify-section-{{ section.id }} .stonebrook-hero__tile:focus {
+      transform: translateY(-2px);
+      border-color: rgba(214, 178, 94, 0.5);
+      box-shadow: 0 18px 30px rgba(2, 6, 23, 0.34);
+      background: rgba(30, 40, 62, 0.94);
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__tile:focus-visible {
+      outline: 2px solid rgba(214, 178, 94, 0.55);
+      outline-offset: 3px;
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__tile-media {
+      position: relative;
+      border-radius: 16px;
+      background: transparent;
+      padding: 0;
+      border: none;
+      box-shadow: none;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__tile-media image-element {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__tile-media::before {
+      content: none;
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__tile-image {
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 14px;
+      filter: drop-shadow(0 12px 18px rgba(2, 6, 23, 0.3));
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__tile-content {
+      display: grid;
+      gap: 4px;
+      width: 100%;
+      margin: 0;
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__tile-title {
+      margin: 0;
+      color: #f8fafc;
+      font-size: 1.35rem;
+      font-weight: 600;
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__tile-subtext {
+      margin: 0;
+      color: rgba(226, 232, 240, 0.9);
+      font-size: 1.05rem;
+    }
+
+    @media screen and (min-width: 1440px) {
+      #shopify-section-{{ section.id }} .stonebrook-hero__tile-title {
+        font-size: 1.45rem;
+      }
+
+      #shopify-section-{{ section.id }} .stonebrook-hero__tile-subtext {
+        font-size: 1.1rem;
+      }
+    }
+
+    @media screen and (max-width: 989px) {
+      #shopify-section-{{ section.id }} .stonebrook-hero {
+        min-height: auto;
+        padding: clamp(28px, 6vh, 48px) 0;
+      }
+
+      #shopify-section-{{ section.id }} .stonebrook-hero__grid {
+        grid-template-columns: 1fr;
+      }
+
+      #shopify-section-{{ section.id }} .stonebrook-hero__tiles {
+        display: none;
+      }
+
+      #shopify-section-{{ section.id }} .stonebrook-hero__actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      #shopify-section-{{ section.id }} .stonebrook-hero__btn {
+        width: 100%;
+      }
+
+      #shopify-section-{{ section.id }} .stonebrook-hero__trust {
+        gap: 10px 18px;
+      }
+
+      #shopify-section-{{ section.id }} .stonebrook-hero__trust-item {
+        flex: 1 1 calc(50% - 12px);
+      }
+    }
+
+    @media screen and (max-width: 749px) {
+      #shopify-section-{{ section.id }} .stonebrook-hero {
+        min-height: auto;
+        padding: clamp(18px, 4vh, 26px) 0 clamp(16px, 3vh, 22px);
+      }
+
+      #shopify-section-{{ section.id }} .stonebrook-hero__content {
+        display: flex;
+        flex-direction: column;
+      }
+
+      #shopify-section-{{ section.id }} .stonebrook-hero__heading {
+        margin-bottom: 12px;
+      }
+
+      #shopify-section-{{ section.id }} .stonebrook-hero__heading::after {
+        margin-top: 6px;
+      }
+
+      #shopify-section-{{ section.id }} .stonebrook-hero__subheading {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+
+      #shopify-section-{{ section.id }} .stonebrook-hero__microcopy {
+        font-size: 0.95rem;
+        color: rgba(226, 232, 240, 0.8);
+        margin-bottom: 12px;
+      }
+
+      #shopify-section-{{ section.id }} .stonebrook-hero__actions {
+        order: 4;
+        margin-bottom: 6px;
+      }
+
+      #shopify-section-{{ section.id }} .stonebrook-hero__cta {
+        height: 48px;
+        min-height: 48px;
+        padding: 0 20px;
+      }
+
+      #shopify-section-{{ section.id }} .stonebrook-hero__btn--secondary {
+        --sb-hero-cta-bg: transparent;
+        --sb-hero-cta-bg-hover: rgba(248, 250, 252, 0.08);
+        --sb-hero-cta-bg-active: rgba(248, 250, 252, 0.12);
+        --sb-hero-cta-border: rgba(248, 250, 252, 0.35);
+        --sb-hero-cta-border-hover: rgba(248, 250, 252, 0.6);
+        --sb-hero-cta-text: rgba(248, 250, 252, 0.88);
+        --sb-hero-cta-shadow: 0 6px 12px rgba(2, 6, 23, 0.18);
+        --sb-hero-cta-shadow-hover: 0 8px 16px rgba(2, 6, 23, 0.22);
+        --sb-hero-cta-shadow-active: 0 4px 10px rgba(2, 6, 23, 0.2);
+        --sb-hero-cta-sheen: 0.12;
+        --sb-hero-cta-sheen-hover: 0.2;
+      }
+
+      #shopify-section-{{ section.id }} .stonebrook-hero__link {
+        font-size: 0.9rem;
+        margin-top: 2px;
+      }
+
+      #shopify-section-{{ section.id }} .stonebrook-hero__trust {
+        order: 3;
+        gap: 6px 12px;
+        margin: 6px 0 12px;
+      }
+
+      #shopify-section-{{ section.id }} .stonebrook-hero__trust-item {
+        flex: 1 1 100%;
+        font-size: 0.85rem;
+        line-height: 1.35;
+      }
+    }
+    #shopify-section-{{ section.id }} .stonebrook-hero__actions {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-items: stretch;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__cta {
+      --sb-hero-cta-radius: 14px;
+      --sb-hero-cta-bg: rgba(15, 23, 42, 0.84);
+      --sb-hero-cta-bg-hover: rgba(30, 41, 59, 0.92);
+      --sb-hero-cta-bg-active: rgba(15, 23, 42, 0.98);
+      --sb-hero-cta-border: rgba(148, 163, 184, 0.5);
+      --sb-hero-cta-border-hover: rgba(148, 163, 184, 0.7);
+      --sb-hero-cta-text: rgba(226, 232, 240, 0.95);
+      --sb-hero-cta-shadow: 0 8px 20px rgba(2, 6, 23, 0.4), 0 0 0 1px rgba(148, 163, 184, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.14), inset 0 -1px 0 rgba(2, 6, 23, 0.7);
+      --sb-hero-cta-shadow-hover: 0 10px 24px rgba(2, 6, 23, 0.46), 0 0 0 1px rgba(148, 163, 184, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -1px 0 rgba(2, 6, 23, 0.74);
+      --sb-hero-cta-shadow-active: 0 6px 14px rgba(2, 6, 23, 0.45), 0 0 0 1px rgba(148, 163, 184, 0.28), inset 0 2px 4px rgba(2, 6, 23, 0.5);
+      --sb-hero-cta-focus: 0 0 0 3px rgba(212, 175, 55, 0.32);
+      --sb-hero-cta-inner: rgba(255, 255, 255, 0.16);
+      --sb-hero-cta-sheen: 0.26;
+      --sb-hero-cta-sheen-hover: 0.36;
+      width: 100%;
+      min-width: 0;
+      height: 52px;
+      min-height: 52px;
+      padding: 0 24px;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      border-radius: var(--sb-hero-cta-radius);
+      border: 1px solid var(--sb-hero-cta-border);
+      background: var(--sb-hero-cta-bg);
+      color: var(--sb-hero-cta-text);
+      box-shadow: var(--sb-hero-cta-shadow);
+      box-sizing: border-box;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      line-height: 1.1;
+      text-align: center;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 160ms ease, border-color 160ms ease, box-shadow 160ms ease, color 160ms ease;
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__cta::before {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      border-radius: inherit;
+      box-shadow: inset 0 0 0 1px var(--sb-hero-cta-inner);
+      pointer-events: none;
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__cta::after {
+      content: "";
+      position: absolute;
+      top: 3px;
+      left: 8px;
+      right: 8px;
+      height: 42%;
+      border-radius: 999px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.12) 38%, rgba(255, 255, 255, 0) 100%);
+      opacity: var(--sb-hero-cta-sheen);
+      pointer-events: none;
+      transition: opacity 160ms ease;
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__cta:focus,
+    #shopify-section-{{ section.id }} .stonebrook-hero__cta:focus-visible {
+      outline: none;
+      box-shadow: var(--sb-hero-cta-shadow), var(--sb-hero-cta-focus);
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__cta:hover {
+      background: var(--sb-hero-cta-bg-hover);
+      border-color: var(--sb-hero-cta-border-hover);
+      color: var(--sb-hero-cta-text);
+      box-shadow: var(--sb-hero-cta-shadow-hover);
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__cta:hover::after {
+      opacity: var(--sb-hero-cta-sheen-hover);
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__cta:active {
+      background: var(--sb-hero-cta-bg-active);
+      border-color: var(--sb-hero-cta-border-hover);
+      box-shadow: var(--sb-hero-cta-shadow-active);
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__btn--primary {
+      --sb-hero-cta-bg: var(--sb-gold);
+      --sb-hero-cta-bg-hover: var(--sb-gold-hover);
+      --sb-hero-cta-bg-active: var(--sb-gold-active);
+      --sb-hero-cta-border: rgba(184, 140, 31, 0.9);
+      --sb-hero-cta-border-hover: rgba(184, 140, 31, 1);
+      --sb-hero-cta-text: #0b1220;
+      --sb-hero-cta-shadow: 0 14px 30px rgba(7, 12, 24, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.55), inset 0 -1px 0 rgba(124, 94, 21, 0.45);
+      --sb-hero-cta-shadow-hover: 0 16px 34px rgba(7, 12, 24, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.26), inset 0 1px 0 rgba(255, 255, 255, 0.6), inset 0 -1px 0 rgba(124, 94, 21, 0.55);
+      --sb-hero-cta-shadow-active: 0 8px 18px rgba(7, 12, 24, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.22), inset 0 2px 4px rgba(124, 94, 21, 0.55);
+      --sb-hero-cta-focus: 0 0 0 3px rgba(212, 175, 55, 0.38);
+      --sb-hero-cta-inner: rgba(255, 255, 255, 0.34);
+      --sb-hero-cta-sheen: 0.52;
+      --sb-hero-cta-sheen-hover: 0.64;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__btn--secondary,
+    #shopify-section-{{ section.id }} .stonebrook-hero__link {
+      --sb-hero-cta-inner: rgba(255, 255, 255, 0.18);
+      --sb-hero-cta-sheen: 0.24;
+      --sb-hero-cta-sheen-hover: 0.36;
+      -webkit-backdrop-filter: blur(10px) saturate(140%);
+      backdrop-filter: blur(10px) saturate(140%);
+    }
+
+    @media screen and (min-width: 750px) {
+      .template-index #shopify-section-{{ section.id }} {
+        margin-bottom: clamp(14px, 1.6vw, 22px);
+      }
+
+      .template-index #shopify-section-{{ section.id }} .stonebrook-hero {
+        min-height: clamp(420px, 54vh, 520px);
+        padding-top: clamp(24px, 4vh, 40px);
+        padding-bottom: clamp(18px, 3vh, 28px);
+      }
+
+      .template-index #shopify-section-{{ section.id }} .stonebrook-hero__heading {
+        margin-bottom: 12px;
+      }
+
+      .template-index #shopify-section-{{ section.id }} .stonebrook-hero__heading::after {
+        margin-top: 6px;
+      }
+
+      .template-index #shopify-section-{{ section.id }} .stonebrook-hero__subheading {
+        margin-bottom: 18px;
+      }
+
+      .template-index #shopify-section-{{ section.id }} .stonebrook-hero__microcopy {
+        margin-bottom: 14px;
+      }
+
+      .template-index #shopify-section-{{ section.id }} .stonebrook-hero__actions {
+        gap: 10px;
+        margin-bottom: 14px;
+      }
+
+      .template-index #shopify-section-{{ section.id }} .stonebrook-hero__actions .stonebrook-hero__link {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
+      .template-index #shopify-section-{{ section.id }} .stonebrook-hero__trust {
+        margin-top: 14px;
+      }
+      #shopify-section-{{ section.id }} .stonebrook-hero__tiles {
+        display: none;
+      }
+      #shopify-section-{{ section.id }} .stonebrook-hero__grid {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 0;
+      }
+      #shopify-section-{{ section.id }} .stonebrook-hero__content {
+        max-width: 680px;
+        width: 100%;
+        justify-self: center;
+      }
+      #shopify-section-{{ section.id }} .stonebrook-hero__trust {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 10px;
+        justify-content: center;
+        margin-top: 16px;
+      }
+      #shopify-section-{{ section.id }} .stonebrook-hero__trust-item {
+        flex: 1 1 calc(50% - 9px);
+        max-width: calc(50% - 9px);
+      }
+    }
+
+    @media screen and (min-width: 990px) {
+      .template-index #shopify-section-{{ section.id }} {
+        margin-bottom: clamp(10px, 1.2vw, 16px);
+      }
+
+      .template-index #shopify-section-{{ section.id }} .stonebrook-hero .page-width {
+        max-width: 1100px;
+      }
+
+      .template-index #shopify-section-{{ section.id }} .stonebrook-hero__content {
+        max-width: 1100px;
+      }
+
+      #shopify-section-{{ section.id }} .stonebrook-hero {
+        min-height: clamp(360px, 42vh, 460px);
+        padding-top: clamp(22px, 3.5vh, 34px);
+        padding-bottom: clamp(10px, 2vh, 18px);
+      }
+
+      .template-index #shopify-section-{{ section.id }} .stonebrook-hero {
+        min-height: clamp(300px, 36vh, 400px);
+        padding-top: clamp(18px, 2.8vh, 26px);
+        padding-bottom: clamp(12px, 2.2vh, 18px);
+      }
+    }
+
+    @media screen and (min-width: 750px) {
+      .template-index #shopify-section-{{ section.id }}.stonebrook-hero-section .stonebrook-hero__heading {
+        font-size: clamp(3.5rem, 4.4vw, 4rem);
+        line-height: 1.08;
+      }
+
+      .template-index #shopify-section-{{ section.id }}.stonebrook-hero-section .stonebrook-hero__subheading {
+        font-size: 1.125rem;
+        line-height: 1.5;
+        max-width: 960px;
+      }
+    }
+
+    @media screen and (min-width: 1200px) {
+      .template-index #shopify-section-{{ section.id }}.stonebrook-hero-section .stonebrook-hero__subheading {
+        font-size: 1.25rem;
+      }
+    }
+  {% endstyle %}
+  <div class="page-width">
+    <div class="stonebrook-hero__grid">
+      <div class="stonebrook-hero__content">
+        {%- if section.settings.heading != blank -%}
+          <h1 class="stonebrook-hero__heading">{{ section.settings.heading }}</h1>
+        {%- endif -%}
+        {%- if section.settings.subheading != blank -%}
+          <p class="stonebrook-hero__subheading">{{ section.settings.subheading }}</p>
+        {%- endif -%}
+        {%- if section.settings.microcopy != blank -%}
+          <p class="stonebrook-hero__microcopy">{{ section.settings.microcopy }}</p>
+        {%- endif -%}
+
+        <div class="stonebrook-hero__actions">
+          {%- if section.settings.primary_label != blank and section.settings.primary_link != blank -%}
+            <a class="btn stonebrook-hero__cta stonebrook-hero__btn stonebrook-hero__btn--primary" href="{{ section.settings.primary_link }}">
+              {{ section.settings.primary_label }}
+            </a>
+          {%- endif -%}
+          {%- if section.settings.secondary_label != blank and section.settings.secondary_link != blank -%}
+            <a class="btn btn--secondary stonebrook-hero__cta stonebrook-hero__btn stonebrook-hero__btn--secondary" href="{{ section.settings.secondary_link }}">
+              {{ section.settings.secondary_label }}
+            </a>
+          {%- endif -%}
+          {%- if section.settings.tertiary_label != blank and section.settings.tertiary_link != blank -%}
+            <a class="btn btn--secondary stonebrook-hero__cta stonebrook-hero__link" href="{{ section.settings.tertiary_link }}">
+              {{ section.settings.tertiary_label }}
+            </a>
+          {%- endif -%}
+        </div>
+
+        {%- if section.blocks.size > 0 -%}
+          <ul class="stonebrook-hero__trust">
+            {%- for block in section.blocks -%}
+              <li class="stonebrook-hero__trust-item" {{ block.shopify_attributes }}>
+                <span class="stonebrook-hero__trust-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="presentation" focusable="false">
+                    <path d="M9.2 16.2 5.8 12.8 4.4 14.2 9.2 19l10.4-10.4-1.4-1.4L9.2 16.2z" fill="currentColor"/>
+                  </svg>
+                </span>
+                <span class="stonebrook-hero__trust-text">{{ block.settings.text }}</span>
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+      </div>
+
+      <div class="stonebrook-hero__tiles">
+        {%- assign pokemon_product = section.settings.featured_product_pokemon -%}
+        {%- assign one_piece_product = section.settings.featured_product_one_piece -%}
+        {%- assign pokemon_image = section.settings.pokemon_image_override -%}
+        {%- assign one_piece_image = section.settings.one_piece_image_override -%}
+        {%- assign pokemon_fallback_asset = 'stonebrook-hero-pokemon-tile.svg' -%}
+        {%- assign one_piece_fallback_asset = 'stonebrook-hero-one-piece-tile.svg' -%}
+        {%- if pokemon_image == blank and pokemon_product != blank -%}
+          {%- assign pokemon_image = pokemon_product.featured_media.preview_image | default: pokemon_product.featured_image -%}
+        {%- endif -%}
+        {%- if one_piece_image == blank and one_piece_product != blank -%}
+          {%- assign one_piece_image = one_piece_product.featured_media.preview_image | default: one_piece_product.featured_image -%}
+        {%- endif -%}
+        {%- assign pokemon_needs_config = false -%}
+        {%- assign one_piece_needs_config = false -%}
+        {%- assign pokemon_missing_image = false -%}
+        {%- assign one_piece_missing_image = false -%}
+        {%- if pokemon_product == blank and section.settings.pokemon_image_override == blank -%}
+          {%- assign pokemon_needs_config = true -%}
+        {%- endif -%}
+        {%- if one_piece_product == blank and section.settings.one_piece_image_override == blank -%}
+          {%- assign one_piece_needs_config = true -%}
+        {%- endif -%}
+        {%- if pokemon_product != blank and section.settings.pokemon_image_override == blank and pokemon_product.featured_media == blank and pokemon_product.featured_image == blank -%}
+          {%- assign pokemon_missing_image = true -%}
+        {%- endif -%}
+        {%- if one_piece_product != blank and section.settings.one_piece_image_override == blank and one_piece_product.featured_media == blank and one_piece_product.featured_image == blank -%}
+          {%- assign one_piece_missing_image = true -%}
+        {%- endif -%}
+
+        <a class="stonebrook-hero__tile" href="{{ section.settings.pokemon_link }}">
+          <div class="stonebrook-hero__tile-media">
+            {%- if pokemon_image != blank -%}
+              {%- render 'image-element',
+                img: pokemon_image,
+                widths: '400, 600, 900, 1200',
+                sizes: '(min-width: 990px) 320px, 70vw',
+                classes: 'stonebrook-hero__tile-image',
+                alt: 'Pokémon featured tile',
+                loading: 'eager'
+              -%}
+            {%- elsif pokemon_missing_image -%}
+            {%- else -%}
+              {%- render 'image-element',
+                type: 'asset',
+                host: 'theme',
+                asset: pokemon_fallback_asset,
+                widths: '400, 600, 900, 1200',
+                sizes: '(min-width: 990px) 320px, 70vw',
+                classes: 'stonebrook-hero__tile-image',
+                alt: 'Pokémon tile placeholder',
+                img_width: 800,
+                img_height: 800,
+                loading: 'eager'
+              -%}
+            {%- endif -%}
+          </div>
+          <div class="stonebrook-hero__tile-content">
+            <h3 class="stonebrook-hero__tile-title">{{ section.settings.pokemon_title }}</h3>
+            {%- if pokemon_missing_image -%}
+              <p class="stonebrook-hero__tile-subtext stonebrook-hero__tile-subtext--placeholder">
+                Selected product has no featured image. Add one in Shopify admin.
+              </p>
+            {%- else -%}
+              <p class="stonebrook-hero__tile-subtext">{{ section.settings.pokemon_subtext }}</p>
+            {%- endif -%}
+            {%- if section.settings.show_helper_text and pokemon_needs_config -%}
+              <p class="stonebrook-hero__tile-helper">Customize → Hero → Featured Pokémon product or tile image override</p>
+            {%- endif -%}
+          </div>
+        </a>
+
+        <a class="stonebrook-hero__tile" href="{{ section.settings.one_piece_link }}">
+          <div class="stonebrook-hero__tile-media">
+            {%- if one_piece_image != blank -%}
+              {%- render 'image-element',
+                img: one_piece_image,
+                widths: '400, 600, 900, 1200',
+                sizes: '(min-width: 990px) 320px, 70vw',
+                classes: 'stonebrook-hero__tile-image',
+                alt: 'One Piece featured tile',
+                loading: 'eager'
+              -%}
+            {%- elsif one_piece_missing_image -%}
+            {%- else -%}
+              {%- render 'image-element',
+                type: 'asset',
+                host: 'theme',
+                asset: one_piece_fallback_asset,
+                widths: '400, 600, 900, 1200',
+                sizes: '(min-width: 990px) 320px, 70vw',
+                classes: 'stonebrook-hero__tile-image',
+                alt: 'One Piece tile placeholder',
+                img_width: 800,
+                img_height: 800,
+                loading: 'eager'
+              -%}
+            {%- endif -%}
+          </div>
+          <div class="stonebrook-hero__tile-content">
+            <h3 class="stonebrook-hero__tile-title">{{ section.settings.one_piece_title }}</h3>
+            {%- if one_piece_missing_image -%}
+              <p class="stonebrook-hero__tile-subtext stonebrook-hero__tile-subtext--placeholder">
+                Selected product has no featured image. Add one in Shopify admin.
+              </p>
+            {%- else -%}
+              <p class="stonebrook-hero__tile-subtext">{{ section.settings.one_piece_subtext }}</p>
+            {%- endif -%}
+            {%- if section.settings.show_helper_text and one_piece_needs_config -%}
+              <p class="stonebrook-hero__tile-helper">Customize → Hero → Featured One Piece product or tile image override</p>
+            {%- endif -%}
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Stonebrook Split Hero",
+  "class": "stonebrook-hero-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Buying Sealed, Made Simple."
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Factory-sealed Pokémon and One Piece — packed by collectors and shipped fast."
+    },
+    {
+      "type": "text",
+      "id": "microcopy",
+      "label": "Microcopy",
+      "default": "Free shipping $100+ • $6.99 flat under $100 • Ships in 1–2 business days"
+    },
+    {
+      "type": "header",
+      "content": "Primary CTA"
+    },
+    {
+      "type": "text",
+      "id": "primary_label",
+      "label": "Primary label",
+      "default": "Shop Pokémon"
+    },
+    {
+      "type": "url",
+      "id": "primary_link",
+      "label": "Primary link"
+    },
+    {
+      "type": "header",
+      "content": "Secondary CTA"
+    },
+    {
+      "type": "text",
+      "id": "secondary_label",
+      "label": "Secondary label",
+      "default": "Shop One Piece"
+    },
+    {
+      "type": "url",
+      "id": "secondary_link",
+      "label": "Secondary link"
+    },
+    {
+      "type": "header",
+      "content": "Tertiary CTA"
+    },
+    {
+      "type": "text",
+      "id": "tertiary_label",
+      "label": "Tertiary label",
+      "default": "New Arrivals"
+    },
+    {
+      "type": "url",
+      "id": "tertiary_link",
+      "label": "Tertiary link"
+    },
+    {
+      "type": "header",
+      "content": "Pokémon tile"
+    },
+    {
+      "type": "text",
+      "id": "pokemon_title",
+      "label": "Pokémon title",
+      "default": "Pokémon"
+    },
+    {
+      "type": "text",
+      "id": "pokemon_subtext",
+      "label": "Pokémon subtext",
+      "default": "Booster boxes, ETBs, bundles"
+    },
+    {
+      "type": "url",
+      "id": "pokemon_link",
+      "label": "Pokémon link"
+    },
+    {
+      "type": "product",
+      "id": "featured_product_pokemon",
+      "label": "Featured Pokémon product (hero tile image)"
+    },
+    {
+      "type": "image_picker",
+      "id": "pokemon_image_override",
+      "label": "Pokémon tile image override",
+      "info": "Optional. Use a square image (1200 x 1200 recommended)."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_helper_text",
+      "label": "Show helper text when unconfigured",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "One Piece tile"
+    },
+    {
+      "type": "text",
+      "id": "one_piece_title",
+      "label": "One Piece title",
+      "default": "One Piece"
+    },
+    {
+      "type": "text",
+      "id": "one_piece_subtext",
+      "label": "One Piece subtext",
+      "default": "Sealed booster boxes"
+    },
+    {
+      "type": "url",
+      "id": "one_piece_link",
+      "label": "One Piece link"
+    },
+    {
+      "type": "product",
+      "id": "featured_product_one_piece",
+      "label": "Featured One Piece product (hero tile image)"
+    },
+    {
+      "type": "image_picker",
+      "id": "one_piece_image_override",
+      "label": "One Piece tile image override",
+      "info": "Optional. Use a square image (1200 x 1200 recommended)."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "trust_item",
+      "name": "Trust item",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Factory sealed only"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Stonebrook Split Hero",
+      "blocks": [
+        {
+          "type": "trust_item",
+          "settings": {
+            "text": "Factory sealed only"
+          }
+        },
+        {
+          "type": "trust_item",
+          "settings": {
+            "text": "Packed by collectors"
+          }
+        },
+        {
+          "type": "trust_item",
+          "settings": {
+            "text": "Ships in 1–2 days"
+          }
+        },
+        {
+          "type": "trust_item",
+          "settings": {
+            "text": "500+ TCGplayer • 100% positive"
+          }
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["footer", "header", "custom.popups"]
+  }
+}
+{% endschema %}

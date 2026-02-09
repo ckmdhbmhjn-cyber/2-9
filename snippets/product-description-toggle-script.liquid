@@ -1,0 +1,46 @@
+<script>
+  (() => {
+    if (window.themeProductDescriptionToggleInit) return;
+    window.themeProductDescriptionToggleInit = true;
+
+    const init = () => {
+      document.querySelectorAll('[data-product-description]').forEach((wrapper) => {
+        const rte = wrapper.querySelector('.rte');
+        const toggle = wrapper.querySelector('[data-product-description-toggle]');
+        if (!rte || !toggle) return;
+
+        const updateToggle = () => {
+          const isClamped = rte.scrollHeight > rte.clientHeight + 1;
+          if (!isClamped) {
+            wrapper.classList.remove('product-description--collapsed', 'product-description--expanded');
+            toggle.setAttribute('hidden', 'hidden');
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.textContent = 'Read more';
+            return;
+          }
+
+          toggle.removeAttribute('hidden');
+          if (!wrapper.classList.contains('product-description--expanded')) {
+            wrapper.classList.add('product-description--collapsed');
+          }
+        };
+
+        requestAnimationFrame(updateToggle);
+        window.addEventListener('resize', updateToggle);
+
+        toggle.addEventListener('click', () => {
+          const expanded = wrapper.classList.toggle('product-description--expanded');
+          wrapper.classList.toggle('product-description--collapsed', !expanded);
+          toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+          toggle.textContent = expanded ? 'Read less' : 'Read more';
+        });
+      });
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+</script>
