@@ -1,1 +1,81 @@
-{"sections":{"collection-header":{"type":"collection-header","custom_css":[],"settings":{"enable":true,"collection_image_enable":true,"parallax":false,"parallax_direction":"left"}},"main-collection":{"type":"main-collection","blocks":{"product_grid":{"type":"product_grid","settings":{"enable_collection_count":true,"per_row":4,"rows_per_page":7,"mobile_flush_grid":false}},"subcollections_EBqeWC":{"type":"subcollections","settings":{"subcollections_per_row":5}},"collection_description":{"type":"collection_description","settings":{}}},"block_order":["product_grid","subcollections_EBqeWC","collection_description"],"settings":{"enable_sidebar":true,"collapsed":true,"filter_style":"sidebar","enable_color_swatches":false,"enable_swatch_labels":false,"enable_sort":true}}},"order":["collection-header","main-collection"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-header",
+      "custom_css": [],
+      "settings": {
+        "enable": true,
+        "collection_image_enable": true,
+        "parallax": false,
+        "parallax_direction": "left"
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {
+            "enable_collection_count": true,
+            "per_row": 4,
+            "rows_per_page": 7,
+            "mobile_flush_grid": false
+          }
+        },
+        "subcollections_EBqeWC": {
+          "type": "subcollections",
+          "settings": {
+            "subcollections_per_row": 5
+          }
+        },
+        "collection_description": {
+          "type": "collection_description",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "product_grid",
+        "subcollections_EBqeWC",
+        "collection_description"
+      ],
+      "settings": {
+        "enable_sidebar": true,
+        "collapsed": true,
+        "filter_style": "sidebar",
+        "enable_color_swatches": false,
+        "enable_swatch_labels": false,
+        "enable_sort": true
+      }
+    },
+    "1770644217f6f76b8f": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_preview_badge_qgcFH6": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_preview_badge_qgcFH6"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    }
+  },
+  "order": [
+    "collection-header",
+    "main-collection",
+    "1770644217f6f76b8f"
+  ]
+}
