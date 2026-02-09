@@ -564,6 +564,12 @@
         });
       })();
     </script>
+  {%- when 'policy' -%}
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        document.body.classList.add('sb-policy-page');
+      });
+    </script>
 {%- endcase -%}
 
 {% schema %}
