@@ -92,6 +92,18 @@ body.template-page .sb-faq-help .theme-block:nth-child(2) .rte p {
   margin: 0;
 }
 
+/* FAQ CTA card: keep a white surface and remove the gold halo so it contrasts against parchment. */
+body.template-page-faq .sb-faq-cta {
+  --sb-card-bg: #ffffff;
+  background: #ffffff !important;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: var(--sb-shadow-soft);
+}
+
+body.template-page-faq .sb-faq-cta::before {
+  content: none !important;
+}
+
 @media screen and (min-width: 750px) {
   body.template-page .sb-faq-help {
     display: grid;
