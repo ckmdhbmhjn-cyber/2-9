@@ -5,16 +5,33 @@
       "disabled": true,
       "settings": {}
     },
-    "rich_text_WHG7dT": {
-      "type": "rich-text",
+    "policy_hero": {
+      "type": "stonebrook-page-hero",
       "blocks": {
-        "heading_hFbGr4": {
+        "heading_policy": {
           "type": "heading",
           "settings": {
             "title": "Returns"
           }
-        },
-        "text_BxXzBA": {
+        }
+      },
+      "block_order": [
+        "heading_policy"
+      ],
+      "custom_css": [],
+      "settings": {
+        "hero_variant": "policy",
+        "heading_tag": "h1",
+        "align_text": "left",
+        "narrow_column": true,
+        "divider": false,
+        "section_class": "sb-card sb-card--pad-lg sb-card--border-muted sb-card--shadow-soft sb-card--radius-24 sb-max-980 sb-heading-ink sb-body-ink sb-policy-hero sb-page-section"
+      }
+    },
+    "policy_body": {
+      "type": "rich-text",
+      "blocks": {
+        "text_policy": {
           "type": "text",
           "settings": {
             "enlarge_text": true,
@@ -23,20 +40,20 @@
         }
       },
       "block_order": [
-        "heading_hFbGr4",
-        "text_BxXzBA"
+        "text_policy"
       ],
       "custom_css": [],
       "settings": {
         "align_text": "left",
         "narrow_column": true,
         "divider": false,
-        "section_class": "sb-page-title"
+        "section_class": "sb-card sb-card--pad-lg sb-card--border-muted sb-card--shadow-soft sb-card--radius-24 sb-max-980 sb-body sb-body-ink sb-policy-body sb-page-section"
       }
     }
   },
   "order": [
     "main",
-    "rich_text_WHG7dT"
+    "policy_hero",
+    "policy_body"
   ]
 }

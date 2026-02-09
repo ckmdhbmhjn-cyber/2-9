@@ -79,7 +79,7 @@
         "align_text": "left",
         "narrow_column": false,
         "divider": false,
-        "section_class": "sb-about-hero sb-heading-compact sb-max-1100"
+        "section_class": "sb-about-hero sb-heading-compact sb-max-1100 sb-page-section"
       }
     },
     "rich_text_about_body": {
@@ -101,7 +101,7 @@
         "align_text": "left",
         "narrow_column": false,
         "divider": false,
-        "section_class": "sb-card sb-card--radius-24 sb-card--shadow-soft sb-card--border-muted sb-max-900 sb-heading-ink sb-body-ink sb-about-card sb-about-intro sb-about-body sb-about-stack sb-body sb-about-page sb-about-first"
+        "section_class": "sb-card sb-card--radius-24 sb-card--shadow-soft sb-card--border-muted sb-max-900 sb-heading-ink sb-body-ink sb-about-card sb-about-intro sb-about-body sb-about-stack sb-body sb-about-page sb-about-first sb-page-section"
       }
     },
     "text_with_icons_gAfkBn": {
@@ -138,7 +138,7 @@
         "button_label": "",
         "button_link": "",
         "divider": false,
-        "section_class": "sb-about-features sb-about-stack sb-icon-gold sb-heading-ink sb-body sb-body-ink sb-max-1100 sb-about-page"
+        "section_class": "sb-about-features sb-about-stack sb-icon-gold sb-heading-ink sb-body sb-body-ink sb-max-1100 sb-about-page sb-page-section"
       }
     },
     "rich_text_BXfkMg": {
@@ -176,7 +176,7 @@
         "align_text": "center",
         "narrow_column": false,
         "divider": false,
-        "section_class": "sb-card sb-card--radius-24 sb-card--shadow-soft sb-card--border-muted sb-max-900 sb-about-card sb-about-cta sb-about-join sb-about-stack sb-btn-rounded sb-heading-ink sb-body sb-body-ink sb-h2 sb-about-page"
+        "section_class": "sb-card sb-card--radius-24 sb-card--shadow-soft sb-card--border-muted sb-max-900 sb-about-card sb-about-cta sb-about-join sb-about-stack sb-btn-rounded sb-heading-ink sb-body sb-body-ink sb-h2 sb-about-page sb-page-section"
       }
     }
   },

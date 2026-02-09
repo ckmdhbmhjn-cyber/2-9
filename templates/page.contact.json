@@ -40,7 +40,7 @@
         "align_text": "left",
         "narrow_column": true,
         "divider": false,
-        "section_class": "sb-card sb-card--pad-xl sb-max-980 sb-heading-ink sb-body-slate sb-link-underline sb-heading-tight"
+        "section_class": "sb-card sb-card--pad-xl sb-max-980 sb-heading-ink sb-body-slate sb-link-underline sb-heading-tight sb-page-section"
       }
     },
     "form": {
@@ -51,7 +51,7 @@
         "text": "<p>Include your order number if applicable.</p>",
         "show_phone": false,
         "narrow_column": true,
-        "section_class": "sb-card sb-card--pad-xl sb-max-980 sb-heading-ink sb-body-ink sb-label-ink sb-form-fields sb-btn-gold sb-btn-rounded"
+        "section_class": "sb-card sb-card--pad-xl sb-max-980 sb-heading-ink sb-body-ink sb-label-ink sb-form-fields sb-btn-gold sb-btn-rounded sb-page-section"
       }
     }
   },

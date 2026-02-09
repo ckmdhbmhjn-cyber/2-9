@@ -27,7 +27,7 @@
         "align_text": "center",
         "narrow_column": true,
         "divider": false,
-        "section_class": "sb-card sb-card--pad-lg sb-card--border-muted sb-card--shadow-soft sb-heading-ink sb-link-clean sb-faq-hero sb-faq-card"
+        "section_class": "sb-card sb-card--pad-lg sb-card--border-muted sb-card--shadow-soft sb-heading-ink sb-link-clean sb-faq-hero sb-faq-card sb-page-section"
       }
     },
     "faq": {
@@ -79,7 +79,7 @@
       "custom_css": [],
       "settings": {
         "title": "LAUNCH & PRODUCTS",
-        "section_class": "sb-card sb-card--pad-md sb-card--border-muted sb-card--shadow-soft sb-heading-ink sb-body-slate sb-faq sb-faq-card sb-faq-stack sb-h2 sb-body sb-faq-page sb-faq-section",
+        "section_class": "sb-card sb-card--pad-md sb-card--border-muted sb-card--shadow-soft sb-heading-ink sb-body-slate sb-faq sb-faq-card sb-faq-stack sb-h2 sb-body sb-faq-page sb-faq-section sb-page-section",
         "include_styles": true,
         "anchor_id": "faq-launch-products"
       }
@@ -117,7 +117,7 @@
       "custom_css": [],
       "settings": {
         "title": "Shipping",
-        "section_class": "sb-card sb-card--pad-md sb-card--border-muted sb-card--shadow-soft sb-heading-ink sb-body-slate sb-faq sb-faq-card sb-faq-stack sb-h2 sb-body sb-faq-page sb-faq-section",
+        "section_class": "sb-card sb-card--pad-md sb-card--border-muted sb-card--shadow-soft sb-heading-ink sb-body-slate sb-faq sb-faq-card sb-faq-stack sb-h2 sb-body sb-faq-page sb-faq-section sb-page-section",
         "anchor_id": "faq-shipping"
       }
     },
@@ -146,7 +146,7 @@
       "custom_css": [],
       "settings": {
         "title": "Orders & Returns",
-        "section_class": "sb-card sb-card--pad-md sb-card--border-muted sb-card--shadow-soft sb-heading-ink sb-body-slate sb-faq sb-faq-card sb-faq-stack sb-h2 sb-body sb-faq-page sb-faq-section",
+        "section_class": "sb-card sb-card--pad-md sb-card--border-muted sb-card--shadow-soft sb-heading-ink sb-body-slate sb-faq sb-faq-card sb-faq-stack sb-h2 sb-body sb-faq-page sb-faq-section sb-page-section",
         "anchor_id": "faq-orders-returns"
       }
     },
@@ -184,7 +184,7 @@
         "align_text": "center",
         "narrow_column": true,
         "divider": false,
-        "section_class": "sb-card sb-card--pad-md sb-card--border-muted sb-card--shadow-soft sb-heading-ink sb-body sb-body-ink sb-btn-rounded sb-btn-gold sb-faq-card sb-faq-cta sb-faq-help sb-faq-stack sb-h2"
+        "section_class": "sb-card sb-card--pad-md sb-card--border-muted sb-card--shadow-soft sb-heading-ink sb-body sb-body-ink sb-btn-rounded sb-btn-gold sb-faq-card sb-faq-cta sb-faq-help sb-faq-stack sb-h2 sb-page-section"
       }
     }
   },
