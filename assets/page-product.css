@@ -223,9 +223,9 @@
     align-items: center;
     justify-content: space-between;
     gap: 18px;
-    max-width: 980px;
+    max-width: 1120px;
     margin: 0 auto;
-    padding: 14px 18px;
+    padding: 12px 18px;
     background: #fff;
     border: 1px solid var(--sb-line);
     border-radius: 16px;
@@ -234,7 +234,7 @@
 
   .product-section--sealed-pokemon.sb-product-card--sealed-pokemon .product-sticky-atc__title {
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--sb-ink);
     margin: 0 0 4px;
     white-space: nowrap;
@@ -244,7 +244,7 @@
   }
 
   .product-section--sealed-pokemon.sb-product-card--sealed-pokemon .product-sticky-atc__price {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 800;
     color: var(--sb-ink);
     white-space: nowrap;
