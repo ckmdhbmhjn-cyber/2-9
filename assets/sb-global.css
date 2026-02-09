@@ -1186,7 +1186,7 @@ input[type=submit]:focus-visible,
 }
 
 .sb-policy-hero {
-  --sb-card-bg: var(--sb-parchment);
+  --sb-card-bg: var(--sb-card);
   --sb-card-border: rgba(11, 18, 32, 0.12);
   --sb-card-shadow: var(--sb-shadow-soft);
   color: var(--sb-ink);
