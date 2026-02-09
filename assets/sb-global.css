@@ -1282,6 +1282,9 @@ body.template-page-returns .sb-policy-hero,
 body.template-page-privacy-policy .sb-policy-hero,
 body.template-page-terms-of-service .sb-policy-hero {
   --sb-card-bg: #ffffff;
+  background: #ffffff !important;
+  border: 1px solid var(--sb-card-border, #e6eaf2);
+  box-shadow: var(--sb-card-shadow, var(--sb-shadow-soft));
 }
 
 body.sb-policy-page .main-content,
@@ -1302,6 +1305,15 @@ body.sb-policy-page .main-content .index-section {
 
 body.sb-policy-page .sb-policy-hero {
   --sb-card-bg: #ffffff;
+  background: #ffffff !important;
+  border: 1px solid var(--sb-card-border, #e6eaf2);
+  box-shadow: var(--sb-card-shadow, var(--sb-shadow-soft));
+}
+
+body.sb-policy-page .sb-policy-body {
+  background: #ffffff !important;
+  border: 1px solid #e6eaf2;
+  box-shadow: var(--sb-shadow-soft);
 }
 
 .template-page-terms-of-service .page-content {
