@@ -1,3 +1,10 @@
+{%- liquid
+  assign is_email_signup = false
+  if template.name == 'page' and template.suffix == 'email-signup'
+    assign is_email_signup = true
+  endif
+-%}
+
 {%- if section.settings.space_around -%}
   <div class="index-section">
 {%- endif -%}
@@ -6,7 +13,7 @@
   <div class="page-width">
 {%- endunless -%}
 
-  <div class="sb-email-signup-band">
+  <div class="sb-email-signup-band"{% if is_email_signup %} data-sb-email-signup data-sb-template="email-signup"{% endif %}>
     <div class="sb-email-signup-card">
       {%- for block in section.blocks -%}
         {% render block %}
@@ -114,7 +121,8 @@
 
   @media (max-width: 749px) {
     #shopify-section-{{ section.id }} {
-      padding: 32px 0;
+      padding-top: 28px;
+      padding-bottom: 24px;
     }
 
     #shopify-section-{{ section.id }} .sb-email-signup-card {
@@ -126,6 +134,92 @@
     #shopify-section-{{ section.id }} .klaviyo-form-SvVPFK textarea,
     #shopify-section-{{ section.id }} .klaviyo-form-SvVPFK button {
       max-width: 100%;
+    }
+
+    [data-sb-template='email-signup'][data-sb-email-signup] .klaviyo-form-SvVPFK form {
+      padding: 20px 18px !important;
+    }
+
+    [data-sb-template='email-signup'][data-sb-email-signup] .klaviyo-form-SvVPFK [data-testid='form-component'] {
+      padding: 8px 6px !important;
+    }
+
+    [data-sb-template='email-signup'][data-sb-email-signup] .klaviyo-form-SvVPFK p {
+      font-size: 14px !important;
+      line-height: 1.5 !important;
+    }
+
+    [data-sb-template='email-signup'][data-sb-email-signup] .klaviyo-form-SvVPFK [data-testid='form-row']:first-of-type span {
+      display: inline-block;
+      font-size: 28px !important;
+      line-height: 1.12 !important;
+      max-width: 20ch;
+      margin: 0 auto;
+    }
+
+    [data-sb-template='email-signup'][data-sb-email-signup] .klaviyo-form-SvVPFK [data-testid='form-row']:nth-of-type(2) p {
+      font-size: 16px !important;
+      line-height: 1.35 !important;
+      margin: 0 0 6px;
+    }
+
+    [data-sb-template='email-signup'][data-sb-email-signup] .klaviyo-form-SvVPFK [data-testid='form-row']:nth-of-type(2) p:last-child {
+      font-size: 14px !important;
+      line-height: 1.45 !important;
+      margin: 0 auto;
+      max-width: 36ch;
+    }
+
+    [data-sb-template='email-signup'][data-sb-email-signup] .klaviyo-form-SvVPFK input[type='email'] {
+      background-color: #fff !important;
+      border-color: #cfd7e5 !important;
+      border-radius: 14px !important;
+      font-family: 'Funnel Sans', Helvetica, Arial, sans-serif !important;
+      font-size: 16px !important;
+      height: 52px !important;
+      line-height: 1.2 !important;
+      min-height: 52px !important;
+      padding: 0 16px !important;
+    }
+
+    [data-sb-template='email-signup'][data-sb-email-signup] .klaviyo-form-SvVPFK button {
+      font-size: 16px !important;
+      height: 52px !important;
+      letter-spacing: 0.6px !important;
+      line-height: 1 !important;
+      min-height: 52px !important;
+    }
+
+    [data-sb-template='email-signup'][data-sb-email-signup] .klaviyo-form-SvVPFK [data-testid='form-row']:nth-of-type(5) [data-testid='form-component'] {
+      padding-top: 10px !important;
+      padding-bottom: 6px !important;
+    }
+
+    [data-sb-template='email-signup'][data-sb-email-signup] .klaviyo-form-SvVPFK a {
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+
+    [data-sb-template='email-signup'][data-sb-email-signup] .klaviyo-form-SvVPFK [data-testid='form-row']:last-child [data-testid='form-component'] {
+      justify-content: center !important;
+    }
+
+    [data-sb-template='email-signup'][data-sb-email-signup] .klaviyo-form-SvVPFK [data-testid='form-row']:last-child button {
+      background: transparent !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      color: #667085 !important;
+      font-size: 14px !important;
+      height: auto !important;
+      letter-spacing: 0 !important;
+      min-height: 44px !important;
+      padding: 10px 14px !important;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+      width: auto !important;
     }
   }
 
