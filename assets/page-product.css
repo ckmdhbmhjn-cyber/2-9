@@ -191,7 +191,64 @@
 
 @media (min-width: 750px) {
   .product-section--sealed-pokemon.sb-product-card--sealed-pokemon .product-sticky-atc {
-    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 14px 24px;
+    background: #fff;
+    border-top: 1px solid var(--sb-line);
+    box-shadow: 0 -10px 30px rgba(11, 18, 32, 0.08);
+    min-height: 72px;
+    z-index: 30;
+    opacity: 0;
+    transform: translateY(100%);
+    pointer-events: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .product-section--sealed-pokemon.sb-product-card--sealed-pokemon .product-sticky-atc.product-sticky-atc--visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .product-section--sealed-pokemon.sb-product-card--sealed-pokemon .product-sticky-atc .page-width {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .product-section--sealed-pokemon.sb-product-card--sealed-pokemon .product-sticky-atc__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 16px 24px;
+  }
+
+  .product-section--sealed-pokemon.sb-product-card--sealed-pokemon .product-sticky-atc__title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--sb-ink);
+    margin: 0 0 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .product-section--sealed-pokemon.sb-product-card--sealed-pokemon .product-sticky-atc__price {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--sb-ink);
+    white-space: nowrap;
+  }
+
+  .product-section--sealed-pokemon.sb-product-card--sealed-pokemon .product-sticky-atc__button {
+    min-height: 48px;
+    padding: 0 28px;
+  }
+
+  body.has-sticky-atc .product-section--sealed-pokemon.sb-product-card--sealed-pokemon {
+    padding-bottom: 96px;
   }
 }
 
