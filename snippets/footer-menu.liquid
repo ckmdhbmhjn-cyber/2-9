@@ -15,8 +15,9 @@
         <div class="footer__collapsible footer__accordion-body">
           <ul class="no-bullets site-footer__linklist">
             {%- for link in linklists[block.settings.menu].links -%}
+              {%- assign link_handle = link.title | handle -%}
               <li>
-                <a href="{{ link.url }}"{% if link.title | handle == 'join-the-list' %} class="footer__cta-link"{% endif %}>{{ link.title }}</a>
+                <a href="{{ link.url }}"{% if link_handle == 'join-the-list' %} class="footer__cta-link"{% endif %}>{{ link.title }}</a>
               </li>
             {%- endfor -%}
           </ul>
