@@ -67,11 +67,12 @@
   }
 
   .product-section--sealed-pokemon .sb-sealed-accordion-note {
-    margin: 8px 0 10px;
-    font-size: 0.85rem;
+    margin: 10px 0 12px;
+    font-size: 0.84rem;
     line-height: 1.4;
-    font-weight: 600;
-    color: #5a6372;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: #4d596d;
   }
 
   .product-section--sealed-pokemon .product-shipping-progress {
@@ -346,6 +347,10 @@
     .product-section--sealed-pokemon .product-shipping-note {
       font-size: 0.9rem;
       text-align: left;
+    }
+
+    .product-section--sealed-pokemon .sb-sealed-accordion-note {
+      font-size: 0.86rem;
     }
 
     .product-section--sealed-pokemon .product-block hr {
@@ -1418,6 +1423,24 @@
         }
       };
 
+      var ensureDesktopAccordionOpen = function() {
+        if (isMobile()) {
+          return;
+        }
+        var group = root.querySelector('.sb-sealed-accordion-group');
+        if (!group) {
+          return;
+        }
+        var openTab = group.querySelector('.collapsible-trigger.is-open, .collapsible-trigger[aria-expanded="true"]');
+        if (openTab) {
+          return;
+        }
+        var firstTrigger = group.querySelector('.collapsible-trigger');
+        if (firstTrigger) {
+          firstTrigger.click();
+        }
+      };
+
       var recentlyViewedObserver = null;
 
       var getRecentlyViewedElements = function() {
@@ -1506,6 +1529,7 @@
             wrapper.classList.remove('sb-quick-facts--overflow');
           }
           updateAccordionNote();
+          ensureDesktopAccordionOpen();
           updateRecentlyViewedSpacing();
           return;
         }

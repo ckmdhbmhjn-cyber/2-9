@@ -712,8 +712,18 @@
     hintEl.textContent = '';
   }
 
+  function getGapAddLabelText(remainingCents, recommendationSource) {
+    if (recommendationSource === 'in-cart-fallback') {
+      return 'Add one more to unlock free shipping';
+    }
+    if (typeof remainingCents === 'number' && remainingCents > 0 && remainingCents <= 1500) {
+      return 'Last step to unlock free shipping';
+    }
+    return 'Recommended to unlock free shipping';
+  }
+
   // Show gap-add UI with product data
-  function showGapAdd(product, variant) {
+  function showGapAdd(product, variant, recommendationMeta) {
     try {
       const drawer = document.getElementById('CartDrawer');
       if (!drawer) {
@@ -770,6 +780,8 @@
       titleEl.textContent = displayTitle;
       priceEl.textContent = formatMoneyFromCents(variant._priceCents);
 
+      const meta = recommendationMeta || {};
+
       // Update product image if available
       if (imageEl) {
         imageEl.innerHTML = '';
@@ -788,6 +800,7 @@
       btnEl.disabled = false;
       btnEl.textContent = 'ADD';
       if (labelEl) {
+        labelEl.textContent = getGapAddLabelText(meta.remainingCents, meta.recommendationSource);
         labelEl.hidden = false;
         labelEl.removeAttribute('hidden');
       }
@@ -922,7 +935,10 @@
         }
 
         // Use showGapAdd to render
-        const success = showGapAdd(recommendation.product, recommendation.variant);
+        const success = showGapAdd(recommendation.product, recommendation.variant, {
+          remainingCents: remainingCents,
+          recommendationSource: recommendation.recommendationSource
+        });
         if (!success) {
           hideGapAdd('showGapAdd failed');
         }
