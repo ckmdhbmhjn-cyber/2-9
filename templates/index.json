@@ -172,7 +172,6 @@
             "text_size": "medium",
             "stars_size": "medium",
             "arrows_position": "bottom",
-            "max_width": 760,
             "corner_styling": "soft",
             "quote_marks_style": "serif",
             "card_color": "#f9f9f9",
