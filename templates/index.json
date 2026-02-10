@@ -302,13 +302,21 @@
             "title": "What if my order arrives damaged or incorrect?",
             "text": "<p>Contact us within 48 hours of delivery with clear photos of the shipping box and product. We support damaged/incorrect delivery issues and will make it right.</p>"
           }
+        },
+        "question_help_choosing": {
+          "type": "question",
+          "settings": {
+            "title": "Need help choosing what to buy?",
+            "text": "<p>Start with Best Sellers for proven picks. If you want a recommendation based on budget or goals, <a href=\"/pages/contact\">contact us</a> before checkout.</p>"
+          }
         }
       },
       "block_order": [
         "question_authenticity",
         "question_ship_time",
         "question_shipping_rates",
-        "question_returns"
+        "question_returns",
+        "question_help_choosing"
       ],
       "settings": {
         "title": "Before you order",
@@ -320,9 +328,9 @@
   },
   "order": [
     "stonebrook_split_hero",
-    "featured-collections",
-    "featured_collection_yeHVTB",
     "featured-collection",
+    "featured_collection_yeHVTB",
+    "featured-collections",
     "1769802383741323cb",
     "trusted_seller_proof",
     "text_with_icons_zVMtFd",

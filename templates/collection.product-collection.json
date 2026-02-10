@@ -89,18 +89,34 @@
             "text": "<p>Orders ship in 1-2 business days. Tracking is emailed automatically once your label is created.</p>"
           }
         },
+        "question_shipping_rates": {
+          "type": "question",
+          "settings": {
+            "title": "What are your shipping rates?",
+            "text": "<p>Shipping is a flat $6.99 under $150. Orders at $150+ ship free (after discounts).</p>"
+          }
+        },
         "question_returns": {
           "type": "question",
           "settings": {
             "title": "What if my order arrives damaged or incorrect?",
             "text": "<p>Contact us within 48 hours of delivery with clear photos of the shipping box and product. We support damaged/incorrect delivery issues and will make it right.</p>"
           }
+        },
+        "question_help_choosing": {
+          "type": "question",
+          "settings": {
+            "title": "Need help choosing the right product?",
+            "text": "<p>Use the collection filter to narrow by category or price. If you want a recommendation, <a href=\"/pages/contact\">contact us</a> before checkout and we’ll help.</p>"
+          }
         }
       },
       "block_order": [
         "question_authenticity",
         "question_ship_time",
-        "question_returns"
+        "question_shipping_rates",
+        "question_returns",
+        "question_help_choosing"
       ],
       "settings": {
         "title": "Buy with confidence",

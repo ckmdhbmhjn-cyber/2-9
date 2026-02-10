@@ -61,6 +61,12 @@
             "text": "<p class=\"product-shipping-note\"><a class=\"product-shipping-note__link\" href=\"/pages/contact\">Need help choosing? Contact us before checkout.</a></p>"
           }
         },
+        "text_before_order_note": {
+          "type": "text",
+          "settings": {
+            "text": "<p class=\"sb-sealed-accordion-note\">Before you order: shipping, returns, and authenticity details.</p>"
+          }
+        },
         "complementary_products_primary": {
           "type": "complementary_products",
           "settings": {
@@ -113,11 +119,11 @@
         "text_cta_proof",
         "text_mLcnTC",
         "text_support_help",
-        "complementary_products_primary",
-        "description",
+        "text_before_order_note",
         "tab_6WX4hU",
         "tab",
-        "tab_qXWtq4"
+        "tab_qXWtq4",
+        "description"
       ],
       "custom_css": [],
       "settings": {
