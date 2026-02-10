@@ -454,13 +454,27 @@ body.template-page .sb-about-join .theme-block:nth-child(2) .rte p {
     margin-bottom: 16px;
   }
 
+  body.template-page .sb-about-join .theme-block:nth-child(3) .rte {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
   body.template-page .sb-about-join .theme-block:nth-child(1) h2 {
     font-size: 20px;
   }
 
   body.template-page .sb-about-join .btn {
-    min-height: 44px;
-    width: fit-content;
+    min-height: 50px;
+    width: 100%;
+    max-width: 320px;
+    padding: 0 28px;
     display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1;
+    letter-spacing: 0.14em;
+    white-space: nowrap;
   }
 }

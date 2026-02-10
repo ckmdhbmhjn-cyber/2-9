@@ -261,27 +261,12 @@
       text-underline-offset: 2px;
     }
 
-    body[data-sb-email-signup-page] [data-sb-email-signup] .klaviyo-form-SvVPFK [data-testid='form-row']:last-child button {
-      background: rgba(11, 18, 32, 0.04) !important;
-      border: 1px solid rgba(11, 18, 32, 0.18) !important;
-      border-radius: 999px !important;
-      box-shadow: none !important;
-      color: #0b1220 !important;
-      font-size: 15px !important;
-      height: 48px !important;
-      letter-spacing: 0.01em !important;
-      min-height: 48px !important;
-      padding: 10px 16px !important;
-      display: inline-flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      text-decoration: none;
-      width: 100% !important;
-      margin-top: 6px !important;
-      font-weight: 600 !important;
-    }
-
-    body[data-sb-email-signup-page] [data-sb-email-signup] .klaviyo-form-SvVPFK .sb-email-signup-secondary-cta {
+    body[data-sb-email-signup-page] #shopify-section-{{ section.id }} [data-sb-email-signup] .klaviyo-form-SvVPFK [data-testid='form-row']:last-child button,
+    body[data-sb-email-signup-page] #shopify-section-{{ section.id }} [data-sb-email-signup] .klaviyo-form-SvVPFK [data-testid='form-row']:last-child a,
+    body[data-sb-email-signup-page] #shopify-section-{{ section.id }} [data-sb-email-signup] .klaviyo-form-SvVPFK [data-testid='form-row']:last-child [role='button'],
+    body[data-sb-email-signup-page] #shopify-section-{{ section.id }} [data-sb-email-signup] .klaviyo-form-SvVPFK [data-testid='form-row']:last-child input[type='submit'],
+    body[data-sb-email-signup-page] #shopify-section-{{ section.id }} [data-sb-email-signup] .klaviyo-form-SvVPFK [data-testid='form-row']:last-child input[type='button'],
+    body[data-sb-email-signup-page] #shopify-section-{{ section.id }} [data-sb-email-signup] .klaviyo-form-SvVPFK .sb-email-signup-secondary-cta {
       background: rgba(11, 18, 32, 0.04) !important;
       border: 1px solid rgba(11, 18, 32, 0.18) !important;
       border-radius: 999px !important;
@@ -295,6 +280,13 @@
       margin-top: 6px !important;
       font-weight: 600 !important;
       text-decoration: none !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      line-height: 1 !important;
+      text-align: center !important;
+      white-space: nowrap !important;
+      -webkit-appearance: none !important;
     }
 
     body[data-sb-email-signup-page] .sb-why-stonebrook .text-with-icons__title {
@@ -452,11 +444,12 @@
         return;
       }
 
-      var buttons = root.querySelectorAll('button');
-      buttons.forEach(function (button) {
-        var label = (button.textContent || '').trim().toLowerCase();
+      var ctas = root.querySelectorAll("button, a, [role='button'], input[type='submit'], input[type='button']");
+      ctas.forEach(function (cta) {
+        var label = (cta.textContent || cta.value || cta.getAttribute('aria-label') || '').trim().toLowerCase();
+        label = label.replace(/\s+/g, ' ');
         if (label.indexOf('continue shopping') !== -1) {
-          button.classList.add('sb-email-signup-secondary-cta');
+          cta.classList.add('sb-email-signup-secondary-cta');
         }
       });
     };
@@ -464,12 +457,15 @@
     applySecondaryClass();
     document.addEventListener('DOMContentLoaded', applySecondaryClass);
     window.addEventListener('load', applySecondaryClass);
+    window.setTimeout(applySecondaryClass, 600);
+    window.setTimeout(applySecondaryClass, 1800);
+    window.setTimeout(applySecondaryClass, 4000);
 
     var observer = new MutationObserver(applySecondaryClass);
     observer.observe(document.documentElement, { childList: true, subtree: true });
     window.setTimeout(function () {
       observer.disconnect();
-    }, 12000);
+    }, 30000);
   })();
 </script>
 
