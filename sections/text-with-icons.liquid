@@ -264,10 +264,47 @@
       padding-bottom: 0 !important;
     }
 
+    #shopify-section-{{ section.id }} .text-with-icons__title {
+      margin-bottom: clamp(var(--sb-section-gap-m, 24px), 3vw, var(--sb-section-gap-d, 32px));
+    }
+
+    #shopify-section-{{ section.id }} .text-with-icons__blocks {
+      gap: clamp(14px, 2vw, 22px);
+    }
+
+    #shopify-section-{{ section.id }} .sb-why-stonebrook .text-with-icons__block {
+      background: #ffffff;
+      border: 1px solid #e6eaf2;
+      border-radius: 22px;
+      box-shadow: var(--sb-shadow-soft, 0 12px 26px rgba(11, 18, 32, 0.1));
+      padding: clamp(18px, 2.4vw, 26px);
+    }
+
+    #shopify-section-{{ section.id }} .sb-why-stonebrook .text-with-icons__block-title h3 {
+      color: var(--sb-ink);
+      letter-spacing: 0.02em;
+    }
+
+    #shopify-section-{{ section.id }} .sb-why-stonebrook .text-with-icons__block-text,
+    #shopify-section-{{ section.id }} .sb-why-stonebrook .text-with-icons__block-text p,
+    #shopify-section-{{ section.id }} .sb-why-stonebrook .text-with-icons__block-text li {
+      color: #3a4252;
+      font-size: 1rem;
+      line-height: 1.55;
+    }
+
     @media only screen and (max-width: 749px) {
       #shopify-section-{{ section.id }},
       #shopify-section-{{ section.id }}.index-section {
         padding-bottom: 40px !important;
+      }
+
+      #shopify-section-{{ section.id }} .text-with-icons__title {
+        text-align: center;
+      }
+
+      #shopify-section-{{ section.id }} .sb-why-stonebrook .text-with-icons__block {
+        padding: 18px;
       }
     }
 
@@ -275,6 +312,11 @@
       #shopify-section-{{ section.id }},
       #shopify-section-{{ section.id }}.index-section {
         padding-bottom: 64px !important;
+      }
+
+      #shopify-section-{{ section.id }} .sb-why-stonebrook .text-with-icons__blocks {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
       }
     }
   {% endif %}
