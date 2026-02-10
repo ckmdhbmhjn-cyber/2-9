@@ -86,12 +86,13 @@
 
             {%- comment -%} Dynamic gap-add recommendation (managed by JS) {%- endcomment -%}
             <div class="cart-gap-add" data-gap-add hidden>
+              <div class="cart-gap-add__label" aria-hidden="true">Optional add-on</div>
               <div class="cart-gap-add__image" data-gap-image></div>
               <div class="cart-gap-add__meta">
                 <div class="cart-gap-add__title" data-gap-title></div>
                 <div class="cart-gap-add__price" data-gap-price></div>
               </div>
-              <button type="button" class="btn btn--small cart-gap-add__btn" data-gap-add-btn disabled>ADD</button>
+              <button type="button" class="btn btn--small cart-gap-add__btn" data-gap-add-btn disabled>Add</button>
               <div class="cart-gap-add__error" data-gap-error hidden></div>
             </div>
           </div>
@@ -116,10 +117,11 @@
             </div>
           {% endif %}
 
-          <div class="cart__checkout-wrapper">
+          <div class="cart__checkout-wrapper cart__checkout-wrapper--priority">
             <button type="submit" name="checkout" data-terms-required="{{ settings.cart_terms_conditions_enable }}" class="btn cart__checkout">
               {{ 'cart.general.checkout' | t }}
             </button>
+            <p class="cart__checkout-micro">Secure checkout. Shipping and taxes shown next.</p>
 
             {% if additional_checkout_buttons and settings.cart_additional_buttons %}
               <div class="additional-checkout-buttons additional-checkout-buttons--vertical">{{ content_for_additional_checkout_buttons }}</div>
