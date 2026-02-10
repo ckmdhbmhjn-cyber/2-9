@@ -133,14 +133,19 @@
 
   @media (max-width: 749px) {
     #shopify-section-{{ section.id }} {
-      padding-top: 28px;
-      padding-bottom: 24px;
+      padding-top: 18px;
+      padding-bottom: 16px;
     }
 
     #shopify-section-{{ section.id }} .sb-email-signup-card {
-      padding: 24px 20px 28px;
-      border-radius: 22px;
+      padding: 18px 14px 20px;
+      border-radius: 20px;
       max-width: 560px;
+    }
+
+    #shopify-section-{{ section.id }} .sb-email-signup-band {
+      padding-left: 12px;
+      padding-right: 12px;
     }
 
     #shopify-section-{{ section.id }} .klaviyo-form-SvVPFK input:not([type='hidden']):not([type='checkbox']):not([type='radio']),
@@ -155,7 +160,7 @@
       border: 0 !important;
       border-radius: 0 !important;
       box-shadow: none !important;
-      padding: 20px 18px !important;
+      padding: 12px 10px 10px !important;
     }
 
     body[data-sb-email-signup-page] [data-sb-email-signup] .klaviyo-form-SvVPFK [data-testid='form-component'] {
@@ -197,23 +202,23 @@
 
     body[data-sb-email-signup-page] [data-sb-email-signup] .klaviyo-form-SvVPFK [data-testid='form-row']:first-of-type span {
       display: inline-block;
-      font-size: 28px !important;
-      line-height: 1.12 !important;
-      max-width: 19ch;
+      font-size: 24px !important;
+      line-height: 1.1 !important;
+      max-width: 16ch;
       margin: 0 auto;
     }
 
     body[data-sb-email-signup-page] [data-sb-email-signup] .klaviyo-form-SvVPFK [data-testid='form-row']:nth-of-type(2) p {
-      font-size: 16px !important;
-      line-height: 1.35 !important;
-      margin: 0 0 6px;
+      font-size: 15px !important;
+      line-height: 1.32 !important;
+      margin: 0 0 4px;
     }
 
     body[data-sb-email-signup-page] [data-sb-email-signup] .klaviyo-form-SvVPFK [data-testid='form-row']:nth-of-type(2) p:last-child {
-      font-size: 14px !important;
-      line-height: 1.45 !important;
+      font-size: 13px !important;
+      line-height: 1.4 !important;
       margin: 0 auto;
-      max-width: 34ch;
+      max-width: 30ch;
     }
 
     body[data-sb-email-signup-page] [data-sb-email-signup] .klaviyo-form-SvVPFK input[type='email'] {
@@ -233,11 +238,11 @@
     }
 
     body[data-sb-email-signup-page] [data-sb-email-signup] .klaviyo-form-SvVPFK button {
-      font-size: 16px !important;
-      height: 52px !important;
-      letter-spacing: 0.6px !important;
+      font-size: 17px !important;
+      height: 54px !important;
+      letter-spacing: 0.04em !important;
       line-height: 1 !important;
-      min-height: 52px !important;
+      min-height: 54px !important;
     }
 
     body[data-sb-email-signup-page] [data-sb-email-signup] .klaviyo-form-SvVPFK [data-testid='form-row']:nth-of-type(4) button {
@@ -245,8 +250,8 @@
     }
 
     body[data-sb-email-signup-page] [data-sb-email-signup] .klaviyo-form-SvVPFK [data-testid='form-row']:nth-of-type(5) p {
-      font-size: 13px !important;
-      line-height: 1.5 !important;
+      font-size: 12px !important;
+      line-height: 1.45 !important;
       margin: 0 !important;
     }
 
@@ -257,29 +262,45 @@
     }
 
     body[data-sb-email-signup-page] [data-sb-email-signup] .klaviyo-form-SvVPFK [data-testid='form-row']:last-child button {
-      background: transparent !important;
-      border: 0 !important;
-      border-radius: 0 !important;
+      background: rgba(11, 18, 32, 0.04) !important;
+      border: 1px solid rgba(11, 18, 32, 0.18) !important;
+      border-radius: 999px !important;
       box-shadow: none !important;
-      color: #667085 !important;
-      font-size: 14px !important;
-      height: auto !important;
-      letter-spacing: 0 !important;
-      min-height: 44px !important;
-      padding: 10px 14px !important;
+      color: #0b1220 !important;
+      font-size: 15px !important;
+      height: 48px !important;
+      letter-spacing: 0.01em !important;
+      min-height: 48px !important;
+      padding: 10px 16px !important;
       display: inline-flex !important;
       align-items: center !important;
       justify-content: center !important;
-      text-decoration: underline;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 3px;
-      width: auto !important;
+      text-decoration: none;
+      width: 100% !important;
+      margin-top: 6px !important;
+      font-weight: 600 !important;
+    }
+
+    body[data-sb-email-signup-page] [data-sb-email-signup] .klaviyo-form-SvVPFK .sb-email-signup-secondary-cta {
+      background: rgba(11, 18, 32, 0.04) !important;
+      border: 1px solid rgba(11, 18, 32, 0.18) !important;
+      border-radius: 999px !important;
+      box-shadow: none !important;
+      color: #0b1220 !important;
+      font-size: 15px !important;
+      min-height: 48px !important;
+      height: 48px !important;
+      letter-spacing: 0.01em !important;
+      width: 100% !important;
+      margin-top: 6px !important;
+      font-weight: 600 !important;
+      text-decoration: none !important;
     }
 
     body[data-sb-email-signup-page] .sb-why-stonebrook .text-with-icons__title {
       text-align: center;
-      margin: 0 auto 18px;
-      padding-top: 8px;
+      margin: 0 auto 12px;
+      padding-top: 4px;
     }
 
     body[data-sb-email-signup-page] .sb-why-stonebrook .text-with-icons__title h2 {
@@ -289,7 +310,7 @@
     body[data-sb-email-signup-page] .sb-why-stonebrook .text-with-icons__blocks {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 18px;
+      gap: 12px;
       margin: 0;
       padding: 0;
     }
@@ -297,28 +318,42 @@
     body[data-sb-email-signup-page] .sb-why-stonebrook .text-with-icons__block {
       background: #fff;
       border: 1px solid rgba(148, 163, 184, 0.35);
-      border-radius: 20px;
-      box-shadow: 0 10px 22px rgba(11, 18, 32, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.7);
-      padding: 22px 18px;
-      text-align: center;
+      border-radius: 16px;
+      box-shadow: 0 8px 18px rgba(11, 18, 32, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+      padding: 16px 14px;
+      text-align: left;
       margin: 0;
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      grid-template-areas:
+        "icon title"
+        "icon body";
+      column-gap: 12px;
+      row-gap: 6px;
     }
 
     body[data-sb-email-signup-page] .sb-why-stonebrook .text-with-icons__block-icon {
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 12px;
+      margin-bottom: 0;
+      grid-area: icon;
+      align-self: start;
+      margin-top: 2px;
     }
 
     body[data-sb-email-signup-page] .sb-why-stonebrook .text-with-icons__block-icon svg {
-      width: 36px;
-      height: 36px;
+      width: 28px;
+      height: 28px;
     }
 
     body[data-sb-email-signup-page] .sb-why-stonebrook .text-with-icons__block-title h3 {
       color: #0b1220;
-      margin: 0 0 8px;
+      margin: 0;
+      font-size: 1.9rem;
+      line-height: 1.05;
+      letter-spacing: 0.01em;
+      grid-area: title;
     }
 
     body[data-sb-email-signup-page] .sb-why-stonebrook .text-with-icons__block-text,
@@ -326,6 +361,9 @@
     body[data-sb-email-signup-page] .sb-why-stonebrook .text-with-icons__block-text li {
       color: #3c4657;
       margin: 0;
+      font-size: 1rem;
+      line-height: 1.45;
+      grid-area: body;
     }
 
     body[data-sb-email-signup-page] .sb-why-stonebrook .text-with-icons__block-text p + p {
@@ -337,7 +375,7 @@
       justify-content: center;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 20px;
+      margin-top: 12px;
     }
 
     body[data-sb-email-signup-page] .sb-why-stonebrook .text-with-icons__button .sb-btn-primary {
@@ -358,6 +396,30 @@
       box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.45);
       pointer-events: none;
     }
+
+    body[data-sb-email-signup-page] .site-header {
+      padding-top: 6px;
+      padding-bottom: 6px;
+    }
+
+    body[data-sb-email-signup-page] .header-item--logo img {
+      max-height: 44px;
+    }
+
+    body[data-sb-email-signup-page] .announcement-bar {
+      min-height: 34px;
+    }
+
+    body[data-sb-email-signup-page] .announcement-bar .page-width {
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+
+    body[data-sb-email-signup-page] .announcement-bar .announcement-text,
+    body[data-sb-email-signup-page] .announcement-bar .announcement-link-text {
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+    }
   }
 
   @media (min-width: 750px) {
@@ -376,6 +438,40 @@
     }
   }
 {% endstyle %}
+
+<script>
+  (function () {
+    var isEmailSignupPage = document.body && document.body.hasAttribute('data-sb-email-signup-page');
+    if (!isEmailSignupPage) {
+      return;
+    }
+
+    var applySecondaryClass = function () {
+      var root = document.querySelector('[data-sb-email-signup] .klaviyo-form-SvVPFK');
+      if (!root) {
+        return;
+      }
+
+      var buttons = root.querySelectorAll('button');
+      buttons.forEach(function (button) {
+        var label = (button.textContent || '').trim().toLowerCase();
+        if (label.indexOf('continue shopping') !== -1) {
+          button.classList.add('sb-email-signup-secondary-cta');
+        }
+      });
+    };
+
+    applySecondaryClass();
+    document.addEventListener('DOMContentLoaded', applySecondaryClass);
+    window.addEventListener('load', applySecondaryClass);
+
+    var observer = new MutationObserver(applySecondaryClass);
+    observer.observe(document.documentElement, { childList: true, subtree: true });
+    window.setTimeout(function () {
+      observer.disconnect();
+    }, 12000);
+  })();
+</script>
 
 {% schema %}
 {
