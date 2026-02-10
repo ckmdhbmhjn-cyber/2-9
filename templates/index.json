@@ -6,7 +6,7 @@
         "trust_item_1": {
           "type": "trust_item",
           "settings": {
-            "text": "Factory sealed only"
+            "text": "Support for damaged/incorrect delivery"
           }
         },
         "trust_item_4": {
@@ -22,8 +22,8 @@
       ],
       "settings": {
         "heading": "Buying Sealed, Made Simple.",
-        "subheading": "Factory-sealed Pokémon and One Piece, packed by collectors and shipped fast.",
-        "microcopy": "",
+        "subheading": "Factory-sealed Pokémon and One Piece, packed by collectors and shipped from Maryland fast.",
+        "microcopy": "Flat $6.99 shipping under $150 • Free shipping at $150+",
         "primary_label": "Shop Pokémon",
         "primary_link": "shopify://collections/pokemon",
         "secondary_label": "",

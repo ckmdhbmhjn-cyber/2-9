@@ -24,6 +24,10 @@
           "type": "separator",
           "settings": {}
         },
+        "quantity_selector_primary": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -49,6 +53,22 @@
           "type": "text",
           "settings": {
             "text": "<p class=\"product-shipping-note\">Flat $6.99 shipping under $150 · Free over $150</p>"
+          }
+        },
+        "text_support_help": {
+          "type": "text",
+          "settings": {
+            "text": "<p class=\"product-shipping-note\"><a class=\"product-shipping-note__link\" href=\"/pages/contact\">Need help choosing? Contact us before checkout.</a></p>"
+          }
+        },
+        "complementary_products_primary": {
+          "type": "complementary_products",
+          "settings": {
+            "product_complementary_heading": "Pairs well with this box",
+            "complementary_count": 4,
+            "per_slide": 2,
+            "control_type": "arrows",
+            "image_style": "default"
           }
         },
         "description": {
@@ -87,10 +107,13 @@
         "price",
         "judge_me_reviews_preview_badge_MzfFz9",
         "separator",
+        "quantity_selector_primary",
         "buy_buttons",
         "inventory_status_primary",
         "text_cta_proof",
         "text_mLcnTC",
+        "text_support_help",
+        "complementary_products_primary",
         "description",
         "tab_6WX4hU",
         "tab",

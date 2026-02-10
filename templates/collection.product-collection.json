@@ -71,11 +71,49 @@
         "full_width": false,
         "space_around": true
       }
+    },
+    "collection_buy_confidence": {
+      "type": "faq",
+      "blocks": {
+        "question_authenticity": {
+          "type": "question",
+          "settings": {
+            "title": "Are all products authentic and factory sealed?",
+            "text": "<p>Yes. Every item is authentic and factory sealed. We do not sell resealed or tampered product.</p>"
+          }
+        },
+        "question_ship_time": {
+          "type": "question",
+          "settings": {
+            "title": "How quickly do you ship?",
+            "text": "<p>Orders ship in 1-2 business days. Tracking is emailed automatically once your label is created.</p>"
+          }
+        },
+        "question_returns": {
+          "type": "question",
+          "settings": {
+            "title": "What if my order arrives damaged or incorrect?",
+            "text": "<p>Contact us within 48 hours of delivery with clear photos of the shipping box and product. We support damaged/incorrect delivery issues and will make it right.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_authenticity",
+        "question_ship_time",
+        "question_returns"
+      ],
+      "settings": {
+        "title": "Buy with confidence",
+        "section_class": "sb-faq sb-faq-card",
+        "include_styles": true,
+        "anchor_id": "collection-buy-confidence"
+      }
     }
   },
   "order": [
     "collection-header",
     "main-collection",
+    "collection_buy_confidence",
     "1770644217f6f76b8f"
   ]
 }

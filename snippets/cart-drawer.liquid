@@ -124,6 +124,7 @@
             <a href="{{ routes.cart_url }}" class="btn btn--tertiary cart__view-cart js-drawer-close">View cart</a>
             <p class="cart__checkout-micro">Secure checkout. Shipping and taxes shown next.</p>
             <p class="cart__trust-note">Factory sealed guarantee • Ships in 1-2 business days</p>
+            <p class="cart__support-note">Questions before checkout? <a href="/pages/contact">Contact us</a>.</p>
 
             {% if additional_checkout_buttons and settings.cart_additional_buttons %}
               <div class="additional-checkout-buttons additional-checkout-buttons--vertical">{{ content_for_additional_checkout_buttons }}</div>
@@ -166,6 +167,21 @@
       font-size: 11px;
       line-height: 1.35;
       letter-spacing: 0.01em;
+    }
+
+    #CartDrawer.sb-cart-drawer .cart__support-note {
+      margin: 4px 0 0;
+      text-align: center;
+      color: #7a8394;
+      font-size: 11px;
+      line-height: 1.35;
+    }
+
+    #CartDrawer.sb-cart-drawer .cart__support-note a {
+      color: #253143;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      font-weight: 600;
     }
   </style>
 {%- endif -%}
