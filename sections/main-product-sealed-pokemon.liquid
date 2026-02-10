@@ -1401,17 +1401,19 @@
       var updateAccordionNote = function() {
         var noteClass = 'sb-sealed-accordion-note';
         var group = root.querySelector('.sb-sealed-accordion-group');
-        var existing = root.querySelector('.' + noteClass);
+        var existingAny = root.querySelector('.' + noteClass);
+        var existingGenerated = root.querySelector('.' + noteClass + '[data-generated-note="true"]');
         if (!isMobile()) {
-          if (existing) {
-            existing.parentNode.removeChild(existing);
+          if (existingGenerated && existingGenerated.parentNode) {
+            existingGenerated.parentNode.removeChild(existingGenerated);
           }
           return;
         }
-        if (group && !existing) {
+        if (group && !existingAny) {
           var note = document.createElement('p');
           note.className = noteClass;
           note.textContent = 'Authenticity guaranteed. Packed for collectors.';
+          note.setAttribute('data-generated-note', 'true');
           group.parentNode.insertBefore(note, group);
         }
       };
