@@ -772,6 +772,35 @@
     body.sb-pdp-polished .sb-acrylics-pdp-scope .product-block--sales-point .icon-and-text {
       padding: 5px 11px;
     }
+
+    body.template-product #shopify-section-{{ section.id }} .product-section--sealed-pokemon.sb-product-card--sealed-pokemon .product-block--sales-point[data-sales-point-index="1"],
+    body.template-product #shopify-section-{{ section.id }} .product-section--sealed-pokemon.sb-product-card--sealed-pokemon .product-block--sales-point[data-sales-point-index="2"],
+    body.template-product #shopify-section-{{ section.id }} .product-section--sealed-pokemon.sb-product-card--sealed-pokemon .product-block--sales-point[data-sales-point-index="3"] {
+      display: none;
+    }
+
+    body.template-product #shopify-section-{{ section.id }} .product-section--sealed-pokemon.sb-product-card--sealed-pokemon .product-sticky-atc.product-sticky-atc--footer-hide {
+      opacity: 0;
+      transform: translateY(110%);
+      pointer-events: none;
+    }
+
+    body.template-product #MainContent .product-recommendations--sealed {
+      margin-top: 12px !important;
+      padding-top: 8px !important;
+    }
+
+    body.template-product #MainContent .product-recommendations--sealed .index-section {
+      margin: 0;
+    }
+
+    body.template-product #MainContent .product-recommendations--sealed .section-header {
+      margin-bottom: 10px;
+    }
+
+    body.template-product #MainContent .product-recommendations--sealed .jdgm-widget.jdgm-preview-badge {
+      display: none !important;
+    }
   }
 
   @media (max-width: 749px) {
@@ -1223,12 +1252,15 @@
       var stickyVisibleClass = 'sb-sticky-atc-visible';
 
       var updateStickySpacer = function() {
+        var isStickyVisible = stickyBar.classList.contains('product-sticky-atc--visible')
+          && !stickyBar.classList.contains('product-sticky-atc--footer-hide');
+        document.body.classList.toggle('has-sticky-atc', isStickyVisible);
+
         if (!isMobile()) {
           root.classList.remove(stickyVisibleClass);
           return;
         }
-        var isStickyVisible = stickyBar.classList.contains('product-sticky-atc--visible')
-          && !stickyBar.classList.contains('product-sticky-atc--footer-hide');
+
         if (isStickyVisible) {
           root.classList.add(stickyVisibleClass);
         } else {
@@ -1523,16 +1555,11 @@
 
       var bottomBoundaryFrame = null;
       var updateStickyBottomBoundary = function() {
-        if (!isMobile()) {
-          stickyBar.classList.remove('product-sticky-atc--footer-hide');
-          updateStickySpacer();
-          return;
-        }
-
         var doc = document.documentElement;
         var scrollTop = window.pageYOffset || doc.scrollTop || 0;
         var viewportBottom = scrollTop + window.innerHeight;
-        var nearBottom = viewportBottom >= (doc.scrollHeight - 220);
+        var footerBuffer = isMobile() ? 220 : 180;
+        var nearBottom = viewportBottom >= (doc.scrollHeight - footerBuffer);
 
         stickyBar.classList.toggle('product-sticky-atc--footer-hide', nearBottom);
         updateStickySpacer();
