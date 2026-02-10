@@ -461,8 +461,8 @@
     }
 
     #shopify-section-{{ section.id }} .sb-email-signup-card {
-      max-width: 760px;
-      padding: clamp(28px, 3vw, 40px) clamp(24px, 3vw, 36px);
+      max-width: 790px;
+      padding: clamp(30px, 3.2vw, 44px) clamp(28px, 3.4vw, 42px);
       margin-bottom: clamp(18px, 2vw, 26px);
     }
 
@@ -490,12 +490,33 @@
       display: inline-block;
       margin: 0 auto;
       max-width: 16ch;
+      font-size: clamp(2.9rem, 3vw, 3.6rem) !important;
+      line-height: 1.03 !important;
     }
 
     body[data-sb-email-signup-page] [data-sb-email-signup] .klaviyo-form-SvVPFK [data-testid='form-row']:nth-of-type(5) p {
       margin-left: auto !important;
       margin-right: auto !important;
       max-width: 56ch;
+    }
+
+    body[data-sb-email-signup-page] [data-sb-email-signup] .klaviyo-form-SvVPFK [data-testid='form-row']:last-child [data-testid='form-component'] {
+      justify-content: center !important;
+    }
+
+    body[data-sb-email-signup-page] #shopify-section-{{ section.id }} [data-sb-email-signup] .klaviyo-form-SvVPFK [data-testid='form-row']:last-child button,
+    body[data-sb-email-signup-page] #shopify-section-{{ section.id }} [data-sb-email-signup] .klaviyo-form-SvVPFK [data-testid='form-row']:last-child a,
+    body[data-sb-email-signup-page] #shopify-section-{{ section.id }} [data-sb-email-signup] .klaviyo-form-SvVPFK [data-testid='form-row']:last-child [role='button'],
+    body[data-sb-email-signup-page] #shopify-section-{{ section.id }} [data-sb-email-signup] .klaviyo-form-SvVPFK [data-testid='form-row']:last-child input[type='submit'],
+    body[data-sb-email-signup-page] #shopify-section-{{ section.id }} [data-sb-email-signup] .klaviyo-form-SvVPFK [data-testid='form-row']:last-child input[type='button'],
+    body[data-sb-email-signup-page] #shopify-section-{{ section.id }} [data-sb-email-signup] .klaviyo-form-SvVPFK .sb-email-signup-secondary-cta {
+      width: min(360px, 100%) !important;
+      max-width: 360px !important;
+      margin-top: 10px !important;
+      font-size: 15px !important;
+      min-height: 50px !important;
+      height: 50px !important;
+      letter-spacing: 0.02em !important;
     }
   }
 {% endstyle %}

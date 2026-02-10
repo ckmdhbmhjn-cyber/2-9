@@ -368,6 +368,7 @@
     @media only screen and (min-width: 750px) {
       #shopify-section-{{ section.id }},
       #shopify-section-{{ section.id }}.index-section {
+        padding-top: clamp(18px, 2.2vw, 30px) !important;
         padding-bottom: clamp(56px, 6vw, 76px) !important;
       }
 
@@ -378,30 +379,34 @@
 
       #shopify-section-{{ section.id }} .text-with-icons__title h2 {
         text-align: center;
-        font-size: clamp(2.3rem, 3.2vw, 3.2rem);
-        line-height: 1.04;
+        font-size: clamp(2.05rem, 2.6vw, 2.85rem);
+        line-height: 1.06;
         letter-spacing: 0.01em;
+        text-wrap: balance;
       }
 
       #shopify-section-{{ section.id }} .sb-why-stonebrook .text-with-icons__blocks {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: clamp(16px, 1.8vw, 24px);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: clamp(18px, 2.2vw, 28px);
         align-items: stretch;
+        max-width: 1120px;
+        margin-left: auto;
+        margin-right: auto;
       }
 
       #shopify-section-{{ section.id }} .sb-why-stonebrook .text-with-icons__block {
-        border-radius: 18px;
-        padding: clamp(18px, 2vw, 24px);
-        min-height: 176px;
+        border-radius: 20px;
+        padding: clamp(20px, 2.2vw, 28px);
+        min-height: 198px;
         text-align: left;
         display: grid;
-        grid-template-columns: 34px minmax(0, 1fr);
+        grid-template-columns: 38px minmax(0, 1fr);
         grid-template-areas:
           "icon title"
           "icon body";
-        column-gap: 14px;
-        row-gap: 8px;
+        column-gap: 15px;
+        row-gap: 10px;
       }
 
       #shopify-section-{{ section.id }} .sb-why-stonebrook .text-with-icons__block-icon {
@@ -411,8 +416,8 @@
       }
 
       #shopify-section-{{ section.id }} .sb-why-stonebrook .text-with-icons__block-icon .icon {
-        width: 28px;
-        height: 28px;
+        width: 30px;
+        height: 30px;
       }
 
       #shopify-section-{{ section.id }} .sb-why-stonebrook .text-with-icons__block-title {
@@ -422,9 +427,10 @@
 
       #shopify-section-{{ section.id }} .sb-why-stonebrook .text-with-icons__block-title h3 {
         margin: 0;
-        font-size: clamp(1.52rem, 1.22vw, 1.82rem);
-        line-height: 1.1;
+        font-size: clamp(1.58rem, 1.34vw, 1.92rem);
+        line-height: 1.08;
         letter-spacing: 0.01em;
+        text-wrap: balance;
       }
 
       #shopify-section-{{ section.id }} .sb-why-stonebrook .text-with-icons__block-text,
@@ -432,14 +438,8 @@
       #shopify-section-{{ section.id }} .sb-why-stonebrook .text-with-icons__block-text li {
         grid-area: body;
         margin: 0;
-        font-size: 1.03rem;
+        font-size: 1.06rem;
         line-height: 1.5;
-      }
-    }
-
-    @media only screen and (min-width: 750px) and (max-width: 1249px) {
-      #shopify-section-{{ section.id }} .sb-why-stonebrook .text-with-icons__blocks {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
   {% endif %}
