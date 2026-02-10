@@ -6,13 +6,19 @@
   endfor
 -%}
 
-{%- if template.suffix == 'product-collection' -%}
+{%- if template.name == 'collection' -%}
   <style>
     #shopify-section-{{ section.id }} .grid-product__content {
       display: flex;
       flex-direction: column;
       height: 100%;
       padding: 8px;
+    }
+
+    #shopify-section-{{ section.id }} .grid-product__link {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 auto;
     }
 
     #shopify-section-{{ section.id }} .grid-product__image-mask {
@@ -55,12 +61,37 @@
     }
 
     #shopify-section-{{ section.id }} .grid-product__meta {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
       padding: 6px 4px 10px;
       gap: 4px;
+      min-height: 126px;
+    }
+
+    #shopify-section-{{ section.id }} .jdgm-widget.jdgm-preview-badge {
+      min-height: 20px;
+      margin-top: 2px;
+    }
+
+    #shopify-section-{{ section.id }} .jdgm-widget.jdgm-preview-badge .jdgm-prev-badge {
+      display: inline-flex !important;
+      align-items: center;
+      gap: 4px;
+      max-width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    #shopify-section-{{ section.id }} .jdgm-widget.jdgm-preview-badge .jdgm-prev-badge__text {
+      display: inline-block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     #shopify-section-{{ section.id }} .grid-product__price {
-      margin-top: 4px;
+      margin-top: auto;
     }
 
     @media only screen and (max-width: 768px) {
@@ -101,27 +132,6 @@
 
       #shopify-section-{{ section.id }} .grid-product__price {
         margin-top: auto;
-      }
-
-      #shopify-section-{{ section.id }} .jdgm-widget.jdgm-preview-badge {
-        min-height: 20px;
-        margin-top: 2px;
-      }
-
-      #shopify-section-{{ section.id }} .jdgm-widget.jdgm-preview-badge .jdgm-prev-badge {
-        display: inline-flex !important;
-        align-items: center;
-        gap: 4px;
-        max-width: 100%;
-        overflow: hidden;
-        white-space: nowrap;
-      }
-
-      #shopify-section-{{ section.id }} .jdgm-widget.jdgm-preview-badge .jdgm-prev-badge__text {
-        display: inline-block;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
       }
     }
   </style>
