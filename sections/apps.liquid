@@ -4,24 +4,147 @@
 
 {%- if template.name == 'index' -%}
   {% style %}
-    @media screen and (min-width: 750px) {
-      .template-index .sb-homepage-reviews {
-        padding-bottom: clamp(16px, 2vw, 24px);
+    body.template-index #PageContainer #MainContent .sb-homepage-reviews {
+      padding-bottom: clamp(14px, 2vw, 24px);
+    }
+
+    body.template-index #PageContainer #MainContent .sb-homepage-reviews .jdgm-testimonials-carousel,
+    body.template-index #PageContainer #MainContent .sb-homepage-reviews .jdgm-carousel-wrapper {
+      margin-bottom: 0 !important;
+    }
+
+    body.template-index #PageContainer #MainContent .sb-homepage-reviews .jdgm-testimonials-container {
+      width: 100% !important;
+      max-width: 760px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    body.template-index #PageContainer #MainContent .sb-homepage-reviews .jdgm-card.jdgm-testimonial {
+      height: auto !important;
+      min-height: 0 !important;
+      border-radius: 22px !important;
+      border: 1px solid rgba(11, 18, 32, 0.09) !important;
+      box-shadow: 0 10px 24px rgba(11, 18, 32, 0.08) !important;
+      overflow: hidden !important;
+      background: #f9fafb !important;
+    }
+
+    body.template-index #PageContainer #MainContent .sb-homepage-reviews .jdgm-card-content {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: flex-start !important;
+      gap: 12px !important;
+      min-height: 0 !important;
+      padding: clamp(22px, 2.2vw, 30px) clamp(18px, 3vw, 32px) clamp(18px, 2vw, 24px) !important;
+    }
+
+    body.template-index #PageContainer #MainContent .sb-homepage-reviews .jdgm-quote-marks {
+      margin: 0 !important;
+      font-size: clamp(34px, 2.7vw, 42px) !important;
+      line-height: 0.82 !important;
+      opacity: 0.88;
+    }
+
+    body.template-index #PageContainer #MainContent .sb-homepage-reviews .jdgm-text {
+      width: 100% !important;
+      margin: 0 !important;
+    }
+
+    body.template-index #PageContainer #MainContent .sb-homepage-reviews .jdgm-text p {
+      margin: 0 !important;
+      color: var(--sb-ink) !important;
+      font-family: 'Funnel Sans', Helvetica, Arial, sans-serif !important;
+      font-size: clamp(17px, 1.35vw, 21px) !important;
+      line-height: 1.45 !important;
+      letter-spacing: 0.005em !important;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    body.template-index #PageContainer #MainContent .sb-homepage-reviews .jdgm-rating-section {
+      margin-top: 2px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      gap: 8px !important;
+    }
+
+    body.template-index #PageContainer #MainContent .sb-homepage-reviews .jdgm-stars {
+      line-height: 1 !important;
+      font-size: 18px !important;
+    }
+
+    body.template-index #PageContainer #MainContent .sb-homepage-reviews .jdgm-reviewer-info {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+    }
+
+    body.template-index #PageContainer #MainContent .sb-homepage-reviews .jdgm-reviewer-name {
+      color: var(--sb-ink) !important;
+      font-family: var(--typeHeaderPrimary), 'Cooper BT', serif !important;
+      font-size: clamp(16px, 1.05vw, 19px) !important;
+      line-height: 1.2 !important;
+      letter-spacing: 0.01em !important;
+    }
+
+    body.template-index #PageContainer #MainContent .sb-homepage-reviews .jdgm-reviewer-verified-icon svg {
+      width: 16px !important;
+      height: 16px !important;
+    }
+
+    body.template-index #PageContainer #MainContent .sb-homepage-reviews .jdgm-product-name {
+      width: 100% !important;
+      margin-top: 2px !important;
+      padding-top: 12px !important;
+      border-top: 1px solid rgba(11, 18, 32, 0.12) !important;
+    }
+
+    body.template-index #PageContainer #MainContent .sb-homepage-reviews .jdgm-product-name a {
+      color: rgba(11, 18, 32, 0.78) !important;
+      font-family: 'Funnel Sans', Helvetica, Arial, sans-serif !important;
+      font-size: clamp(14px, 0.9vw, 15px) !important;
+      line-height: 1.4 !important;
+      text-decoration: underline !important;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+
+    @media screen and (max-width: 749px) {
+      body.template-index #PageContainer #MainContent .sb-homepage-reviews .jdgm-testimonials-container {
+        max-width: 100% !important;
       }
 
-      .template-index .sb-homepage-reviews .jdgm-testimonials-carousel,
-      .template-index .sb-homepage-reviews .jdgm-carousel-wrapper {
-        margin-bottom: 0;
+      body.template-index #PageContainer #MainContent .sb-homepage-reviews .jdgm-card.jdgm-testimonial {
+        border-radius: 20px !important;
       }
 
-      .template-index .sb-homepage-reviews .jdgm-carousel-item {
-        padding-bottom: 0;
+      body.template-index #PageContainer #MainContent .sb-homepage-reviews .jdgm-card-content {
+        gap: 10px !important;
+        padding: 18px 16px 16px !important;
       }
 
-      .template-index .sb-homepage-reviews .jdgm-carousel-item__review,
-      .template-index .sb-homepage-reviews .jdgm-carousel-item__inner {
-        padding-top: clamp(18px, 2vw, 26px);
-        padding-bottom: clamp(18px, 2vw, 26px);
+      body.template-index #PageContainer #MainContent .sb-homepage-reviews .jdgm-text p {
+        font-size: clamp(14px, 4.7vw, 17px) !important;
+        line-height: 1.42 !important;
+        -webkit-line-clamp: 5;
+      }
+
+      body.template-index #PageContainer #MainContent .sb-homepage-reviews .jdgm-reviewer-name {
+        font-size: clamp(15px, 5.2vw, 18px) !important;
+      }
+
+      body.template-index #PageContainer #MainContent .sb-homepage-reviews .jdgm-product-name {
+        padding-top: 10px !important;
+      }
+
+      body.template-index #PageContainer #MainContent .sb-homepage-reviews .jdgm-product-name a {
+        font-size: 13px !important;
       }
     }
   {% endstyle %}
