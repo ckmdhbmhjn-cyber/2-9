@@ -124,6 +124,34 @@
     letter-spacing: 0.08em !important;
   }
 
+  body[data-sb-email-signup-page] #shopify-section-{{ section.id }} [data-sb-email-signup] .klaviyo-form-SvVPFK [data-testid='form-row']:last-child button,
+  body[data-sb-email-signup-page] #shopify-section-{{ section.id }} [data-sb-email-signup] .klaviyo-form-SvVPFK [data-testid='form-row']:last-child a,
+  body[data-sb-email-signup-page] #shopify-section-{{ section.id }} [data-sb-email-signup] .klaviyo-form-SvVPFK [data-testid='form-row']:last-child [role='button'],
+  body[data-sb-email-signup-page] #shopify-section-{{ section.id }} [data-sb-email-signup] .klaviyo-form-SvVPFK [data-testid='form-row']:last-child input[type='submit'],
+  body[data-sb-email-signup-page] #shopify-section-{{ section.id }} [data-sb-email-signup] .klaviyo-form-SvVPFK [data-testid='form-row']:last-child input[type='button'],
+  body[data-sb-email-signup-page] #shopify-section-{{ section.id }} [data-sb-email-signup] .klaviyo-form-SvVPFK .sb-email-signup-secondary-cta {
+    background: rgba(11, 18, 32, 0.04) !important;
+    border: 1px solid rgba(11, 18, 32, 0.18) !important;
+    border-radius: 999px !important;
+    box-shadow: none !important;
+    color: #0b1220 !important;
+    font-size: 16px !important;
+    min-height: 52px !important;
+    height: 52px !important;
+    letter-spacing: 0.01em !important;
+    width: 100% !important;
+    margin-top: 8px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    -webkit-appearance: none !important;
+  }
+
   #shopify-section-{{ section.id }} .klaviyo-form-SvVPFK p,
   #shopify-section-{{ section.id }} .klaviyo-form-SvVPFK small,
   #shopify-section-{{ section.id }} .klaviyo-form-SvVPFK label {
@@ -416,6 +444,8 @@
 
   @media (min-width: 750px) {
     #shopify-section-{{ section.id }} {
+      padding-top: clamp(24px, 3vw, 42px);
+      padding-bottom: clamp(20px, 2.5vw, 34px);
       background-image:
         radial-gradient(180% 170% at 50% 6%, rgba(31, 44, 68, 0.65) 0%, rgba(11, 18, 32, 0.97) 60%, rgba(9, 14, 26, 1) 100%),
         linear-gradient(180deg, rgba(18, 28, 46, 0.5) 0%, rgba(10, 16, 30, 0.96) 100%);
@@ -425,8 +455,47 @@
       background: radial-gradient(560px 560px at 18% 22%, rgba(214, 178, 94, 0.14), rgba(11, 18, 32, 0) 72%);
     }
 
+    #shopify-section-{{ section.id }} .sb-email-signup-band {
+      padding-left: clamp(18px, 2.4vw, 28px);
+      padding-right: clamp(18px, 2.4vw, 28px);
+    }
+
     #shopify-section-{{ section.id }} .sb-email-signup-card {
-      margin-bottom: var(--sb-section-gap-d, 32px);
+      max-width: 760px;
+      padding: clamp(28px, 3vw, 40px) clamp(24px, 3vw, 36px);
+      margin-bottom: clamp(18px, 2vw, 26px);
+    }
+
+    #shopify-section-{{ section.id }} .klaviyo-form-SvVPFK input:not([type='hidden']):not([type='checkbox']):not([type='radio']),
+    #shopify-section-{{ section.id }} .klaviyo-form-SvVPFK select,
+    #shopify-section-{{ section.id }} .klaviyo-form-SvVPFK textarea,
+    #shopify-section-{{ section.id }} .klaviyo-form-SvVPFK button {
+      max-width: 560px;
+    }
+
+    body[data-sb-email-signup-page] [data-sb-email-signup] .klaviyo-form-SvVPFK form {
+      background-color: transparent !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      padding: 4px 0 0 !important;
+    }
+
+    body[data-sb-email-signup-page] [data-sb-email-signup] .klaviyo-form-SvVPFK [data-testid='form-component'] {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+
+    body[data-sb-email-signup-page] [data-sb-email-signup] .klaviyo-form-SvVPFK [data-testid='form-row']:first-of-type span {
+      display: inline-block;
+      margin: 0 auto;
+      max-width: 16ch;
+    }
+
+    body[data-sb-email-signup-page] [data-sb-email-signup] .klaviyo-form-SvVPFK [data-testid='form-row']:nth-of-type(5) p {
+      margin-left: auto !important;
+      margin-right: auto !important;
+      max-width: 56ch;
     }
   }
 {% endstyle %}

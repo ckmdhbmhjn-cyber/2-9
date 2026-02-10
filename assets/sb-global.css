@@ -1316,6 +1316,70 @@ body.sb-policy-page .sb-policy-body {
   box-shadow: var(--sb-shadow-soft);
 }
 
+/* Shipping page: split long policy body into mobile-friendly stacked cards */
+body.template-page-shipping .sb-policy-body {
+  --sb-card-bg: transparent;
+  --sb-card-border: transparent;
+  --sb-card-shadow: none;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+body.template-page-shipping .sb-policy-body .rte {
+  max-width: 100%;
+  display: grid;
+  gap: 14px;
+}
+
+body.template-page-shipping .sb-policy-body .rte > p {
+  margin: 0;
+  padding: 18px 18px 16px;
+  background: #ffffff;
+  border: 1px solid rgba(11, 18, 32, 0.1);
+  border-radius: 18px;
+  box-shadow: 0 8px 22px rgba(11, 18, 32, 0.07);
+}
+
+body.template-page-shipping .sb-policy-body .rte > p > strong:first-child {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--sb-ink);
+  font-family: var(--typeHeaderPrimary), var(--typeHeaderFallback);
+  font-size: 1.95rem;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+}
+
+body.template-page-shipping .sb-policy-body .rte > p > strong:not(:first-child) {
+  color: var(--sb-ink);
+}
+
+body.template-page-shipping .sb-policy-body .rte a {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+@media screen and (max-width: 749px) {
+  body.template-page-shipping .sb-policy-body {
+    --sb-card-padding: 4px 0 8px;
+  }
+
+  body.template-page-shipping .sb-policy-body .rte {
+    gap: 12px;
+  }
+
+  body.template-page-shipping .sb-policy-body .rte > p {
+    padding: 16px 14px 14px;
+    border-radius: 16px;
+  }
+
+  body.template-page-shipping .sb-policy-body .rte > p > strong:first-child {
+    font-size: 1.75rem;
+    margin-bottom: 7px;
+  }
+}
+
 @media screen and (max-width: 749px) {
   body.sb-policy-page .sb-policy-hero,
   body.sb-policy-page .sb-policy-body {
