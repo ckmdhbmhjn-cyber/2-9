@@ -6,16 +6,16 @@ Use this file as the implementation runbook.
 
 ## 0) Template Map (Current Live Structure)
 
-1. Homepage template: `/Users/bschaffer/stonebrook/2-9-v2/2-9/templates/index.json`
-2. Sealed product template (PDP): `/Users/bschaffer/stonebrook/2-9-v2/2-9/templates/product.product-sealed-pokemon.json`
-3. New Arrivals collection template: `/Users/bschaffer/stonebrook/2-9-v2/2-9/templates/collection.product-collection.json`
-4. Cart drawer markup: `/Users/bschaffer/stonebrook/2-9-v2/2-9/snippets/cart-drawer.liquid`
-5. Cart drawer progress logic: `/Users/bschaffer/stonebrook/2-9-v2/2-9/assets/cart-free-shipping.js`
+1. Homepage template: `/Users/bschaffer/stonebrook/2-10-content/2-10-content/templates/index.json`
+2. Sealed product template (PDP): `/Users/bschaffer/stonebrook/2-10-content/2-10-content/templates/product.product-sealed-pokemon.json`
+3. New Arrivals collection template: `/Users/bschaffer/stonebrook/2-10-content/2-10-content/templates/collection.product-collection.json`
+4. Cart drawer markup: `/Users/bschaffer/stonebrook/2-10-content/2-10-content/snippets/cart-drawer.liquid`
+5. Cart drawer progress logic: `/Users/bschaffer/stonebrook/2-10-content/2-10-content/assets/cart-free-shipping.js`
 
 ## 1) Preflight Checklist
 
 - [ ] Duplicate current theme in Shopify admin before any edits.
-- [ ] Confirm this theme is using `cart_type = drawer` in `/Users/bschaffer/stonebrook/2-9-v2/2-9/config/settings_data.json`.
+- [ ] Confirm this theme is using `cart_type = drawer` in `/Users/bschaffer/stonebrook/2-10-content/2-10-content/config/settings_data.json`.
 - [ ] In Theme Editor, confirm the following template assignments are active:
 `index`, `product.product-sealed-pokemon`, `collection.product-collection`.
 - [ ] Record baseline metrics before launch changes:
@@ -36,14 +36,14 @@ Target token values:
 Implementation checklist:
 
 - [ ] Update all hardcoded copies in:
-`/Users/bschaffer/stonebrook/2-9-v2/2-9/templates/index.json`
-`/Users/bschaffer/stonebrook/2-9-v2/2-9/templates/product.product-sealed-pokemon.json`
-`/Users/bschaffer/stonebrook/2-9-v2/2-9/templates/collection.product-collection.json`
-`/Users/bschaffer/stonebrook/2-9-v2/2-9/sections/header-group.json`
-`/Users/bschaffer/stonebrook/2-9-v2/2-9/snippets/collection-grid.liquid`
-`/Users/bschaffer/stonebrook/2-9-v2/2-9/snippets/cart-drawer.liquid`
-`/Users/bschaffer/stonebrook/2-9-v2/2-9/assets/cart-free-shipping.js`
-`/Users/bschaffer/stonebrook/2-9-v2/2-9/sections/stonebrook-split-hero.liquid`
+`/Users/bschaffer/stonebrook/2-10-content/2-10-content/templates/index.json`
+`/Users/bschaffer/stonebrook/2-10-content/2-10-content/templates/product.product-sealed-pokemon.json`
+`/Users/bschaffer/stonebrook/2-10-content/2-10-content/templates/collection.product-collection.json`
+`/Users/bschaffer/stonebrook/2-10-content/2-10-content/sections/header-group.json`
+`/Users/bschaffer/stonebrook/2-10-content/2-10-content/snippets/collection-grid.liquid`
+`/Users/bschaffer/stonebrook/2-10-content/2-10-content/snippets/cart-drawer.liquid`
+`/Users/bschaffer/stonebrook/2-10-content/2-10-content/assets/cart-free-shipping.js`
+`/Users/bschaffer/stonebrook/2-10-content/2-10-content/sections/stonebrook-split-hero.liquid`
 - [ ] Ensure punctuation and capitalization match everywhere.
 - [ ] Ensure `$150+` and `$6.99` never drift between templates.
 
@@ -53,7 +53,7 @@ Theme Editor can change JSON template strings, but repeated hardcoded text in Li
 ## 3) Header Announcement Bar
 
 Theme Editor target:
-Header Group -> section `announcement` (type `announcement`) in `/Users/bschaffer/stonebrook/2-9-v2/2-9/sections/header-group.json`.
+Header Group -> section `announcement` (type `announcement`) in `/Users/bschaffer/stonebrook/2-10-content/2-10-content/sections/header-group.json`.
 
 Current blocks:
 `announcement_shipping_over`, `announcement_shipping_flat`, `announcement_speed`, `announcement_trust`.
@@ -72,7 +72,7 @@ Top bar shows one stable reassurance line on desktop and mobile.
 
 ## 4) Homepage Build Checklist
 
-Template: `/Users/bschaffer/stonebrook/2-9-v2/2-9/templates/index.json`
+Template: `/Users/bschaffer/stonebrook/2-10-content/2-10-content/templates/index.json`
 
 ### 4.1 Hero Section
 
@@ -80,8 +80,8 @@ Section ID/type:
 `stonebrook_split_hero` / `stonebrook-split-hero`
 
 Files:
-`/Users/bschaffer/stonebrook/2-9-v2/2-9/templates/index.json`
-`/Users/bschaffer/stonebrook/2-9-v2/2-9/sections/stonebrook-split-hero.liquid`
+`/Users/bschaffer/stonebrook/2-10-content/2-10-content/templates/index.json`
+`/Users/bschaffer/stonebrook/2-10-content/2-10-content/sections/stonebrook-split-hero.liquid`
 
 Checklist:
 
@@ -100,7 +100,7 @@ Tertiary CTA: blank.
 - [ ] Keep value-strip pills in sync with global copy.
 
 Implementation note:
-The value-strip pills are hardcoded in `/Users/bschaffer/stonebrook/2-9-v2/2-9/sections/stonebrook-split-hero.liquid` and are not fully Theme Editor-driven.
+The value-strip pills are hardcoded in `/Users/bschaffer/stonebrook/2-10-content/2-10-content/sections/stonebrook-split-hero.liquid` and are not fully Theme Editor-driven.
 
 ### 4.2 Section Order Cleanup
 
@@ -187,13 +187,13 @@ Checklist:
 ## 5) Product Page (Sealed PDP) Checklist
 
 Template:
-`/Users/bschaffer/stonebrook/2-9-v2/2-9/templates/product.product-sealed-pokemon.json`
+`/Users/bschaffer/stonebrook/2-10-content/2-10-content/templates/product.product-sealed-pokemon.json`
 
 Main section:
 `main` type `main-product-sealed-pokemon`
 
 Renderer:
-`/Users/bschaffer/stonebrook/2-9-v2/2-9/snippets/product-template.liquid`
+`/Users/bschaffer/stonebrook/2-10-content/2-10-content/snippets/product-template.liquid`
 
 ### 5.1 Block Order + Above-The-Fold Content
 
@@ -240,8 +240,8 @@ Implementation note:
 ### 5.3 Inventory + Low Stock Language
 
 Files:
-`/Users/bschaffer/stonebrook/2-9-v2/2-9/snippets/product-inventory.liquid`
-`/Users/bschaffer/stonebrook/2-9-v2/2-9/locales/en.default.json`
+`/Users/bschaffer/stonebrook/2-10-content/2-10-content/snippets/product-inventory.liquid`
+`/Users/bschaffer/stonebrook/2-10-content/2-10-content/locales/en.default.json`
 
 Checklist:
 
@@ -254,7 +254,7 @@ Checklist:
 ### 5.4 Shipping Progress Copy Sync
 
 Files:
-`/Users/bschaffer/stonebrook/2-9-v2/2-9/sections/main-product-sealed-pokemon.liquid`
+`/Users/bschaffer/stonebrook/2-10-content/2-10-content/sections/main-product-sealed-pokemon.liquid`
 
 Checklist:
 
@@ -290,8 +290,8 @@ Checklist:
 ### 5.7 Mobile Sticky ATC vs Cart Drawer Collision
 
 Files:
-`/Users/bschaffer/stonebrook/2-9-v2/2-9/sections/main-product-sealed-pokemon.liquid`
-`/Users/bschaffer/stonebrook/2-9-v2/2-9/assets/sb-global.css`
+`/Users/bschaffer/stonebrook/2-10-content/2-10-content/sections/main-product-sealed-pokemon.liquid`
+`/Users/bschaffer/stonebrook/2-10-content/2-10-content/assets/sb-global.css`
 
 Checklist:
 
@@ -302,13 +302,13 @@ Checklist:
 ## 6) Collection Template (New Arrivals) Checklist
 
 Template:
-`/Users/bschaffer/stonebrook/2-9-v2/2-9/templates/collection.product-collection.json`
+`/Users/bschaffer/stonebrook/2-10-content/2-10-content/templates/collection.product-collection.json`
 
 Primary files:
-`/Users/bschaffer/stonebrook/2-9-v2/2-9/sections/collection-header.liquid`
-`/Users/bschaffer/stonebrook/2-9-v2/2-9/sections/main-collection.liquid`
-`/Users/bschaffer/stonebrook/2-9-v2/2-9/snippets/collection-grid.liquid`
-`/Users/bschaffer/stonebrook/2-9-v2/2-9/snippets/product-grid-item.liquid`
+`/Users/bschaffer/stonebrook/2-10-content/2-10-content/sections/collection-header.liquid`
+`/Users/bschaffer/stonebrook/2-10-content/2-10-content/sections/main-collection.liquid`
+`/Users/bschaffer/stonebrook/2-10-content/2-10-content/snippets/collection-grid.liquid`
+`/Users/bschaffer/stonebrook/2-10-content/2-10-content/snippets/product-grid-item.liquid`
 
 ### 6.1 Collection Hero
 
@@ -342,7 +342,7 @@ Sort options are Shopify-native (`collection.sort_options`); "Top rated" is not 
 ### 6.3 Product Card Content Density
 
 File:
-`/Users/bschaffer/stonebrook/2-9-v2/2-9/snippets/product-grid-item.liquid`
+`/Users/bschaffer/stonebrook/2-10-content/2-10-content/snippets/product-grid-item.liquid`
 
 Checklist:
 
@@ -367,9 +367,9 @@ Checklist:
 ## 7) Cart Drawer Checklist
 
 Files:
-`/Users/bschaffer/stonebrook/2-9-v2/2-9/snippets/cart-drawer.liquid`
-`/Users/bschaffer/stonebrook/2-9-v2/2-9/assets/cart-free-shipping.js`
-`/Users/bschaffer/stonebrook/2-9-v2/2-9/assets/sb-global.css`
+`/Users/bschaffer/stonebrook/2-10-content/2-10-content/snippets/cart-drawer.liquid`
+`/Users/bschaffer/stonebrook/2-10-content/2-10-content/assets/cart-free-shipping.js`
+`/Users/bschaffer/stonebrook/2-10-content/2-10-content/assets/sb-global.css`
 
 ### 7.1 Message Hierarchy + Certainty Copy
 
