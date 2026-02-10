@@ -1135,45 +1135,49 @@
         return '$' + (cents / 100).toFixed(2);
       };
 
-      var parseMoneyToCents = function(rawValue) {
-        if (!rawValue) {
-          return null;
+      var currentCartTotalCents = null;
+      var cartFetchRequest = null;
+
+      var getCartEndpoint = function() {
+        if (window.theme && window.theme.routes && window.theme.routes.cart) {
+          return window.theme.routes.cart;
         }
-        var cleaned = rawValue.replace(/[^0-9.,]/g, '');
-        if (!cleaned) {
-          return null;
-        }
-        var normalized = cleaned;
-        if (cleaned.indexOf(',') > -1 && cleaned.indexOf('.') === -1) {
-          normalized = cleaned.replace(',', '.');
-        } else {
-          normalized = cleaned.replace(/,/g, '');
-        }
-        var amount = parseFloat(normalized);
-        if (isNaN(amount)) {
-          return null;
-        }
-        return Math.round(amount * 100);
+        return '/cart.js';
       };
 
-      var getCurrentVariantPriceCents = function() {
-        var currentVariantJson = root.querySelector('[data-current-variant-json]');
-        if (currentVariantJson && currentVariantJson.textContent) {
-          try {
-            var parsedVariant = JSON.parse(currentVariantJson.textContent);
-            if (parsedVariant && typeof parsedVariant.price === 'number') {
-              return parsedVariant.price;
-            }
-          } catch (error) {
-            // Fallback handled below.
-          }
+      var setCartTotalCents = function(cartData) {
+        if (!cartData || typeof cartData.total_price !== 'number') {
+          return false;
         }
+        currentCartTotalCents = Math.max(0, Math.round(cartData.total_price));
+        return true;
+      };
 
-        var priceSource = root.querySelector('[data-product-price]') || root.querySelector('.product__price');
-        if (!priceSource || !priceSource.textContent) {
-          return null;
+      var fetchCartTotalCents = function(forceRefresh) {
+        if (!forceRefresh && typeof currentCartTotalCents === 'number') {
+          return Promise.resolve(currentCartTotalCents);
         }
-        return parseMoneyToCents(priceSource.textContent);
+        if (cartFetchRequest) {
+          return cartFetchRequest;
+        }
+        cartFetchRequest = fetch(getCartEndpoint(), { credentials: 'same-origin' })
+          .then(function(response) {
+            if (!response || !response.ok) {
+              throw new Error('Unable to fetch cart total');
+            }
+            return response.json();
+          })
+          .then(function(cartData) {
+            setCartTotalCents(cartData);
+            return currentCartTotalCents;
+          })
+          .catch(function() {
+            return currentCartTotalCents;
+          })
+          .finally(function() {
+            cartFetchRequest = null;
+          });
+        return cartFetchRequest;
       };
 
       var ensureShippingProgressUi = function(noteEl) {
@@ -1211,19 +1215,21 @@
         return progress;
       };
 
-      var updateShippingProgress = function() {
+      var updateShippingProgress = function(cartTotalOverrideCents) {
         var noteEl = root.querySelector('.product-shipping-note');
         if (!noteEl) {
           return;
         }
 
-        var priceCents = getCurrentVariantPriceCents();
-        if (priceCents === null) {
-          return;
+        var cartTotalCents = 0;
+        if (typeof cartTotalOverrideCents === 'number' && !isNaN(cartTotalOverrideCents)) {
+          cartTotalCents = Math.max(0, Math.round(cartTotalOverrideCents));
+        } else if (typeof currentCartTotalCents === 'number' && !isNaN(currentCartTotalCents)) {
+          cartTotalCents = Math.max(0, Math.round(currentCartTotalCents));
         }
 
-        var remainingCents = Math.max(0, shippingThresholdCents - priceCents);
-        var progressPercent = Math.min(100, Math.max(0, Math.round((priceCents / shippingThresholdCents) * 100)));
+        var remainingCents = Math.max(0, shippingThresholdCents - cartTotalCents);
+        var progressPercent = Math.min(100, Math.max(0, Math.round((cartTotalCents / shippingThresholdCents) * 100)));
         var thresholdLabel = formatMoney(shippingThresholdCents);
         var flatRateLabel = formatMoney(flatShippingCents);
         var baseShippingPrefix = 'Flat ' + flatRateLabel + ' shipping today.';
@@ -1237,7 +1243,7 @@
             noteEl.innerHTML = baseShippingPrefix + ' Free shipping on orders ' + thresholdLabel + '+.';
           }
         } else {
-          noteEl.innerHTML = '<strong>Free shipping unlocked.</strong> This item qualifies for free shipping.';
+          noteEl.innerHTML = '<strong>Free shipping unlocked.</strong> Your cart qualifies for free shipping.';
         }
 
         var progress = ensureShippingProgressUi(noteEl);
@@ -1262,6 +1268,17 @@
             labelEl.textContent = '100% toward free shipping';
           }
         }
+      };
+
+      var syncShippingFromCartEvent = function(event) {
+        var cartData = event && event.detail && event.detail.cart ? event.detail.cart : null;
+        if (setCartTotalCents(cartData)) {
+          updateShippingProgress(currentCartTotalCents);
+          return;
+        }
+        fetchCartTotalCents(true).then(function(totalCents) {
+          updateShippingProgress(totalCents);
+        });
       };
 
       var stickyVisibleClass = 'sb-sticky-atc-visible';
@@ -1640,9 +1657,20 @@
         blocksObserver.observe(blocksContainer, { childList: true, subtree: true, attributes: true, characterData: true });
       }
 
+      document.addEventListener('cart:updated', syncShippingFromCartEvent);
+      document.addEventListener('product-form:cart:update', syncShippingFromCartEvent);
+      document.addEventListener('ajaxProduct:added', function() {
+        fetchCartTotalCents(true).then(function(totalCents) {
+          updateShippingProgress(totalCents);
+        });
+      });
+
       syncStickyCtaState();
       syncStickyPrice();
       updateShippingProgress();
+      fetchCartTotalCents(true).then(function(totalCents) {
+        updateShippingProgress(totalCents);
+      });
       observePrimaryCta();
       updateStickySpacer();
       updateStickyBottomBoundary();

@@ -812,6 +812,15 @@
         grid-column: 1 / -1;
       }
 
+      #shopify-section-{{ section.id }} .stonebrook-hero__actions.stonebrook-hero__actions--single-column {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      #shopify-section-{{ section.id }} .stonebrook-hero__actions.stonebrook-hero__actions--single-column .stonebrook-hero__cta,
+      #shopify-section-{{ section.id }} .stonebrook-hero__actions.stonebrook-hero__actions--single-column .stonebrook-hero__link {
+        grid-column: 1 / -1;
+      }
+
       #shopify-section-{{ section.id }} .stonebrook-hero__value-strip {
         grid-template-columns: repeat(3, minmax(0, 1fr));
         margin-bottom: 16px;
@@ -843,7 +852,26 @@
           <p class="stonebrook-hero__microcopy">{{ section.settings.microcopy }}</p>
         {%- endif -%}
 
-        <div class="stonebrook-hero__actions">
+        {%- assign has_secondary_cta = false -%}
+        {%- assign cta_count = 0 -%}
+        {%- if section.settings.primary_label != blank and section.settings.primary_link != blank -%}
+          {%- assign cta_count = cta_count | plus: 1 -%}
+        {%- endif -%}
+        {%- if section.settings.secondary_label != blank and section.settings.secondary_link != blank -%}
+          {%- assign has_secondary_cta = true -%}
+          {%- assign cta_count = cta_count | plus: 1 -%}
+        {%- endif -%}
+        {%- if section.settings.tertiary_label != blank and section.settings.tertiary_link != blank -%}
+          {%- assign cta_count = cta_count | plus: 1 -%}
+        {%- endif -%}
+        {%- assign use_single_column_actions = false -%}
+        {%- unless has_secondary_cta -%}
+          {%- if cta_count > 0 -%}
+            {%- assign use_single_column_actions = true -%}
+          {%- endif -%}
+        {%- endunless -%}
+
+        <div class="stonebrook-hero__actions{% if use_single_column_actions %} stonebrook-hero__actions--single-column{% endif %}">
           {%- if section.settings.primary_label != blank and section.settings.primary_link != blank -%}
             <a class="btn stonebrook-hero__cta stonebrook-hero__btn stonebrook-hero__btn--primary" href="{{ section.settings.primary_link }}">
               {{ section.settings.primary_label }}

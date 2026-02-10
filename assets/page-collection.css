@@ -32,6 +32,43 @@
   object-fit: contain;
 }
 
+.template-collection .grid-product,
+.template-collection--product-collection .grid-product {
+  display: flex;
+}
+
+.template-collection .grid-product__content,
+.template-collection--product-collection .grid-product__content {
+  width: 100%;
+}
+
+.template-collection .grid-product__image-mask .grid__image-ratio,
+.template-collection--product-collection .grid-product__image-mask .grid__image-ratio,
+.template-collection .grid-product__image-mask .image-wrap,
+.template-collection--product-collection .grid-product__image-mask .image-wrap {
+  width: 100%;
+}
+
+.template-collection .grid-product__image-mask .grid__image-ratio::before,
+.template-collection--product-collection .grid-product__image-mask .grid__image-ratio::before {
+  padding-bottom: 100% !important;
+}
+
+.template-collection .grid-product__image-mask .image-wrap,
+.template-collection--product-collection .grid-product__image-mask .image-wrap {
+  height: 0 !important;
+  padding-bottom: 100% !important;
+}
+
+.template-collection .grid-product__image-mask .grid__image-ratio img,
+.template-collection--product-collection .grid-product__image-mask .grid__image-ratio img,
+.template-collection .grid-product__image-mask .image-wrap img,
+.template-collection--product-collection .grid-product__image-mask .image-wrap img,
+.template-collection .grid-product__image-mask .grid-product__image,
+.template-collection--product-collection .grid-product__image-mask .grid-product__image {
+  object-fit: contain;
+}
+
 .template-collection .grid-product__price,
 .template-collection--product-collection .grid-product__price {
   color: #0b1220;
@@ -179,6 +216,13 @@
 .template-collection--product-collection .jdgm-widget.jdgm-preview-badge .jdgm-prev-badge__text {
   font-size: 0.74rem;
   color: #475569;
+}
+
+.template-collection .jdgm-widget.jdgm-preview-badge,
+.template-collection--product-collection .jdgm-widget.jdgm-preview-badge {
+  align-items: center;
+  display: flex;
+  min-height: 18px;
 }
 
 @media only screen and (max-width: 768px) {
