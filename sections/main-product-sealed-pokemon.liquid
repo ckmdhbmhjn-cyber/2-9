@@ -429,7 +429,8 @@
     }
 
     .product-section--sealed-pokemon .product-block--sales-point[data-sales-point-index="1"],
-    .product-section--sealed-pokemon .product-block--sales-point[data-sales-point-index="2"] {
+    .product-section--sealed-pokemon .product-block--sales-point[data-sales-point-index="2"],
+    .product-section--sealed-pokemon .product-block--sales-point[data-sales-point-index="3"] {
       display: none;
     }
 
@@ -934,7 +935,7 @@
     }
 
     .product-recommendations--sealed {
-      margin-top: 8px;
+      margin-top: 4px;
       padding-top: 10px;
     }
 
@@ -1184,10 +1185,10 @@
         var baseShippingPrefix = 'Flat ' + flatRateLabel + ' shipping today.';
 
         if (remainingCents > 0) {
-          if (remainingCents <= 3000) {
+          if (remainingCents <= 5000) {
             noteEl.innerHTML = baseShippingPrefix + ' Add <strong>' + formatMoney(remainingCents) + '</strong> for free shipping. <a class="product-shipping-note__link" href="#shopify-section-product-recommendations">Add a low-cost item</a>.';
-          } else if (remainingCents <= 10000) {
-            noteEl.innerHTML = baseShippingPrefix + ' Add <strong>' + formatMoney(remainingCents) + '</strong> for free shipping.';
+          } else if (remainingCents <= 15000) {
+            noteEl.innerHTML = baseShippingPrefix + ' You\'re <strong>' + formatMoney(remainingCents) + '</strong> away from free shipping.';
           } else {
             noteEl.innerHTML = baseShippingPrefix + ' Free shipping on orders ' + thresholdLabel + '+.';
           }
@@ -1208,7 +1209,7 @@
         var labelEl = progress.querySelector('[data-sealed-shipping-progress-label]');
         if (labelEl) {
           if (remainingCents > 0) {
-            if (remainingCents <= 10000) {
+            if (remainingCents <= 15000) {
               labelEl.textContent = progressPercent + '% toward free shipping';
             } else {
               labelEl.textContent = 'Free shipping unlocks at ' + thresholdLabel + '+';

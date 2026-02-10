@@ -35,7 +35,7 @@
         "text_cta_proof": {
           "type": "text",
           "settings": {
-            "text": "<div class=\"sb-sealed-cta-proof\" data-sealed-cta-proof><span>Authentic &amp; factory sealed</span><span>Support for damaged/incorrect delivery</span></div>"
+            "text": "<div class=\"sb-sealed-cta-proof\" data-sealed-cta-proof><span>Authentic &amp; factory sealed</span><span>Support for damaged/incorrect delivery</span><span>Ships in 1-2 business days</span></div>"
           }
         },
         "text_mLcnTC": {
