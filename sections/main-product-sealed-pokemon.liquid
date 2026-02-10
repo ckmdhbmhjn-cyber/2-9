@@ -170,18 +170,32 @@
   .product-section--sealed-pokemon .jdgm-widget.jdgm-preview-badge .jdgm-prev-badge {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 4px;
     color: #5a6372;
   }
 
   .product-section--sealed-pokemon .jdgm-widget.jdgm-preview-badge .jdgm-prev-badge__stars {
-    color: #d4af37;
+    display: none;
   }
 
   .product-section--sealed-pokemon .jdgm-widget.jdgm-preview-badge .jdgm-prev-badge__text {
-    font-size: 0.82rem;
+    font-size: 0.84rem;
     font-weight: 600;
     color: #5a6372;
+  }
+
+  .product-section--sealed-pokemon .jdgm-widget.jdgm-preview-badge .jdgm-prev-badge::before {
+    content: 'Reviews';
+    display: inline-block;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #0b1220;
+    background: rgba(212, 175, 55, 0.16);
+    border: 1px solid rgba(212, 175, 55, 0.32);
+    border-radius: 999px;
+    padding: 1px 7px;
+    line-height: 1.4;
   }
 
   .product-section--sealed-pokemon .product-description {
@@ -412,6 +426,11 @@
 
     .product-section--sealed-pokemon .jdgm-widget.jdgm-preview-badge {
       margin: 2px 0 0;
+    }
+
+    .product-section--sealed-pokemon .product-block--sales-point[data-sales-point-index="1"],
+    .product-section--sealed-pokemon .product-block--sales-point[data-sales-point-index="2"] {
+      display: none;
     }
 
     .product-section--sealed-pokemon .product-single__form .add-to-cart {
@@ -915,7 +934,7 @@
     }
 
     .product-recommendations--sealed {
-      margin-top: 16px;
+      margin-top: 8px;
       padding-top: 10px;
     }
 
@@ -1168,7 +1187,7 @@
           if (remainingCents <= 3000) {
             noteEl.innerHTML = baseShippingPrefix + ' Add <strong>' + formatMoney(remainingCents) + '</strong> for free shipping. <a class="product-shipping-note__link" href="#shopify-section-product-recommendations">Add a low-cost item</a>.';
           } else if (remainingCents <= 10000) {
-            noteEl.innerHTML = baseShippingPrefix + ' You\'re <strong>' + formatMoney(remainingCents) + '</strong> away from free shipping.';
+            noteEl.innerHTML = baseShippingPrefix + ' Add <strong>' + formatMoney(remainingCents) + '</strong> for free shipping.';
           } else {
             noteEl.innerHTML = baseShippingPrefix + ' Free shipping on orders ' + thresholdLabel + '+.';
           }
