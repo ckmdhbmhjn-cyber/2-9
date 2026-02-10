@@ -106,3 +106,114 @@
     display: none;
   }
 }
+
+/* Collection filter conversion hierarchy */
+.template-collection .collection-filter,
+.template-collection--product-collection .collection-filter {
+  align-items: center;
+  gap: 10px;
+}
+
+.template-collection .collection-filter__item--summary,
+.template-collection--product-collection .collection-filter__item--summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex: 1 1 auto;
+  min-width: 180px;
+}
+
+.template-collection .collection-filter__summary-text,
+.template-collection--product-collection .collection-filter__summary-text {
+  margin: 0;
+  color: #475569;
+  font-size: 0.84rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+}
+
+.template-collection .collection-filter__summary-text strong,
+.template-collection--product-collection .collection-filter__summary-text strong {
+  color: #0b1220;
+  font-weight: 800;
+}
+
+.template-collection .collection-filter__summary-sep,
+.template-collection--product-collection .collection-filter__summary-sep {
+  margin: 0 4px;
+  opacity: 0.5;
+}
+
+.template-collection .collection-filter__clear,
+.template-collection--product-collection .collection-filter__clear {
+  color: #0b1220;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  white-space: nowrap;
+}
+
+/* Product card scanability */
+.template-collection .grid-product__meta,
+.template-collection--product-collection .grid-product__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 126px;
+}
+
+.template-collection .grid-product__price,
+.template-collection--product-collection .grid-product__price {
+  margin-top: auto;
+  font-size: 1.12rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.template-collection .jdgm-widget.jdgm-preview-badge .jdgm-prev-badge__text,
+.template-collection--product-collection .jdgm-widget.jdgm-preview-badge .jdgm-prev-badge__text {
+  font-size: 0.74rem;
+  color: #475569;
+}
+
+@media only screen and (max-width: 768px) {
+  .template-collection .collection-filter,
+  .template-collection--product-collection .collection-filter {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .template-collection .collection-filter__item--summary,
+  .template-collection--product-collection .collection-filter__item--summary {
+    grid-column: 1 / -1;
+    order: 3;
+    padding: 2px 2px 0;
+  }
+
+  .template-collection .collection-filter__summary-text,
+  .template-collection--product-collection .collection-filter__summary-text {
+    font-size: 0.78rem;
+  }
+
+  .template-collection .collection-filter__clear,
+  .template-collection--product-collection .collection-filter__clear {
+    font-size: 0.72rem;
+  }
+
+  .template-collection .grid-product__meta,
+  .template-collection--product-collection .grid-product__meta {
+    min-height: 112px;
+    gap: 4px;
+  }
+
+  .template-collection .grid-product__price,
+  .template-collection--product-collection .grid-product__price {
+    font-size: 1.03rem;
+  }
+}

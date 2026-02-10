@@ -745,6 +745,77 @@
         font-size: 1.25rem;
       }
     }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__value-strip {
+      display: grid;
+      gap: 8px;
+      margin: 0 0 14px;
+      padding: 10px;
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      background: rgba(15, 23, 42, 0.72);
+      box-shadow: 0 10px 22px rgba(2, 6, 23, 0.28);
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__value-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 34px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(11, 18, 32, 0.78);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      color: rgba(248, 250, 252, 0.95);
+      font-size: 0.82rem;
+      font-weight: 600;
+      line-height: 1.25;
+      letter-spacing: 0.01em;
+      text-wrap: balance;
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__value-pill::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--sb-gold);
+      flex: 0 0 7px;
+      box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.22);
+    }
+
+    @media screen and (min-width: 750px) {
+      #shopify-section-{{ section.id }} .stonebrook-hero__actions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      #shopify-section-{{ section.id }} .stonebrook-hero__actions .stonebrook-hero__cta {
+        width: 100%;
+      }
+
+      #shopify-section-{{ section.id }} .stonebrook-hero__actions .stonebrook-hero__link {
+        grid-column: 1 / -1;
+      }
+
+      #shopify-section-{{ section.id }} .stonebrook-hero__value-strip {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-bottom: 16px;
+      }
+    }
+
+    @media screen and (max-width: 749px) {
+      #shopify-section-{{ section.id }} .stonebrook-hero__value-strip {
+        order: 2;
+        margin: 0 0 12px;
+        padding: 9px;
+      }
+
+      #shopify-section-{{ section.id }} .stonebrook-hero__value-pill {
+        font-size: 0.78rem;
+      }
+    }
   {% endstyle %}
   <div class="page-width">
     <div class="stonebrook-hero__grid">
@@ -775,6 +846,12 @@
               {{ section.settings.tertiary_label }}
             </a>
           {%- endif -%}
+        </div>
+
+        <div class="stonebrook-hero__value-strip" aria-label="Shopping benefits">
+          <span class="stonebrook-hero__value-pill">Factory sealed products only</span>
+          <span class="stonebrook-hero__value-pill">Ships in 1-2 business days</span>
+          <span class="stonebrook-hero__value-pill">Free shipping at $150+</span>
         </div>
 
         {%- if section.blocks.size > 0 -%}

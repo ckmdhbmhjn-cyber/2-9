@@ -443,6 +443,80 @@
       </image-element>
     </div>
   </template>
+  <script>
+    (function() {
+      var dataLayer = window.dataLayer = window.dataLayer || [];
+
+      function getProductContext(target) {
+        var productRoot = target.closest('[data-product-id]');
+        if (!productRoot) {
+          return {};
+        }
+        return {
+          product_id: productRoot.getAttribute('data-product-id') || '',
+          product_handle: productRoot.getAttribute('data-product-handle') || '',
+          product_title: productRoot.getAttribute('data-product-title') || ''
+        };
+      }
+
+      function pushEvent(eventName, target, extra) {
+        var payload = {
+          event: eventName,
+          page_type: '{{ request.page_type }}',
+          path: window.location.pathname
+        };
+
+        var productContext = getProductContext(target);
+        if (productContext.product_id) {
+          payload.product_id = productContext.product_id;
+        }
+        if (productContext.product_handle) {
+          payload.product_handle = productContext.product_handle;
+        }
+        if (productContext.product_title) {
+          payload.product_title = productContext.product_title;
+        }
+
+        if (extra && typeof extra === 'object') {
+          for (var key in extra) {
+            if (Object.prototype.hasOwnProperty.call(extra, key)) {
+              payload[key] = extra[key];
+            }
+          }
+        }
+
+        dataLayer.push(payload);
+      }
+
+      document.addEventListener('click', function(event) {
+        var target = event.target;
+        if (!target || !target.closest) {
+          return;
+        }
+
+        var addToCartTrigger = target.closest('[data-add-to-cart], .add-to-cart');
+        if (addToCartTrigger) {
+          pushEvent('sb_add_to_cart_click', addToCartTrigger, {
+            trigger: addToCartTrigger.className || addToCartTrigger.tagName.toLowerCase()
+          });
+        }
+
+        var cartOpenTrigger = target.closest('.js-drawer-open-cart, [aria-controls="CartDrawer"]');
+        if (cartOpenTrigger) {
+          pushEvent('sb_open_cart_click', cartOpenTrigger, {
+            trigger: cartOpenTrigger.className || cartOpenTrigger.tagName.toLowerCase()
+          });
+        }
+
+        var checkoutTrigger = target.closest('.cart__checkout, [name="checkout"]');
+        if (checkoutTrigger) {
+          pushEvent('sb_checkout_click', checkoutTrigger, {
+            source: checkoutTrigger.closest('#CartDrawer') ? 'cart_drawer' : 'cart_page'
+          });
+        }
+      }, true);
+    })();
+  </script>
   <script src="{{ 'cart-free-shipping.js' | asset_url }}" defer="defer"></script>
 </body>
 </html>

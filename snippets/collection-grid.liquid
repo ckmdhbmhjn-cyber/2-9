@@ -27,6 +27,7 @@ Snippet Arguments
   assign default_sort_by = collection.default_sort_by
   assign sort_options = collection.sort_options
   assign current_filter_size = 0
+  assign clear_filters_url = collection.url | default: ''
 
   for filter in filters
     assign current_filter_size = current_filter_size | plus: filter.active_values.size
@@ -46,6 +47,17 @@ Snippet Arguments
               ({{ current_filter_size }})
           {%- endif -%}
       </button>
+    </div>
+
+    <div class="collection-filter__item collection-filter__item--summary">
+      <p class="collection-filter__summary-text">
+        <strong>{{ count }}</strong> items
+        <span class="collection-filter__summary-sep" aria-hidden="true">·</span>
+        <span>Free shipping at $150+</span>
+      </p>
+      {%- if current_filter_size > 0 and clear_filters_url != blank -%}
+        <a class="collection-filter__clear" href="{{ clear_filters_url }}">Clear filters</a>
+      {%- endif -%}
     </div>
 
     <div class="collection-filter__item collection-filter__item--count small--hide">

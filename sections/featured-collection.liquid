@@ -291,6 +291,12 @@
             {{ section.settings.subheading }}
           </p>
         {%- endif -%}
+        {%- if is_homepage and trust_badge_text != blank -%}
+          <p class="sb-featured-collection__trustline" aria-label="Collection trust note">
+            <span class="sb-featured-collection__trust-badge">{{ trust_badge_text }}</span>
+            <span class="sb-featured-collection__trust-copy">Ships in 1-2 business days</span>
+          </p>
+        {%- endif -%}
         {%- if section.settings.view_all and section.settings.rows == 1 -%}
           {%- unless is_homepage and show_home_cta -%}
             <div class="sb-featured-collection__view-all">
