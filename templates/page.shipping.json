@@ -29,12 +29,12 @@
       ],
       "custom_css": [],
       "settings": {
-        "hero_variant": "policy",
+        "hero_variant": "about",
         "heading_tag": "h1",
         "align_text": "left",
-        "narrow_column": true,
+        "narrow_column": false,
         "divider": false,
-        "section_class": "sb-card sb-card--pad-lg sb-card--border-muted sb-card--shadow-soft sb-card--radius-24 sb-max-980 sb-heading-ink sb-body-ink sb-policy-hero sb-page-section"
+        "section_class": "sb-about-hero sb-heading-compact sb-max-1100 sb-page-section"
       }
     },
     "policy_body": {
