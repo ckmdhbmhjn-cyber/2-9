@@ -248,6 +248,13 @@
     {% endstyle %}
   {%- when 'faq' -%}
     {% style %}
+      #shopify-section-{{ section.id }}.index-section {
+        margin-top: 0;
+        margin-bottom: var(--sb-section-gap-m);
+        position: relative;
+        z-index: 0;
+      }
+
       #shopify-section-{{ section.id }} .sb-faq-hero {
         position: relative;
         z-index: 0;
@@ -305,7 +312,7 @@
         position: absolute;
         left: 50%;
         top: -36px;
-        bottom: -48px;
+        bottom: -16px;
         width: 100vw;
         transform: translateX(-50%);
         background-color: #0b1220;
@@ -323,7 +330,7 @@
         position: absolute;
         left: 50%;
         top: -36px;
-        bottom: -48px;
+        bottom: -16px;
         width: 100vw;
         transform: translateX(-50%);
         background:
@@ -413,6 +420,10 @@
       }
 
       @media screen and (min-width: 750px) {
+        #shopify-section-{{ section.id }}.index-section {
+          margin-bottom: var(--sb-section-gap-d);
+        }
+
         #shopify-section-{{ section.id }} .sb-page-hero__inner {
           row-gap: var(--sb-hero-gap-h1-sub-d);
         }
@@ -566,9 +577,16 @@
     </script>
   {%- when 'policy' -%}
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        document.body.classList.add('sb-policy-page');
-      });
+      (function() {
+        var addPolicyClass = function () {
+          if (document.body) {
+            document.body.classList.add('sb-policy-page');
+          }
+        };
+
+        addPolicyClass();
+        document.addEventListener('DOMContentLoaded', addPolicyClass);
+      })();
     </script>
 {%- endcase -%}
 

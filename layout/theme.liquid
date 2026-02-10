@@ -398,7 +398,12 @@
   {% endif %}
 </head>
 
-<body class="template-{{ template | replace: '.', ' ' | replace: '/', ' ' | handle }}{% if request.path == '/challenge' %} template-challange{% endif %}"{% if template.name == 'page' and template.suffix == 'email-signup' %} data-sb-email-signup-page{% endif %} data-center-text="{{ settings.type_body_align_text }}" data-button_style="{{ settings.button_style }}" data-type_header_capitalize="{{ settings.type_header_capitalize }}" data-type_headers_align_text="{{ settings.type_headers_align_text }}" data-type_product_capitalize="{{ settings.type_product_capitalize }}" data-swatch_style="{{ settings.swatch_style }}" {% if settings.disable_animations %}data-disable-animations="true"{% endif %}>
+{%- liquid
+  assign template_class_legacy = template | replace: '.', ' ' | replace: '/', ' ' | handle
+  assign template_name_class = template.name | handle
+  assign template_suffix_class = template.suffix | handle
+-%}
+<body class="template-{{ template_class_legacy }} template-{{ template_name_class }}{% if template_suffix_class != blank %} template-{{ template_name_class }}-{{ template_suffix_class }}{% endif %}{% if request.path == '/challenge' %} template-challange{% endif %}"{% if template.name == 'page' and template.suffix == 'email-signup' %} data-sb-email-signup-page{% endif %} data-center-text="{{ settings.type_body_align_text }}" data-button_style="{{ settings.button_style }}" data-type_header_capitalize="{{ settings.type_header_capitalize }}" data-type_headers_align_text="{{ settings.type_headers_align_text }}" data-type_product_capitalize="{{ settings.type_product_capitalize }}" data-swatch_style="{{ settings.swatch_style }}" {% if settings.disable_animations %}data-disable-animations="true"{% endif %}>
 
   <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
