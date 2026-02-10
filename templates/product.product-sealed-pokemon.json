@@ -152,6 +152,7 @@
     },
     "recently-viewed": {
       "type": "recently-viewed",
+      "disabled": true,
       "settings": {
         "recent_count": 5
       }
@@ -165,8 +166,8 @@
   "order": [
     "main",
     "sub",
-    "recently-viewed",
     "product-recommendations",
+    "recently-viewed",
     "collection-return"
   ]
 }

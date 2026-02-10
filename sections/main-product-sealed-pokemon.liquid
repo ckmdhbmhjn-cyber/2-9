@@ -50,10 +50,12 @@
     margin: 4px 0 0;
     color: #5a6372;
     font-weight: 600;
+    letter-spacing: 0.01em;
   }
 
   .product-section--sealed-pokemon .product-shipping-note strong {
     color: #0b1220;
+    font-weight: 700;
   }
 
   .product-section--sealed-pokemon .product-shipping-note__link {
@@ -65,12 +67,12 @@
   }
 
   .product-section--sealed-pokemon .product-shipping-progress {
-    margin-top: 6px;
+    margin-top: 5px;
   }
 
   .product-section--sealed-pokemon .product-shipping-progress__track {
     width: 100%;
-    height: 6px;
+    height: 7px;
     border-radius: 999px;
     overflow: hidden;
     background: #e6eaf2;
@@ -85,25 +87,25 @@
   }
 
   .product-section--sealed-pokemon .product-shipping-progress__label {
-    margin-top: 5px;
-    font-size: 0.74rem;
+    margin-top: 4px;
+    font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.02em;
     color: #5a6372;
   }
 
   .product-section--sealed-pokemon .sb-sealed-cta-proof {
-    margin: 6px 0 0;
+    margin: 4px 0 0;
     display: grid;
-    gap: 6px;
+    gap: 4px;
   }
 
   .product-section--sealed-pokemon .sb-sealed-cta-proof span {
     display: inline-flex;
     align-items: center;
-    gap: 7px;
-    font-size: 0.84rem;
-    line-height: 1.35;
+    gap: 6px;
+    font-size: 0.82rem;
+    line-height: 1.3;
     font-weight: 600;
     color: #364152;
   }
@@ -119,6 +121,30 @@
 
   .product-section--sealed-pokemon .product-single__form .payment-buttons {
     gap: 10px;
+  }
+
+  .product-section--sealed-pokemon .product-block--sales-point .sales-points {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .product-section--sealed-pokemon .product-block--sales-point .icon-and-text {
+    border: 1px solid #dde3ef;
+    border-radius: 999px;
+    background: #f8f5ee;
+    padding: 8px 14px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+
+  .product-section--sealed-pokemon .product-block--sales-point .icon {
+    width: 12px;
+    height: 12px;
+    opacity: 0.78;
   }
 
   .product-section--sealed-pokemon.sb-sealed-pdp-scope .product-single__form .payment-buttons {
@@ -349,18 +375,18 @@
     }
 
     .product-section--sealed-pokemon .product-block--sales-point {
-      margin-top: 4px;
-      margin-bottom: 8px;
+      margin-top: 2px;
+      margin-bottom: 6px;
     }
 
     .product-section--sealed-pokemon .product-block--sales-point .icon-and-text {
-      padding: 6px 10px;
-      font-size: 0.82rem;
+      padding: 7px 12px;
+      font-size: 0.8rem;
     }
 
     .product-section--sealed-pokemon .product-block--sales-point .icon {
-      width: 14px;
-      height: 14px;
+      width: 11px;
+      height: 11px;
     }
 
     .product-section--sealed-pokemon .product-shipping-note {
@@ -371,17 +397,17 @@
     }
 
     .product-section--sealed-pokemon .product-shipping-progress__label {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
     }
 
     .product-section--sealed-pokemon .sb-sealed-cta-proof {
-      margin-top: 2px;
-      gap: 4px;
+      margin-top: 1px;
+      gap: 3px;
     }
 
     .product-section--sealed-pokemon .sb-sealed-cta-proof span {
-      font-size: 0.8rem;
-      line-height: 1.3;
+      font-size: 0.78rem;
+      line-height: 1.25;
     }
 
     .product-section--sealed-pokemon .jdgm-widget.jdgm-preview-badge {
@@ -630,24 +656,7 @@
     }
 
     .product-recommendations--sealed .jdgm-widget.jdgm-preview-badge {
-      margin-top: 4px;
-      min-height: 16px;
-    }
-
-    .product-recommendations--sealed .jdgm-widget.jdgm-preview-badge .jdgm-prev-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      color: #5a6372;
-    }
-
-    .product-recommendations--sealed .jdgm-widget.jdgm-preview-badge .jdgm-prev-badge__stars {
-      color: #d4af37;
-    }
-
-    .product-recommendations--sealed .jdgm-widget.jdgm-preview-badge .jdgm-prev-badge__text {
-      font-size: 0.78rem;
-      color: #5a6372;
+      display: none;
     }
   }
 
@@ -816,7 +825,7 @@
 
     .template-product .product-section--sealed-pokemon.sb-product-card--sealed-pokemon .product-block--sales-point {
       margin-top: 0;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .template-product .product-section--sealed-pokemon.sb-product-card--sealed-pokemon .product-block--sales-point .sales-points {
@@ -828,7 +837,8 @@
     }
 
     .template-product .product-section--sealed-pokemon.sb-product-card--sealed-pokemon .product-block--sales-point .icon-and-text {
-      padding: 5px 10px;
+      padding: 7px 12px;
+      font-size: 0.8rem;
     }
 
     body.template-product #shopify-section-{{ section.id }} .product-section--sealed-pokemon.sb-product-card--sealed-pokemon {
@@ -1152,13 +1162,16 @@
         var progressPercent = Math.min(100, Math.max(0, Math.round((priceCents / shippingThresholdCents) * 100)));
         var thresholdLabel = formatMoney(shippingThresholdCents);
         var flatRateLabel = formatMoney(flatShippingCents);
+        var baseShippingPrefix = 'Flat ' + flatRateLabel + ' shipping today.';
 
         if (remainingCents > 0) {
-          var addOnHint = '';
-          if (remainingCents <= 5000) {
-            addOnHint = ' <a class="product-shipping-note__link" href="#shopify-section-product-recommendations">Add a low-cost item</a>.';
+          if (remainingCents <= 3000) {
+            noteEl.innerHTML = baseShippingPrefix + ' Add <strong>' + formatMoney(remainingCents) + '</strong> for free shipping. <a class="product-shipping-note__link" href="#shopify-section-product-recommendations">Add a low-cost item</a>.';
+          } else if (remainingCents <= 10000) {
+            noteEl.innerHTML = baseShippingPrefix + ' You\'re <strong>' + formatMoney(remainingCents) + '</strong> away from free shipping.';
+          } else {
+            noteEl.innerHTML = baseShippingPrefix + ' Free shipping on orders ' + thresholdLabel + '+.';
           }
-          noteEl.innerHTML = 'Flat ' + flatRateLabel + ' shipping under ' + thresholdLabel + '. Add <strong>' + formatMoney(remainingCents) + '</strong> for free shipping.' + addOnHint;
         } else {
           noteEl.innerHTML = '<strong>Free shipping unlocked.</strong> This item qualifies for free shipping.';
         }
@@ -1176,7 +1189,11 @@
         var labelEl = progress.querySelector('[data-sealed-shipping-progress-label]');
         if (labelEl) {
           if (remainingCents > 0) {
-            labelEl.textContent = progressPercent + '% toward free shipping';
+            if (remainingCents <= 10000) {
+              labelEl.textContent = progressPercent + '% toward free shipping';
+            } else {
+              labelEl.textContent = 'Free shipping unlocks at ' + thresholdLabel + '+';
+            }
           } else {
             labelEl.textContent = '100% toward free shipping';
           }
@@ -1470,6 +1487,7 @@
           updateShippingProgress();
           observePrimaryCta();
           updateStickySpacer();
+          updateStickyBottomBoundary();
         });
       };
 
@@ -1483,27 +1501,35 @@
         primary.click();
       }, true);
 
-      var footerObserver = null;
-      if ('IntersectionObserver' in window) {
-        var footer = document.querySelector('footer');
-        if (footer) {
-          var footerIsNear = false;
-          footerObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-              if (!isMobile()) {
-                return;
-              }
-              var shouldHide = entry.isIntersecting;
-              if (shouldHide !== footerIsNear) {
-                footerIsNear = shouldHide;
-                stickyBar.classList.toggle('product-sticky-atc--footer-hide', shouldHide);
-                updateStickySpacer();
-              }
-            });
-          }, { threshold: 0, rootMargin: '0px 0px 120px 0px' });
-          footerObserver.observe(footer);
+      var bottomBoundaryFrame = null;
+      var updateStickyBottomBoundary = function() {
+        if (!isMobile()) {
+          stickyBar.classList.remove('product-sticky-atc--footer-hide');
+          updateStickySpacer();
+          return;
         }
-      }
+
+        var doc = document.documentElement;
+        var scrollTop = window.pageYOffset || doc.scrollTop || 0;
+        var viewportBottom = scrollTop + window.innerHeight;
+        var nearBottom = viewportBottom >= (doc.scrollHeight - 220);
+
+        stickyBar.classList.toggle('product-sticky-atc--footer-hide', nearBottom);
+        updateStickySpacer();
+      };
+
+      var scheduleBottomBoundaryCheck = function() {
+        if (bottomBoundaryFrame) {
+          return;
+        }
+        bottomBoundaryFrame = requestAnimationFrame(function() {
+          bottomBoundaryFrame = null;
+          updateStickyBottomBoundary();
+        });
+      };
+
+      window.addEventListener('scroll', scheduleBottomBoundaryCheck);
+      window.addEventListener('resize', scheduleBottomBoundaryCheck);
 
       var bisObserver = null;
       var observePrimaryCta = function() {
@@ -1557,6 +1583,7 @@
       updateShippingProgress();
       observePrimaryCta();
       updateStickySpacer();
+      updateStickyBottomBoundary();
       applyDescriptionEnhancements();
       observeRecentlyViewed();
 
@@ -1565,6 +1592,7 @@
           updateReturnLinkStyle();
           requestAnimationFrame(function() {
             updateShippingProgress();
+            updateStickyBottomBoundary();
             applyDescriptionEnhancements();
             observeRecentlyViewed();
           });
@@ -1573,6 +1601,7 @@
         updateReturnLinkStyle();
         requestAnimationFrame(function() {
           updateShippingProgress();
+          updateStickyBottomBoundary();
           applyDescriptionEnhancements();
           observeRecentlyViewed();
         });
@@ -1585,6 +1614,7 @@
           updateReturnLinkStyle();
           requestAnimationFrame(function() {
             updateShippingProgress();
+            updateStickyBottomBoundary();
             applyDescriptionEnhancements();
             observeRecentlyViewed();
           });
@@ -1596,6 +1626,7 @@
           updateReturnLinkStyle();
           requestAnimationFrame(function() {
             updateShippingProgress();
+            updateStickyBottomBoundary();
             applyDescriptionEnhancements();
             observeRecentlyViewed();
           });
