@@ -786,20 +786,28 @@
     }
 
     body.template-product #MainContent .product-recommendations--sealed {
-      margin-top: 12px !important;
-      padding-top: 8px !important;
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+      border-top: 0 !important;
     }
 
     body.template-product #MainContent .product-recommendations--sealed .index-section {
       margin: 0;
+      padding-top: 0 !important;
+      padding-bottom: 0;
     }
 
     body.template-product #MainContent .product-recommendations--sealed .section-header {
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     body.template-product #MainContent .product-recommendations--sealed .jdgm-widget.jdgm-preview-badge {
       display: none !important;
+    }
+
+    body.template-product #MainContent .product-recommendations--sealed::after {
+      border-top: 0;
+      height: 0;
     }
   }
 
