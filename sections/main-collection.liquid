@@ -137,95 +137,118 @@
   </style>
 {%- endif -%}
 
-{%- if section.id == 'template--27914413801553__main-collection' -%}
+{%- if template.suffix == 'product-collection' -%}
 {% style %}
   @media (max-width: 749px) {
-    #shopify-section-template--27914413801553__main-collection .collection-filter {
-      background: var(--colorBody);
+    #shopify-section-{{ section.id }} .collection-filter {
+      background: rgba(247, 244, 237, 0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(11, 18, 32, 0.1);
       margin-bottom: 12px;
-      padding: 4px 0 6px;
-      position: static;
-      top: auto;
-      z-index: auto;
+      padding: 8px 0 10px;
+      position: sticky;
+      top: calc(env(safe-area-inset-top, 0px) + 17px);
+      z-index: 14;
     }
 
-    .sticky-header #shopify-section-template--27914413801553__main-collection .collection-filter {
-      top: auto;
+    .sticky-header #shopify-section-{{ section.id }} .collection-filter {
+      top: calc(env(safe-area-inset-top, 0px) + 86px);
     }
 
-    #shopify-section-template--27914413801553__main-collection .collection-filter__item {
+    #shopify-section-{{ section.id }} .collection-filter__item {
       margin-bottom: 0;
       min-width: 0;
     }
 
-    #shopify-section-template--27914413801553__main-collection .collection-grid__wrapper .pagination {
+    #shopify-section-{{ section.id }} .collection-filter .btn,
+    #shopify-section-{{ section.id }} .collection-filter select {
+      border-radius: 12px;
+      font-size: 0.98rem;
+      min-height: 44px;
+    }
+
+    #shopify-section-{{ section.id }} .collection-filter .btn:not(.btn--tertiary-active),
+    #shopify-section-{{ section.id }} .collection-filter__sort-container {
+      box-shadow: 0 6px 14px rgba(11, 18, 32, 0.06);
+    }
+
+    #shopify-section-{{ section.id }} .collection-grid__wrapper .pagination {
       padding: 28px 0 22px;
     }
 
-    #shopify-section-template--27914413801553__main-collection .sb-collection-about {
+    #shopify-section-{{ section.id }} .sb-collection-about {
+      background: #ffffff;
+      border: 1px solid rgba(11, 18, 32, 0.1);
+      border-radius: 16px;
+      box-shadow: 0 8px 18px rgba(11, 18, 32, 0.06);
       margin: 0 0 20px;
+      padding: 14px 14px 10px;
     }
 
-    #shopify-section-template--27914413801553__main-collection .sb-collection-about .collection__description {
+    #shopify-section-{{ section.id }} .sb-collection-about .collection__description {
       margin-bottom: 0;
     }
 
-    #shopify-section-template--27914413801553__main-collection .sb-collection-about:not(.is-expanded) {
-      border-bottom: 1px solid var(--colorBorder);
+    #shopify-section-{{ section.id }} .sb-collection-about:not(.is-expanded) {
       margin-bottom: 16px;
-      padding-bottom: 8px;
+      padding-bottom: 10px;
     }
 
-    #shopify-section-template--27914413801553__main-collection .sb-collection-about__toggle {
+    #shopify-section-{{ section.id }} .sb-collection-about__toggle {
       appearance: none;
       background: none;
       border: 0;
-      color: var(--colorTextBody);
+      color: #0b1220;
       cursor: pointer;
       display: inline-flex;
-      font-size: 0.9rem;
-      font-weight: 600;
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
       margin-top: 10px;
       padding: 6px 0;
       text-decoration: underline;
+      text-underline-offset: 2px;
     }
 
-    #shopify-section-template--27914413801553__main-collection .sb-collection-about:not(.is-expanded) .collection__description > * {
+    #shopify-section-{{ section.id }} .sb-collection-about:not(.is-expanded) .collection__description > * {
       display: none;
     }
 
-    #shopify-section-template--27914413801553__main-collection .sb-collection-about:not(.is-expanded) .collection__description > :is(h1, h2, h3, h4, h5, h6):first-child {
+    #shopify-section-{{ section.id }} .sb-collection-about:not(.is-expanded) .collection__description > :is(h1, h2, h3, h4, h5, h6):first-child {
       display: block;
       margin-bottom: 6px;
     }
 
-    #shopify-section-template--27914413801553__main-collection .sb-collection-about:not(.is-expanded) .collection__description > :is(h1, h2, h3, h4, h5, h6):first-child + p,
-    #shopify-section-template--27914413801553__main-collection .sb-collection-about:not(.is-expanded) .collection__description > p:first-child {
+    #shopify-section-{{ section.id }} .sb-collection-about:not(.is-expanded) .collection__description > :is(h1, h2, h3, h4, h5, h6):first-child + p,
+    #shopify-section-{{ section.id }} .sb-collection-about:not(.is-expanded) .collection__description > p:first-child {
       display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
 
-    #shopify-section-template--27914413801553__main-collection .sb-collection-about:not(.is-expanded) .collection__description p {
+    #shopify-section-{{ section.id }} .sb-collection-about:not(.is-expanded) .collection__description p {
       margin-bottom: 0;
     }
 
-    #shopify-section-template--27914413801553__main-collection .collection-grid__wrapper .grid__image-ratio,
-    #shopify-section-template--27914413801553__main-collection .collection-grid__wrapper .grid__item-image-wrapper .image-wrap {
+    #shopify-section-{{ section.id }} .collection-grid__wrapper .grid__image-ratio,
+    #shopify-section-{{ section.id }} .collection-grid__wrapper .grid__item-image-wrapper .image-wrap {
       height: clamp(145px, 36vw, 180px) !important;
     }
 
-    #shopify-section-template--27914413801553__main-collection .collection-grid__wrapper .grid-product__content {
+    #shopify-section-{{ section.id }} .collection-grid__wrapper .grid-product__content {
       padding: 6px;
     }
 
-    #shopify-section-template--27914413801553__main-collection .collection-grid__wrapper .grid-product__meta {
+    #shopify-section-{{ section.id }} .collection-grid__wrapper .grid-product__meta {
       gap: 2px;
+      height: auto;
+      min-height: 114px;
       padding: 4px 2px 6px;
     }
 
-    #shopify-section-template--27914413801553__main-collection .collection-grid__wrapper .grid-product__title {
+    #shopify-section-{{ section.id }} .collection-grid__wrapper .grid-product__title {
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
@@ -234,15 +257,30 @@
       overflow: hidden;
     }
 
-    #shopify-section-template--27914413801553__main-collection .collection-grid__wrapper .grid-product__price {
+    #shopify-section-{{ section.id }} .collection-grid__wrapper .jdgm-widget.jdgm-preview-badge {
+      min-height: 16px;
+    }
+
+    #shopify-section-{{ section.id }} .collection-grid__wrapper .jdgm-widget.jdgm-preview-badge .jdgm-prev-badge__text {
+      font-size: 0.72rem;
+      line-height: 1.2;
+    }
+
+    #shopify-section-{{ section.id }} .collection-grid__wrapper .grid-product__price {
       margin-top: 2px;
     }
 
-    #shopify-section-template--27914413801553__main-collection .collection-grid__wrapper .grid-product__tag--sold-out {
+    #shopify-section-{{ section.id }} .collection-grid__wrapper .grid-product__tag--sold-out {
       background-color: var(--colorTextBody);
       color: var(--colorBody);
       font-weight: 600;
       padding: 6px 8px;
+    }
+  }
+
+  @media (max-width: 389px) {
+    #shopify-section-{{ section.id }} .collection-grid__wrapper .jdgm-widget.jdgm-preview-badge .jdgm-prev-badge__text {
+      display: none;
     }
   }
 {% endstyle %}
@@ -321,7 +359,7 @@
                 {%- unless sb_restock_rendered -%}
                   {%- if collection.description != blank and current_filter_size == 0 -%}
                     {%- assign sb_description_id = 'CollectionDescription-' | append: section.id -%}
-                    {%- if section.id == 'template--27914413801553__main-collection' -%}
+                    {%- if template.suffix == 'product-collection' -%}
                       <div class="sb-collection-about" data-sb-collection-about>
                         <div id="{{ sb_description_id }}" class="rte collection__description">
                           {{ collection.description }}
@@ -441,7 +479,7 @@
 
             {%- if collection.description != blank and current_filter_size == 0 -%}
               {%- assign sb_description_id = 'CollectionDescription-' | append: section.id -%}
-              {%- if section.id == 'template--27914413801553__main-collection' -%}
+              {%- if template.suffix == 'product-collection' -%}
                 <div class="sb-collection-about" data-sb-collection-about>
                   <div id="{{ sb_description_id }}" class="rte collection__description">
                     {{ collection.description }}
@@ -642,28 +680,38 @@
 {% endstyle %}
 {%- endif -%}
 
-{%- if section.id == 'template--27914413801553__main-collection' -%}
+{%- if template.suffix == 'product-collection' -%}
 <script>
   (function () {
-    var section = document.getElementById('shopify-section-template--27914413801553__main-collection');
+    var section = document.getElementById('shopify-section-{{ section.id }}');
     if (!section) {
       return;
     }
 
-    var about = section.querySelector('[data-sb-collection-about]');
-    if (!about) {
+    var aboutBlocks = section.querySelectorAll('[data-sb-collection-about]');
+    if (!aboutBlocks.length) {
       return;
     }
 
-    var toggle = about.querySelector('.sb-collection-about__toggle');
-    if (!toggle) {
-      return;
-    }
+    aboutBlocks.forEach(function (about) {
+      var toggle = about.querySelector('.sb-collection-about__toggle');
+      var description = about.querySelector('.collection__description');
+      if (!toggle || !description) {
+        return;
+      }
 
-    toggle.addEventListener('click', function () {
-      var isExpanded = about.classList.toggle('is-expanded');
-      toggle.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
-      toggle.textContent = isExpanded ? 'Show less' : 'Read more';
+      var normalizedText = (description.textContent || '').replace(/\s+/g, ' ').trim();
+      if (normalizedText.length < 220) {
+        about.classList.add('is-expanded');
+        toggle.hidden = true;
+        return;
+      }
+
+      toggle.addEventListener('click', function () {
+        var isExpanded = about.classList.toggle('is-expanded');
+        toggle.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+        toggle.textContent = isExpanded ? 'Show less' : 'Read more';
+      });
     });
   })();
 </script>

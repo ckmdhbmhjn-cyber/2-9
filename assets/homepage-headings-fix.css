@@ -1626,3 +1626,64 @@ body.template-index #PageContainer #MainContent > .shopify-section + .shopify-se
   opacity: 1 !important;
   pointer-events: none;
 }
+
+/* ===== Stonebrook: Mobile browsing uplift (Homepage) ===== */
+@media (max-width: 749px) {
+  .template-index .sb-featured-collection .grid-overflow-wrapper {
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 16px;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+  }
+
+  .template-index .sb-featured-collection .grid-overflow-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .template-index .sb-featured-collection .grid-overflow-wrapper .grid {
+    gap: 10px;
+  }
+
+  .template-index .sb-featured-collection .grid-overflow-wrapper .grid__item {
+    flex: 0 0 min(74vw, 292px);
+    width: min(74vw, 292px);
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  .template-index .sb-featured-collection .grid-overflow-wrapper .grid__item:first-child {
+    margin-left: 16px;
+  }
+
+  .template-index .sb-featured-collection .grid-overflow-wrapper .grid__item:last-child {
+    margin-right: 16px;
+  }
+
+  .template-index .sb-featured-collection .grid-overflow-wrapper .grid__item:last-child:after {
+    display: none;
+  }
+
+  .template-index .sb-featured-collection .grid-product__meta {
+    min-height: 94px;
+  }
+
+  .template-index .sb-shop-by-category__grid .collection-item {
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(11, 18, 32, 0.08);
+  }
+
+  .template-index .sb-shop-by-category__grid .collection-item:active {
+    transform: scale(0.985);
+  }
+
+  .template-index .sb-shop-by-category__grid .collection-item__title {
+    align-items: center;
+    display: flex;
+    font-size: 0.98rem;
+    justify-content: center;
+    line-height: 1.25;
+    min-height: 2.6em;
+    padding: 10px 10px 12px;
+    text-align: center;
+  }
+}
