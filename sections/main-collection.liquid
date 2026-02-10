@@ -70,11 +70,19 @@
 
       #shopify-section-{{ section.id }} .grid-product__content {
         padding: 7px;
+        display: flex;
+        flex-direction: column;
       }
 
       #shopify-section-{{ section.id }} .grid__image-ratio,
       #shopify-section-{{ section.id }} .grid__item-image-wrapper .image-wrap {
         height: clamp(150px, 38vw, 190px) !important;
+      }
+
+      #shopify-section-{{ section.id }} .grid-product__link {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
       }
 
       #shopify-section-{{ section.id }} .grid-product__title {
@@ -83,12 +91,37 @@
       }
 
       #shopify-section-{{ section.id }} .grid-product__meta {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
         padding: 5px 3px 8px;
         gap: 3px;
+        min-height: 114px;
       }
 
       #shopify-section-{{ section.id }} .grid-product__price {
-        margin-top: 3px;
+        margin-top: auto;
+      }
+
+      #shopify-section-{{ section.id }} .jdgm-widget.jdgm-preview-badge {
+        min-height: 20px;
+        margin-top: 2px;
+      }
+
+      #shopify-section-{{ section.id }} .jdgm-widget.jdgm-preview-badge .jdgm-prev-badge {
+        display: inline-flex !important;
+        align-items: center;
+        gap: 4px;
+        max-width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+
+      #shopify-section-{{ section.id }} .jdgm-widget.jdgm-preview-badge .jdgm-prev-badge__text {
+        display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
     }
   </style>
