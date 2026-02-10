@@ -32,6 +32,12 @@
             "show_gift_card_recipient": false
           }
         },
+        "text_cta_proof": {
+          "type": "text",
+          "settings": {
+            "text": "<div class=\"sb-sealed-cta-proof\" data-sealed-cta-proof><span>Authentic &amp; factory sealed</span><span>Support for damaged/incorrect delivery</span></div>"
+          }
+        },
         "text_mLcnTC": {
           "type": "text",
           "settings": {
@@ -97,9 +103,10 @@
       },
       "block_order": [
         "price",
-        "judge_me_reviews_preview_badge_MzfFz9",
         "separator",
         "buy_buttons",
+        "judge_me_reviews_preview_badge_MzfFz9",
+        "text_cta_proof",
         "text_mLcnTC",
         "sales_point_MqN84E",
         "sales_point_packed",
@@ -151,14 +158,15 @@
     },
     "collection-return": {
       "type": "collection-return",
+      "disabled": true,
       "settings": {}
     }
   },
   "order": [
     "main",
     "sub",
-    "product-recommendations",
     "recently-viewed",
+    "product-recommendations",
     "collection-return"
   ]
 }

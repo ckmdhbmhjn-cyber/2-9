@@ -74,7 +74,12 @@
   {% unless isModal %}
     data-history="true"
   {% endunless %}
-  data-modal="{{ isModal }}">
+  data-modal="{{ isModal }}"
+  {% if use_sealed_layout %}
+    data-free-shipping-threshold-cents="15000"
+    data-flat-shipping-cents="699"
+    data-store-money-format="{{ shop.money_format | escape }}"
+  {% endif %}>
 
   {%- render 'product-template-variables', product: product, current_variant: current_variant -%}
 
