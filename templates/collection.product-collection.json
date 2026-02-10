@@ -106,8 +106,8 @@
         "question_help_choosing": {
           "type": "question",
           "settings": {
-            "title": "Need help choosing the right product?",
-            "text": "<p>Use the collection filter to narrow by category or price. If you want a recommendation, <a href=\"/pages/contact\">contact us</a> before checkout and we’ll help.</p>"
+            "title": "Need help choosing what to buy?",
+            "text": "<p>Start with Best Sellers for proven picks. If you want a recommendation based on budget or goals, <a href=\"/pages/contact\">contact us</a> before checkout.</p>"
           }
         }
       },

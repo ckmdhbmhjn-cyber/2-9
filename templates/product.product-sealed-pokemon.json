@@ -58,13 +58,13 @@
         "text_support_help": {
           "type": "text",
           "settings": {
-            "text": "<p class=\"product-shipping-note\"><a class=\"product-shipping-note__link\" href=\"/pages/contact\">Need help choosing? Contact us before checkout.</a></p>"
+            "text": "<p class=\"product-shipping-note\"><a class=\"product-shipping-note__link\" href=\"/pages/contact\">Need help choosing the right box? Contact us before checkout.</a></p>"
           }
         },
         "text_before_order_note": {
           "type": "text",
           "settings": {
-            "text": "<p class=\"sb-sealed-accordion-note\">Before you order: shipping, returns, and authenticity details.</p>"
+            "text": "<p class=\"sb-sealed-accordion-note\">Before checkout: review shipping speed, returns policy, and authenticity guarantee.</p>"
           }
         },
         "complementary_products_primary": {
@@ -152,7 +152,7 @@
       "custom_css": [],
       "settings": {
         "product_recommendations_heading": "You may also like",
-        "related_count": 5,
+        "related_count": 4,
         "products_per_row": 5,
         "is_sealed_variant": true,
         "section_class": ""
@@ -160,6 +160,7 @@
     },
     "recently-viewed": {
       "type": "recently-viewed",
+      "disabled": true,
       "settings": {
         "recent_count": 6
       }
