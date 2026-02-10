@@ -598,6 +598,7 @@
       const imageEl = gapAddEl.querySelector('[data-gap-image]');
       const titleEl = gapAddEl.querySelector('[data-gap-title]');
       const priceEl = gapAddEl.querySelector('[data-gap-price]');
+      const labelEl = gapAddEl.querySelector('[data-gap-label]');
       const btnEl = gapAddEl.querySelector('[data-gap-add-btn]');
       const errorEl = gapAddEl.querySelector('[data-gap-error]');
 
@@ -610,6 +611,10 @@
       }
       if (priceEl) {
         priceEl.textContent = '';
+      }
+      if (labelEl) {
+        labelEl.hidden = true;
+        labelEl.setAttribute('hidden', 'hidden');
       }
       
       // CRITICAL: Disable and clear button state to prevent bare button
@@ -727,6 +732,7 @@
       const imageEl = gapAddEl.querySelector('[data-gap-image]');
       const titleEl = gapAddEl.querySelector('[data-gap-title]');
       const priceEl = gapAddEl.querySelector('[data-gap-price]');
+      const labelEl = gapAddEl.querySelector('[data-gap-label]');
       const btnEl = gapAddEl.querySelector('[data-gap-add-btn]');
       const errorEl = gapAddEl.querySelector('[data-gap-error]');
 
@@ -781,6 +787,10 @@
       btnEl.dataset.variantId = String(variant.id);
       btnEl.disabled = false;
       btnEl.textContent = 'ADD';
+      if (labelEl) {
+        labelEl.hidden = false;
+        labelEl.removeAttribute('hidden');
+      }
       // Ensure button is visible (undo any hide from hideGapAdd)
       btnEl.style.display = '';
 

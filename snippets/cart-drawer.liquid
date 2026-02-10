@@ -86,7 +86,7 @@
 
             {%- comment -%} Dynamic gap-add recommendation (managed by JS) {%- endcomment -%}
             <div class="cart-gap-add" data-gap-add hidden>
-              <div class="cart-gap-add__label" aria-hidden="true">Optional add-on</div>
+              <div class="cart-gap-add__label" data-gap-label aria-hidden="true" hidden>Optional add-on</div>
               <div class="cart-gap-add__image" data-gap-image></div>
               <div class="cart-gap-add__meta">
                 <div class="cart-gap-add__title" data-gap-title></div>
@@ -121,7 +121,9 @@
             <button type="submit" name="checkout" data-terms-required="{{ settings.cart_terms_conditions_enable }}" class="btn cart__checkout">
               {{ 'cart.general.checkout' | t }}
             </button>
+            <a href="{{ routes.cart_url }}" class="btn btn--tertiary cart__view-cart js-drawer-close">View cart</a>
             <p class="cart__checkout-micro">Secure checkout. Shipping and taxes shown next.</p>
+            <p class="cart__trust-note">Factory sealed guarantee • Ships in 1-2 business days</p>
 
             {% if additional_checkout_buttons and settings.cart_additional_buttons %}
               <div class="additional-checkout-buttons additional-checkout-buttons--vertical">{{ content_for_additional_checkout_buttons }}</div>
@@ -137,4 +139,33 @@
       </div>
     </form>
   </div>
+
+  <style>
+    #CartDrawer.sb-cart-drawer .cart__view-cart {
+      width: 100%;
+      margin-top: 8px;
+      min-height: 44px;
+      border-radius: 12px;
+      border-color: #d6dde9;
+      color: #253143;
+      background: #f8fafc;
+      letter-spacing: 0.05em;
+    }
+
+    #CartDrawer.sb-cart-drawer .cart__view-cart:hover,
+    #CartDrawer.sb-cart-drawer .cart__view-cart:focus-visible {
+      border-color: #bcc9de;
+      background: #edf2f8;
+      color: #152033;
+    }
+
+    #CartDrawer.sb-cart-drawer .cart__trust-note {
+      margin: 8px 0 0;
+      text-align: center;
+      color: #6b7280;
+      font-size: 11px;
+      line-height: 1.35;
+      letter-spacing: 0.01em;
+    }
+  </style>
 {%- endif -%}

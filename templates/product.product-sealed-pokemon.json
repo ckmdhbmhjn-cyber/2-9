@@ -32,6 +32,13 @@
             "show_gift_card_recipient": false
           }
         },
+        "inventory_status_primary": {
+          "type": "inventory_status",
+          "settings": {
+            "inventory_threshold": 8,
+            "inventory_transfers_enable": false
+          }
+        },
         "text_cta_proof": {
           "type": "text",
           "settings": {
@@ -42,27 +49,6 @@
           "type": "text",
           "settings": {
             "text": "<p class=\"product-shipping-note\">Flat $6.99 shipping under $150 · Free over $150</p>"
-          }
-        },
-        "sales_point_MqN84E": {
-          "type": "sales_point",
-          "settings": {
-            "icon": "package",
-            "text": "Factory sealed"
-          }
-        },
-        "sales_point_packed": {
-          "type": "sales_point",
-          "settings": {
-            "icon": "package",
-            "text": "Packed for collectors"
-          }
-        },
-        "sales_point_9FPW6V": {
-          "type": "sales_point",
-          "settings": {
-            "icon": "truck",
-            "text": "Ships in 1-2 business days"
           }
         },
         "description": {
@@ -95,10 +81,6 @@
             "content": "<ul><li>All products are <strong>100% authentic and factory sealed</strong>.</li><li>We do not sell resealed or tampered product.</li><li>If you have concerns on arrival, contact us and we’ll make it right.</li></ul>",
             "page": ""
           }
-        },
-        "share": {
-          "type": "share",
-          "settings": {}
         }
       },
       "block_order": [
@@ -106,16 +88,13 @@
         "judge_me_reviews_preview_badge_MzfFz9",
         "separator",
         "buy_buttons",
+        "inventory_status_primary",
         "text_cta_proof",
         "text_mLcnTC",
-        "sales_point_MqN84E",
-        "sales_point_packed",
-        "sales_point_9FPW6V",
         "description",
         "tab_6WX4hU",
         "tab",
-        "tab_qXWtq4",
-        "share"
+        "tab_qXWtq4"
       ],
       "custom_css": [],
       "settings": {
@@ -152,9 +131,8 @@
     },
     "recently-viewed": {
       "type": "recently-viewed",
-      "disabled": true,
       "settings": {
-        "recent_count": 5
+        "recent_count": 6
       }
     },
     "collection-return": {
