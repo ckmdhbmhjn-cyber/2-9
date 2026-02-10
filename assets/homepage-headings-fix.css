@@ -1776,3 +1776,59 @@ body.template-index #PageContainer #MainContent > .shopify-section + .shopify-se
     font-size: 1.04rem;
   }
 }
+
+/* ===== Stonebrook: Conversion Rhythm Tightening (Run 2) ===== */
+body.template-index #PageContainer #MainContent {
+  --sb-home-section-gap: 58px;
+  --sb-home-divider-width: 148px;
+}
+
+@media (min-width: 750px) {
+  .template-index .stonebrook-hero-section + .shopify-section {
+    padding-top: calc(var(--sb-home-section-gap) * 0.34) !important;
+  }
+
+  .template-index .sb-featured-collection--new-arrivals .sb-section-card,
+  .template-index .sb-top-picks .sb-section-card {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+
+  .template-index .sb-shop-by-category {
+    padding-top: 40px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .template-index .sb-shop-by-category__grid {
+    padding-bottom: 40px !important;
+  }
+
+  .template-index .sb-proof__card {
+    padding: 24px 28px !important;
+  }
+}
+
+@media (max-width: 749px) {
+  body.template-index #PageContainer #MainContent {
+    --sb-home-section-gap: 36px;
+    --sb-home-divider-width: 108px;
+  }
+
+  .template-index .stonebrook-hero-section + .shopify-section {
+    padding-top: 14px !important;
+  }
+
+  .template-index .sb-featured-collection--new-arrivals .sb-section-card,
+  .template-index .sb-top-picks .sb-section-card {
+    padding-top: 22px !important;
+    padding-bottom: 22px !important;
+  }
+
+  .template-index .sb-shop-by-category {
+    padding-top: 22px !important;
+  }
+
+  .template-index .sb-shop-by-category__grid {
+    padding-bottom: 22px !important;
+  }
+}

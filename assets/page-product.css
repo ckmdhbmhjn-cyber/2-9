@@ -1118,3 +1118,54 @@
   gap: 10px;
   align-items: center;
 }
+
+/* Sealed PDP conversion hierarchy refresh (Run 2) */
+.product-section--sealed-pokemon .product-single__form .payment-buttons {
+  gap: 8px !important;
+}
+
+.product-section--sealed-pokemon .product-single__form .shopify-payment-button {
+  margin-top: 2px !important;
+  opacity: 0.94;
+}
+
+.product-section--sealed-pokemon .shopify-payment-button__more-options {
+  margin-top: 6px !important;
+  font-size: 0.8rem !important;
+  color: #64748b !important;
+}
+
+.product-section--sealed-pokemon .product-shipping-note {
+  max-width: 46ch;
+}
+
+@media (min-width: 750px) {
+  .product-section--sealed-pokemon .product-single__form .shopify-payment-button {
+    opacity: 0.9;
+  }
+}
+
+@media (max-width: 749px) {
+  .product-section--sealed-pokemon .product-single__form .add-to-cart {
+    margin-bottom: 4px !important;
+  }
+
+  .product-section--sealed-pokemon .product-shipping-note {
+    margin: 4px 0 8px !important;
+    font-size: 0.84rem !important;
+    line-height: 1.35 !important;
+    text-align: left !important;
+  }
+
+  .product-section--sealed-pokemon .product-shipping-note__link {
+    white-space: normal !important;
+  }
+
+  .product-section--sealed-pokemon .product-shipping-progress {
+    margin-top: 4px !important;
+  }
+
+  .product-section--sealed-pokemon .product-shipping-progress__label {
+    text-align: left;
+  }
+}

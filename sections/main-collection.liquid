@@ -438,7 +438,11 @@
                 }
 
                 .sb-collection-restock-soon .sb-restock-heading {
+                  align-items: center;
                   border-top: 1px solid var(--colorBorder);
+                  display: flex;
+                  gap: 10px;
+                  justify-content: space-between;
                   margin: 0 0 12px;
                   padding-top: 14px;
                 }
@@ -450,6 +454,17 @@
                   font-weight: 700;
                   letter-spacing: 0;
                   line-height: 1.25;
+                }
+
+                .sb-collection-restock-soon .sb-restock-heading__count {
+                  color: rgba(11, 18, 32, 0.62);
+                  display: inline-block;
+                  font-size: 0.78rem;
+                  font-weight: 700;
+                  letter-spacing: 0.08em;
+                  line-height: 1.2;
+                  text-transform: uppercase;
+                  white-space: nowrap;
                 }
 
                 @media only screen and (max-width: 749px) {
@@ -465,11 +480,19 @@
                   .sb-collection-restock-soon .sb-restock-heading__label {
                     font-size: 0.98rem;
                   }
+
+                  .sb-collection-restock-soon .sb-restock-heading__count {
+                    font-size: 0.72rem;
+                  }
                 }
               {% endstyle %}
 
               <div class="sb-restock-heading">
                 <span class="sb-restock-heading__label">Restocking Soon</span>
+                <span class="sb-restock-heading__count">
+                  {{ restock_rendered_count }}
+                  {{ restock_rendered_count | pluralize: 'item', 'items' }}
+                </span>
               </div>
 
               <div class="grid grid--uniform{% if collection_mobile_flush_grid %} small--grid--flush{% endif %}">
@@ -592,6 +615,13 @@
                 width: 100%;
               }
 
+              .sb-collection-layout[data-sb-collection-handle="new-arrivals"] .sb-collection-restock-soon .grid > .grid__item:only-child {
+                grid-column: auto;
+                justify-self: start;
+                max-width: none;
+                width: 100%;
+              }
+
               .sb-collection-layout[data-sb-collection-handle="new-arrivals"] .sb-collection-restock-soon,
               .sb-collection-layout[data-sb-collection-handle="new-arrivals"] .sb-collection-about {
                 align-self: stretch;
@@ -602,7 +632,7 @@
               }
 
               .sb-collection-layout[data-sb-collection-handle="new-arrivals"] .sb-collection-restock-soon {
-                margin-top: 16px;
+                margin-top: 12px;
               }
 
               .sb-collection-layout[data-sb-collection-handle="new-arrivals"] .sb-collection-restock-soon .sb-restock-heading {
@@ -615,7 +645,7 @@
               }
 
               .sb-collection-layout[data-sb-collection-handle="new-arrivals"] .sb-collection-restock-soon + .sb-collection-about {
-                margin-top: 28px;
+                margin-top: 18px;
               }
 
               .sb-collection-layout[data-sb-collection-handle="new-arrivals"] .sb-collection-about .collection__description {
@@ -659,6 +689,10 @@
 
               .sb-collection-layout[data-sb-collection-handle="new-arrivals"] .collection-grid__wrapper > .grid > .grid__item:only-child {
                 max-width: calc((100% - 66px) / 4);
+              }
+
+              .sb-collection-layout[data-sb-collection-handle="new-arrivals"] .sb-collection-restock-soon .grid > .grid__item:only-child {
+                max-width: none;
               }
             }
           {% endstyle %}

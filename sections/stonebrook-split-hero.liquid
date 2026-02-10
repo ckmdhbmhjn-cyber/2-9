@@ -262,9 +262,9 @@
     #shopify-section-{{ section.id }} .stonebrook-hero__trust {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px 24px;
+      gap: 8px 16px;
       list-style: none;
-      margin: 12px 0 0;
+      margin: 8px 0 0;
       padding: 0;
       max-width: none;
     }
@@ -273,11 +273,20 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-size: 1.25rem;
+      font-size: 0.95rem;
       color: rgba(226, 232, 240, 0.95);
       line-height: 1.4;
       white-space: normal;
       min-width: 0;
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__trust--single {
+      justify-content: flex-start;
+    }
+
+    #shopify-section-{{ section.id }} .stonebrook-hero__trust--single .stonebrook-hero__trust-item {
+      flex: 0 1 auto;
+      max-width: min(100%, 560px);
     }
 
     #shopify-section-{{ section.id }} .stonebrook-hero__trust-item::before,
@@ -505,7 +514,7 @@
 
       #shopify-section-{{ section.id }} .stonebrook-hero__trust-item {
         flex: 1 1 100%;
-        font-size: 0.85rem;
+        font-size: 0.82rem;
         line-height: 1.35;
       }
     }
@@ -637,7 +646,7 @@
 
     @media screen and (min-width: 750px) {
       .template-index #shopify-section-{{ section.id }} {
-        margin-bottom: clamp(14px, 1.6vw, 22px);
+        margin-bottom: clamp(4px, 0.6vw, 8px);
       }
 
       .template-index #shopify-section-{{ section.id }} .stonebrook-hero {
@@ -695,15 +704,19 @@
         justify-content: center;
         margin-top: 16px;
       }
-      #shopify-section-{{ section.id }} .stonebrook-hero__trust-item {
+      #shopify-section-{{ section.id }} .stonebrook-hero__trust:not(.stonebrook-hero__trust--single) .stonebrook-hero__trust-item {
         flex: 1 1 calc(50% - 9px);
         max-width: calc(50% - 9px);
+      }
+
+      #shopify-section-{{ section.id }} .stonebrook-hero__trust--single {
+        justify-content: flex-start;
       }
     }
 
     @media screen and (min-width: 990px) {
       .template-index #shopify-section-{{ section.id }} {
-        margin-bottom: clamp(10px, 1.2vw, 16px);
+        margin-bottom: clamp(0px, 0.3vw, 4px);
       }
 
       .template-index #shopify-section-{{ section.id }} .stonebrook-hero .page-width {
@@ -749,8 +762,8 @@
     #shopify-section-{{ section.id }} .stonebrook-hero__value-strip {
       display: grid;
       gap: 8px;
-      margin: 0 0 14px;
-      padding: 10px;
+      margin: 0 0 10px;
+      padding: 9px;
       border-radius: 14px;
       border: 1px solid rgba(148, 163, 184, 0.28);
       background: rgba(15, 23, 42, 0.72);
@@ -854,9 +867,25 @@
           <span class="stonebrook-hero__value-pill">Free shipping at $150+</span>
         </div>
 
-        {%- if section.blocks.size > 0 -%}
-          <ul class="stonebrook-hero__trust">
+        {%- assign trust_item_count = 0 -%}
+        {%- for block in section.blocks -%}
+          {%- assign trust_text_down = block.settings.text | downcase -%}
+          {%- assign skip_duplicate_trust = false -%}
+          {%- if trust_text_down contains 'factory sealed' -%}
+            {%- assign skip_duplicate_trust = true -%}
+          {%- endif -%}
+          {%- unless skip_duplicate_trust -%}
+            {%- assign trust_item_count = trust_item_count | plus: 1 -%}
+          {%- endunless -%}
+        {%- endfor -%}
+
+        {%- if trust_item_count > 0 -%}
+          <ul class="stonebrook-hero__trust{% if trust_item_count == 1 %} stonebrook-hero__trust--single{% endif %}">
             {%- for block in section.blocks -%}
+              {%- assign trust_text_down = block.settings.text | downcase -%}
+              {%- if trust_text_down contains 'factory sealed' -%}
+                {%- continue -%}
+              {%- endif -%}
               <li class="stonebrook-hero__trust-item" {{ block.shopify_attributes }}>
                 <span class="stonebrook-hero__trust-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" role="presentation" focusable="false">

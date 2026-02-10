@@ -78,7 +78,7 @@
             </div>
             <div class="cart-free-ship__meta" data-free-ship-meta>
               {%- if cart_total_cents >= free_shipping_threshold_cents -%}
-                Orders under $150 ship for a flat {{ flat_shipping_cents | money_without_trailing_zeros }}.
+                You're set for free shipping on this order.
               {%- else -%}
                 Free shipping at $150 (after discounts).
               {%- endif -%}
@@ -100,7 +100,7 @@
 
           <div class="cart__item-row text-center">
             <small>
-              Taxes calculated at checkout. Flat {{ flat_shipping_cents | money_without_trailing_zeros }} shipping under $150 — free at $150+.<br />
+              Taxes and shipping calculated at checkout.<br />
             </small>
           </div>
 

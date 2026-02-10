@@ -1032,7 +1032,7 @@
 
       // Update main message
       if (eligible) {
-        textEl.innerHTML = '✅ You\'ve unlocked free shipping.';
+        textEl.innerHTML = '✅ Free shipping unlocked.';
       } else if (remainingCents <= 1500 && remainingCents > 0) {
         // Near threshold: <= $15 remaining
         const money = formatMoneyFromCents(remainingCents);
@@ -1047,23 +1047,9 @@
       let flatRateElement = flatRateEl;
       
       if (eligible) {
-        // When eligible, show secondary note about flat shipping for orders under $150
-        if (!flatRateElement) {
-          flatRateElement = document.createElement('div');
-          flatRateElement.className = 'cart-free-ship__flat-rate cart-shipping-flat-note';
-          flatRateElement.setAttribute('data-free-ship-flat-rate', '');
-          // Insert after the text element and before the progress bar
-          const barEl = box.querySelector('.cart-free-ship__bar');
-          if (barEl && textEl) {
-            barEl.parentNode.insertBefore(flatRateElement, barEl);
-          } else {
-            // Fallback: append to box
-            box.appendChild(flatRateElement);
-          }
+        if (flatRateElement) {
+          flatRateElement.style.display = 'none';
         }
-        const flatShippingMoney = formatMoneyFromCents(flatShippingCents);
-        flatRateElement.textContent = `Orders under $150 ship for a flat ${flatShippingMoney}.`;
-        flatRateElement.style.display = '';
       } else {
         // Show flat rate message when not eligible
         if (!flatRateElement) {
@@ -1087,8 +1073,7 @@
 
       // Update meta microcopy
       if (eligible) {
-        const flatShippingMoney = formatMoneyFromCents(flatShippingCents);
-        metaEl.textContent = `Orders under $150 ship for a flat ${flatShippingMoney}.`;
+        metaEl.textContent = 'You\'re set for free shipping on this order.';
       } else {
         metaEl.textContent = `Free shipping at $150 (after discounts).`;
       }
